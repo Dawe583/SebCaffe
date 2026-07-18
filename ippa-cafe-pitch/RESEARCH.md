@@ -113,3 +113,39 @@ Each item is tied to a real Ippa asset. **★ = the starting deal. ⬦ NEW = add
 - Missed calls / voice-AI: https://hostie.ai/resources/missed-calls-cost-restaurants-43-percent-revenue-ai-phone-answering-2025 · https://www.hostie.ai/blogs/missed-connection-over-two-thirds-of-americans-would-ditch-restaurants-that-dont-answer-the-phone
 - Email / cart recovery: https://www.klaviyo.com/blog/abandoned-cart-benchmarks · https://www.rejoiner.com/resources/abandoned-cart-email-statistics
 - Gift cards: https://www.precedenceresearch.com/gift-cards-market · https://www.thebusinessresearchcompany.com/report/gift-cards-global-market-report
+
+---
+
+## 7. Pass 2 — verification + the app and "everything else"
+
+*Second research pass, 2026-07-18, run to verify the earlier facts and justify a full/exhaustive offer including a mobile app.*
+
+### 7.1 Verified (July 2026)
+- **IPPA Café Instagram ≈ 62K followers**; **@ippa_academy ≈ 12K**. Branches: **Tylovo náměstí, Jungmannova, Břevnov, Prague Castle**. Academy ≈ **550 m²** (Rosetta Palace, Jungmannova): hall for 45, workshop for 8, kids' hall 7–15. Contact `info@ippacafe.cz`. [Instagram / Facebook]
+- **Read-through:** the 62K following is a concrete, under-monetised asset — a non-shoppable audience larger than many local competitors' entire customer base. It becomes the headline for the "Instagram → shop" item and the app's launch audience.
+
+### 7.2 The app case (data)
+- Repeat customers spend **~67% more** than new ones; **repeat guests generate ~60%** of restaurant revenue.
+- **Mobile order-ahead users spend ~25% more** per order; app orders run **~18–20% higher** than walk-in / phone.
+- **Loyalty members visit ~20% more** and **spend ~20–32% more per year**; ~65% of repeat coffee-shop visits are loyalty members.
+- **Push notifications lift return visits ~19%**; loyalty rewards lift visit frequency ~27%; ~48% order coffee via app regularly; 70% of QSR 18–54 use order-ahead.
+- Loyalty-management market ~$12.9B (2025) → ~$20.4B (2030).
+- **Contrarian / caveat:** these are café/QSR aggregates (many large US chains). A single-city academy + café will index lower, and an app is a **bigger build with real upkeep**. Pitch it as a "phase-2 bet, scoped separately," not a quick add-on.
+
+### 7.3 Delivery platforms (Prague)
+- Wolt / Bolt Food / Foodora all operate in Prague; **platform commissions commonly 30–40%** per order. → be on them for reach, but drive **owned ordering** (app/site) to protect margin and customer data. [Wolt CZ, Prague Morning]
+
+### 7.4 The full "everything else" (Wave 6 on the pitch)
+Delivery-platform setup + owned ordering · catering/events booking · B2B/wholesale portal · self-order kiosk · membership club (unlimited coffee) · 3D "design-your-cake" preview. Each ties to a real Ippa asset (4 branches, the academy, bespoke cakes, a wholesale-capable kitchen).
+
+### 7.5 The app concept (what went on the pitch)
+An owned **Ippa app**: order-ahead + pickup at any branch, loyalty stamps → free coffee, book courses / pre-order cakes, gift cards in Apple/Google Wallet, smart push (usual / seasonal / birthday), reorder from the box QR. Justified by the repeat-revenue economics above and the 62K owned audience; positioned as the flagship phase-2 build.
+
+### 7.6 Recommendation update
+Keep **English as the wedge**; name **Academy booking + corporate portal** as the next two. Position the **app as the flagship "phase 2"** bet (order-ahead + loyalty + push), justified by repeat-revenue economics and the 62K owned audience — but scoped and priced on its own, after English proves the relationship.
+
+### 7.7 Pass-2 sources
+- Café/app loyalty + order-ahead: https://www.tryperdiem.com/post/how-a-mobile-app-increases-repeat-orders-for-coffee-shops · https://www.restroworks.com/blog/restaurant-mobile-app-statistics/ · https://www.getorda.com/blog/posts/2025-why-mobile-app
+- Loyalty / push retention: https://www.restroworks.com/blog/restaurant-loyalty-program-statistics/ · https://www.paytronix.com/resources/reports/restaurant-loyalty-insights-report · https://www.tillster.com/blog/restaurant-customer-retention
+- Delivery platforms / commissions: https://explore.wolt.com/en/cze/merchant/business/restaurants · https://praguemorning.cz/review-restaurant-food-delivery-in-prague/
+- Ippa verification: https://www.instagram.com/ippa_cafe/ · https://www.instagram.com/ippa_academy/ · https://www.facebook.com/ippa.cz/

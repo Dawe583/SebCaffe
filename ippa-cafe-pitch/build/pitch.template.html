@@ -252,6 +252,21 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
 .note{font-size:12px;color:var(--ink-faint);margin-top:22px;max-width:74ch;line-height:1.6}
 .note b{color:var(--ink-soft)}
 
+/* ---------- app showcase ---------- */
+.appsec{margin-top:24px;border:1px solid var(--line);border-radius:var(--r);background:linear-gradient(155deg,#eef2f8,#f7f0ea);box-shadow:var(--shadow-lg);padding:30px 32px;display:grid;grid-template-columns:.82fr 1.18fr;gap:34px;align-items:center;overflow:hidden}
+.appsec .phone{width:100%;max-width:270px;height:auto;display:block;margin:0 auto;filter:drop-shadow(0 26px 40px rgba(35,40,58,.24))}
+.feat{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:13px 18px}
+.feat li{display:flex;gap:11px;font-size:14px;color:var(--ink-soft);align-items:flex-start}
+.feat b{color:var(--ink);font-weight:600}
+.feat .fi{flex:none;width:28px;height:28px;border-radius:8px;background:#fff;border:1px solid var(--line);color:var(--blue-deep);display:grid;place-items:center;margin-top:1px}
+.feat .fi svg{width:15px;height:15px}
+.appstats{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.appstats .chip{font-size:12.5px;font-weight:500;color:var(--ink-soft);background:#fff;border:1px solid #dbe4f0;border-radius:20px;padding:6px 12px}
+.appstats .chip b{color:var(--blue-ink);font-family:var(--serif);font-weight:600;font-size:14px}
+.appnote{margin-top:18px;font-size:13.5px;color:var(--ink-soft);border-left:3px solid var(--blue);padding-left:14px;line-height:1.55}
+.appnote b{color:var(--ink)}
+@media(max-width:760px){.appsec{grid-template-columns:1fr;gap:24px;padding:24px}.feat{grid-template-columns:1fr}}
+
 @media print{
   @page{size:A4;margin:13mm}
   html,body{background:#fff}
@@ -265,7 +280,7 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
   .cards .p:hover,.step:hover{transform:none;box-shadow:var(--shadow)}
   section{padding:22px 0}
   .hero{padding:14px 0}
-  .stats,.browser,.ba,.peers,.steps,.mgroup,.price,.cards .p,.keep,.nextup,.switchline{break-inside:avoid}
+  .stats,.browser,.ba,.peers,.steps,.mgroup,.price,.cards .p,.keep,.nextup,.switchline,.appsec,.feat li{break-inside:avoid}
   h2{break-after:avoid}
 }
 @media (prefers-reduced-motion:reduce){
@@ -415,7 +430,7 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
     <p class="caption">
       <span class="en"><b>This is the real navigation, today.</b> There is nowhere to click for English. That&rsquo;s the whole problem &mdash; small, and fixable.</span>
       <span class="cz"><b>Tohle je skutečná navigace, dnes.</b> Není kam kliknout pro angličtinu. To je celý problém &mdash; malý a řešitelný.</span>
-      <span class="de"><b>Das ist die echte Navigation, heute.</b> Es gibt nichts, wo man für Englisch klicken könnte. Das ist das ganze Problem &mdash; klein und lösbar.</span>
+      <span class="de"><b>Das ist die echte Navigation, heute.</b> Es gibt nichts anzuklicken, um auf Englisch zu wechseln. Das ist das ganze Problem &mdash; klein und lösbar.</span>
     </p>
   </section>
 
@@ -464,7 +479,7 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
     <p class="sub">
       <span class="en">English, online ordering and gift vouchers are already normal for Prague patisseries &mdash; even ones without a Castle address or an international academy. This isn&rsquo;t a luxury upgrade. It&rsquo;s catching up, then leaping.</span>
       <span class="cz">Angličtina, online objednávky a dárkové poukazy jsou u pražských cukráren už běžné &mdash; i u těch bez adresy na Hradě a mezinárodní akademie. Tohle není luxusní nadstavba. Je to dorovnat a pak předběhnout.</span>
-      <span class="de">Englisch, Online-Bestellung und Geschenkgutscheine sind bei Prager Konditoreien längst normal &mdash; sogar bei solchen ohne Burg-Adresse und internationale Akademie. Das ist kein Luxus-Upgrade. Es ist aufholen und dann überholen.</span>
+      <span class="de">Englisch, Online-Bestellung und Geschenkgutscheine sind bei Prager Konditoreien längst normal &mdash; sogar bei solchen ohne Burg-Adresse und internationale Akademie. Das ist kein Luxus-Upgrade. Es heißt aufholen und dann überholen.</span>
     </p>
     <div class="peers">
       <div class="prow phead">
@@ -556,6 +571,80 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
   <div class="rule"></div>
 
   <section class="reveal">
+    <div class="kick"><span class="bar"></span><span class="eyebrow"><span class="en">The flagship</span><span class="cz">Vlajková loď</span><span class="de">Das Flaggschiff</span></span></div>
+    <h2><span class="en">One app: order ahead, earn a reward, come back</span><span class="cz">Jedna aplikace: objednej dopředu, získej odměnu, vrať se</span><span class="de">Eine App: vorbestellen, Prämie sammeln, wiederkommen</span></h2>
+    <p class="sub">
+      <span class="en">Your <b>62,000</b> Instagram followers and every Castle tourist in one place. Skip the queue, collect a loyalty stamp, book a course, reorder the cake &mdash; and it keeps the 30&ndash;40% that delivery apps take.</span>
+      <span class="cz">Vašich <b>62 000</b> sledujících na Instagramu a každý turista z Hradu na jednom místě. Přeskoč frontu, sesbírej razítko, zarezervuj kurz, objednej dort znovu &mdash; a ušetří 30&ndash;40 %, které si berou rozvážkové appky.</span>
+      <span class="de">Ihre <b>62.000</b> Instagram-Follower und jeder Burg-Tourist an einem Ort. Schlange überspringen, Treuestempel sammeln, Kurs buchen, Torte nachbestellen &mdash; und es spart die 30&ndash;40 %, die Liefer-Apps nehmen.</span>
+    </p>
+
+    <div class="appsec">
+      <svg class="phone" viewBox="0 0 300 480" role="img" aria-label="The Ippa app">
+        <rect x="34" y="6" width="232" height="468" rx="36" fill="#23283a"/>
+        <rect x="42" y="14" width="216" height="452" rx="30" fill="#f7f4ee"/>
+        <rect x="120" y="24" width="60" height="9" rx="4.5" fill="#23283a"/>
+        <text x="60" y="63" font-family="Fraunces,serif" font-size="22" font-weight="600" fill="#23283a">IPPA</text>
+        <circle cx="234" cy="55" r="12" fill="#eaf0f8" stroke="#cdd7e6" stroke-width="1.5"/>
+        <circle cx="234" cy="51" r="3.4" fill="#8ea6c6"/><path d="M228 58 a6 6 0 0 1 12 0 z" fill="#8ea6c6"/>
+        <!-- order-ahead card -->
+        <rect x="56" y="76" width="188" height="92" rx="18" fill="#4f6a97"/>
+        <text x="74" y="107" font-family="Hanken Grotesk,sans-serif" font-size="15" font-weight="700" fill="#fff">Order ahead</text>
+        <text x="74" y="127" font-family="Hanken Grotesk,sans-serif" font-size="10.5" fill="#d9e2f0">Skip the queue</text>
+        <g transform="translate(214 118)" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M-14 -5 h20 v9 a8 8 0 0 1 -8 8 h-4 a8 8 0 0 1 -8 -8 z"/><path d="M6 -2 a6 6 0 0 1 0 9"/><path d="M-8 -11 c-2 -3 3 -4 1 -7"/></g>
+        <!-- loyalty -->
+        <text x="60" y="197" font-family="Hanken Grotesk,sans-serif" font-size="11.5" font-weight="600" fill="#5b6172">Your card &mdash; 1 to a free coffee</text>
+        <g>
+          <circle cx="72" cy="223" r="12.5" fill="#4f6a97"/><circle cx="105" cy="223" r="12.5" fill="#4f6a97"/><circle cx="138" cy="223" r="12.5" fill="#4f6a97"/><circle cx="171" cy="223" r="12.5" fill="#4f6a97"/><circle cx="204" cy="223" r="12.5" fill="#4f6a97"/>
+          <circle cx="237" cy="223" r="12.5" fill="#fff" stroke="#bd7d75" stroke-width="2" stroke-dasharray="3 3"/>
+          <text x="237" y="228" text-anchor="middle" font-family="Hanken Grotesk,sans-serif" font-size="15" font-weight="700" fill="#bd7d75">&#9733;</text>
+        </g>
+        <!-- tiles -->
+        <rect x="56" y="252" width="90" height="84" rx="15" fill="#fff" stroke="#e7e1d6"/>
+        <g transform="translate(101 287)" stroke="#4f6a97" stroke-width="2" fill="none" stroke-linejoin="round"><rect x="-15" y="-13" width="30" height="25" rx="4"/><path d="M-15 -5 h30 M-7 -18 v6 M7 -18 v6"/></g>
+        <text x="101" y="325" text-anchor="middle" font-family="Hanken Grotesk,sans-serif" font-size="11.5" font-weight="600" fill="#23283a">Courses</text>
+        <rect x="154" y="252" width="90" height="84" rx="15" fill="#fff" stroke="#e7e1d6"/>
+        <g transform="translate(199 285)" stroke="#bd7d75" stroke-width="2" fill="none" stroke-linejoin="round"><path d="M-14 8 v-9 a14 6 0 0 1 28 0 v9 z"/><path d="M-14 -1 h28 M0 -10 v-4"/><circle cx="0" cy="-14" r="1.6" fill="#bd7d75"/></g>
+        <text x="199" y="325" text-anchor="middle" font-family="Hanken Grotesk,sans-serif" font-size="11.5" font-weight="600" fill="#23283a">Cakes</text>
+        <!-- bottom nav -->
+        <rect x="56" y="404" width="188" height="46" rx="15" fill="#fff" stroke="#e7e1d6"/>
+        <g stroke="#4f6a97" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M78 419 l9 -8 9 8 v10 h-18 z" fill="#eaf0f8"/>
+          <g transform="translate(131 427)"><path d="M-8 -6 h16 M-8 0 h16 M-8 6 h16"/></g>
+          <g transform="translate(169 427)"><rect x="-9" y="-6" width="18" height="13" rx="2"/><path d="M-9 -2 h18"/></g>
+          <g transform="translate(207 427)"><circle cx="0" cy="-4" r="4"/><path d="M-7 8 a7 6 0 0 1 14 0"/></g>
+        </g>
+      </svg>
+
+      <div>
+        <ul class="feat">
+          <li><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span><span class="en"><b>Order ahead</b>, skip the queue</span><span class="cz"><b>Objednávka předem</b>, přeskoč frontu</span><span class="de"><b>Vorbestellen</b>, Schlange überspringen</span></span></li>
+          <li><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg></span><span><span class="en"><b>Loyalty stamps</b> &rarr; a free coffee</span><span class="cz"><b>Věrnostní razítka</b> &rarr; káva zdarma</span><span class="de"><b>Treuestempel</b> &rarr; Kaffee gratis</span></span></li>
+          <li><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><span><span class="en"><b>Book courses</b> &amp; pre-order cakes</span><span class="cz"><b>Rezervace kurzů</b> a dorty předem</span><span class="de"><b>Kurse buchen</b> &amp; Torten vorbestellen</span></span></li>
+          <li><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M16 12h2M3 10h18"/></svg></span><span><span class="en"><b>Gift cards</b> in Apple/Google Wallet</span><span class="cz"><b>Dárkové karty</b> v Apple/Google Wallet</span><span class="de"><b>Geschenkkarten</b> in Apple/Google Wallet</span></span></li>
+          <li><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M10.5 21a2 2 0 0 0 3 0"/></svg></span><span><span class="en"><b>Smart push</b>: your usual, seasonal, birthday</span><span class="cz"><b>Chytré push</b>: to obvyklé, sezóna, narozeniny</span><span class="de"><b>Smarte Push</b>: das Übliche, Saison, Geburtstag</span></span></li>
+          <li><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h4v4h-4z"/></svg></span><span><span class="en"><b>Reorder</b> from the box QR</span><span class="cz"><b>Objednej znovu</b> z QR na krabici</span><span class="de"><b>Nachbestellen</b> per QR auf der Schachtel</span></span></li>
+        </ul>
+
+        <div class="appstats">
+          <span class="chip"><b>+25%</b> <span class="en">order-ahead spend</span><span class="cz">útrata s předobjednávkou</span><span class="de">Ausgaben mit Vorbestellung</span></span>
+          <span class="chip"><b>+19%</b> <span class="en">return visits from push</span><span class="cz">návratů díky push</span><span class="de">Besuche durch Push</span></span>
+          <span class="chip"><b>60%</b> <span class="en">of revenue = repeat guests</span><span class="cz">tržeb dělají stálí hosté</span><span class="de">des Umsatzes: Stammgäste</span></span>
+          <span class="chip"><b>+32%</b> <span class="en">loyalty members spend/yr</span><span class="cz">utratí členové věrnosti/rok</span><span class="de">Ausgaben von Treue-Mitgliedern/Jahr</span></span>
+        </div>
+
+        <p class="appnote">
+          <span class="en"><b>Why your own app, not just Wolt:</b> delivery apps take 30&ndash;40% per order and keep the customer. Your app keeps the margin, the data and the relationship &mdash; a bigger build we scope on its own.</span>
+          <span class="cz"><b>Proč vlastní appka, ne jen Wolt:</b> rozvážkové appky si berou 30&ndash;40 % z objednávky a nechají si zákazníka. Vaše appka si nechá marži, data i vztah &mdash; větší projekt, který naceníme zvlášť.</span>
+          <span class="de"><b>Warum eine eigene App, nicht nur Wolt:</b> Liefer-Apps nehmen 30&ndash;40 % pro Bestellung und behalten den Kunden. Ihre App behält die Marge, die Daten und die Beziehung &mdash; ein größeres Projekt, das wir separat kalkulieren.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="reveal">
     <div class="kick"><span class="bar"></span><span class="eyebrow"><span class="en">Everything we can do</span><span class="cz">Co všechno umíme</span><span class="de">Alles, was wir können</span></span></div>
     <h2><span class="en">English is the start. Here is the whole menu.</span><span class="cz">Angličtina je začátek. Tady je celé menu.</span><span class="de">Englisch ist der Anfang. Hier ist das ganze Menü.</span></h2>
     <p class="sub">
@@ -581,7 +670,7 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
         <div class="glabel"><span class="gn">2</span><span class="en">Get found before they arrive</span><span class="cz">Ať vás najdou dřív, než dorazí</span><span class="de">Gefunden werden, bevor sie ankommen</span></div>
         <div class="mgrid">
           <div class="mitem"><div class="mt"><span class="en">A Google profile that sells</span><span class="cz">Google profil, který prodává</span><span class="de">Ein Google-Profil, das verkauft</span></div><div class="md"><span class="en">Maps, reserve and order from Google, English reviews up top. That&rsquo;s where a tourist starts.</span><span class="cz">Mapy, rezervace i objednávka z Googlu, anglické recenze nahoře. Tam turista začíná.</span><span class="de">Maps, Reservierung und Bestellung direkt aus Google, englische Bewertungen oben. Da beginnt ein Tourist.</span></div></div>
-          <div class="mitem"><div class="mt"><span class="en">Instagram turned into a shop</span><span class="cz">Instagram jako obchod</span><span class="de">Instagram als Shop</span></div><div class="md"><span class="en">Thousands follow you and can buy nothing from a post. Make the feed shoppable.</span><span class="cz">Tisíce vás sledují a z příspěvku si nekoupí nic. Udělejme feed nakupovatelný.</span><span class="de">Tausende folgen Ihnen und können aus einem Post nichts kaufen. Machen wir den Feed kaufbar.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">Instagram turned into a shop</span><span class="cz">Instagram jako obchod</span><span class="de">Instagram als Shop</span></div><div class="md"><span class="en">62,000 follow you and can buy nothing from a post. Make the feed shoppable.</span><span class="cz">62 000 vás sleduje a z příspěvku si nekoupí nic. Udělejme feed nakupovatelný.</span><span class="de">62.000 folgen Ihnen und können aus einem Post nichts kaufen. Machen wir den Feed kaufbar.</span></div></div>
           <div class="mitem"><div class="mt"><span class="en">TripAdvisor &amp; review presence</span><span class="cz">TripAdvisor a recenze</span><span class="de">TripAdvisor &amp; Bewertungen</span> <span class="star new"><span class="en">new</span><span class="cz">nové</span><span class="de">neu</span></span></div><div class="md"><span class="en">Tourists read reviews before they walk in. Own that first impression.</span><span class="cz">Turista si čte recenze, než vejde. Ovládněte první dojem.</span><span class="de">Touristen lesen Bewertungen, bevor sie hereinkommen. Beherrschen Sie den ersten Eindruck.</span></div></div>
           <div class="mitem"><div class="mt"><span class="en">Cards in the hotels by the Castle</span><span class="cz">Karty v hotelích u Hradu</span><span class="de">Karten in den Hotels an der Burg</span></div><div class="md"><span class="en">A QR concierge card at nearby hotels sends English guests straight to you.</span><span class="cz">QR karta v okolních hotelech pošle zahraniční hosty rovnou k vám.</span><span class="de">Eine QR-Concierge-Karte in nahen Hotels schickt ausländische Gäste direkt zu Ihnen.</span></div></div>
           <div class="mitem"><div class="mt"><span class="en">A branch finder that works for tourists</span><span class="cz">Mapa poboček pro turisty</span><span class="de">Eine Filialkarte für Touristen</span></div><div class="md"><span class="en">Four branches on one clear English map with hours and directions.</span><span class="cz">Čtyři pobočky na jedné přehledné anglické mapě s otevíračkou a cestou.</span><span class="de">Vier Filialen auf einer klaren englischen Karte mit Öffnungszeiten und Anfahrt.</span></div></div>
@@ -602,8 +691,8 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
       <div class="mgroup">
         <div class="glabel"><span class="gn">4</span><span class="en">Sell the high-margin things</span><span class="cz">Prodávejte to s nejvyšší marží</span><span class="de">Verkaufen Sie das mit der höchsten Marge</span></div>
         <div class="mgrid">
-          <div class="mitem"><div class="mt"><span class="en">Academy: waitlists instead of discounts</span><span class="cz">Akademie: čekačky místo slev</span><span class="de">Akademie: Wartelisten statt Rabatte</span> <span class="star"><span class="en">recommended next</span><span class="cz">doporučeně další</span><span class="de">empfohlen</span></span></div><div class="md"><span class="en">Courses sell out, then you cut 20&ndash;33% to fill. Stop giving it away.</span><span class="cz">Kurzy se vyprodají, pak slevíte 20&ndash;33 %, aby se naplnily. Přestaňte je rozdávat.</span><span class="de">Kurse sind ausverkauft, dann senken Sie um 20&ndash;33 %, um zu füllen. Hören Sie auf, es zu verschenken.</span></div></div>
-          <div class="mitem"><div class="mt"><span class="en">Design-your-own cake, with an instant quote</span><span class="cz">Naceňte si dort na míru online</span><span class="de">Torte selbst gestalten, mit Sofortpreis</span></div><div class="md"><span class="en">The bespoke and wedding flow your site doesn&rsquo;t have yet.</span><span class="cz">Zakázkové a svatební, co web zatím neumí.</span><span class="de">Der Maß- und Hochzeitsprozess, den Ihre Website noch nicht hat.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">Academy: waitlists instead of discounts</span><span class="cz">Akademie: čekačky místo slev</span><span class="de">Akademie: Wartelisten statt Rabatte</span> <span class="star"><span class="en">recommended next</span><span class="cz">doporučeně další</span><span class="de">empfohlen</span></span></div><div class="md"><span class="en">Courses sell out, then you cut 20&ndash;33% to fill. Stop giving it away.</span><span class="cz">Kurzy se vyprodají, pak slevíte 20&ndash;33 %, aby se naplnily. Přestaňte je rozdávat.</span><span class="de">Kurse sind ausverkauft, dann senken Sie um 20&ndash;33 %, um sie zu füllen. Hören Sie auf, es zu verschenken.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">Design-your-own cake, with an instant quote</span><span class="cz">Naceňte si dort na míru online</span><span class="de">Torte selbst gestalten, mit Sofortpreis</span></div><div class="md"><span class="en">The bespoke and wedding flow your site doesn&rsquo;t have yet.</span><span class="cz">Zakázkové a svatební, co web zatím neumí.</span><span class="de">Der Ablauf für Maßanfertigungen und Hochzeitstorten, den Ihre Website noch nicht hat.</span></div></div>
           <div class="mitem"><div class="mt"><span class="en">Corporate &amp; gifting portal</span><span class="cz">Portál pro firmy a dárky</span><span class="de">Portal für Firmen &amp; Geschenke</span> <span class="star"><span class="en">recommended next</span><span class="cz">doporučeně další</span><span class="de">empfohlen</span></span></div><div class="md"><span class="en">Bulk vouchers, team courses, recurring office deliveries.</span><span class="cz">Poukazy ve velkém, týmové kurzy, dodávky do kanceláří.</span><span class="de">Gutscheine in Menge, Team-Kurse, wiederkehrende Büro-Lieferungen.</span></div></div>
           <div class="mitem"><div class="mt"><span class="en">Masterclass &amp; guest-chef ticketing</span><span class="cz">Vstupenky na masterclass a hostující šéfy</span><span class="de">Tickets für Masterclasses &amp; Gastköche</span> <span class="star new"><span class="en">new</span><span class="cz">nové</span><span class="de">neu</span></span></div><div class="md"><span class="en">Sell seats to big names, then sell the paid replay to the world.</span><span class="cz">Prodejte místa u velkých jmen a pak i placený záznam celému světu.</span><span class="de">Verkaufen Sie Plätze bei großen Namen und dann die kostenpflichtige Aufzeichnung an die Welt.</span></div></div>
           <div class="mitem"><div class="mt"><span class="en">Gift an experience: course vouchers</span><span class="cz">Darujte zážitek: poukazy na kurzy</span><span class="de">Ein Erlebnis verschenken: Kursgutscheine</span></div><div class="md"><span class="en">A beautiful e-gift delivered the second it&rsquo;s bought.</span><span class="cz">Krásný e-dárek doručený vteřinu po koupi.</span><span class="de">Ein schönes E-Geschenk, geliefert in der Sekunde des Kaufs.</span></div></div>
@@ -615,9 +704,21 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
         <div class="mgrid">
           <div class="mitem"><div class="mt"><span class="en">Online table reservations</span><span class="cz">Online rezervace stolů</span><span class="de">Online-Tischreservierung</span></div><div class="md"><span class="en">You say you don&rsquo;t take phone reservations. So let people book online.</span><span class="cz">Sami píšete, že telefonické neberete. Tak ať si rezervují online.</span><span class="de">Sie sagen, telefonische Reservierungen nehmen Sie nicht. Also lassen Sie online buchen.</span></div></div>
           <div class="mitem"><div class="mt"><span class="en">An AI agent that answers the phone</span><span class="cz">AI agent, který zvedá telefon</span><span class="de">Ein KI-Agent, der ans Telefon geht</span></div><div class="md"><span class="en">Restaurants miss ~43% of calls. It picks up 24/7, any language, and takes the booking.</span><span class="cz">Restaurace zmeškají ~43 % hovorů. Zvedne 24/7, v jakémkoli jazyce, a vezme rezervaci.</span><span class="de">Restaurants verpassen ~43 % der Anrufe. Er nimmt 24/7 ab, in jeder Sprache, und nimmt die Reservierung auf.</span></div></div>
-          <div class="mitem"><div class="mt"><span class="en">WhatsApp order &amp; booking line</span><span class="cz">Objednávky a rezervace přes WhatsApp</span><span class="de">Bestell- &amp; Buchungslinie per WhatsApp</span> <span class="star new"><span class="en">new</span><span class="cz">nové</span><span class="de">neu</span></span></div><div class="md"><span class="en">The channel tourists already message on. Meet them there.</span><span class="cz">Kanál, na kterém turisté už píšou. Buďte tam.</span><span class="de">Der Kanal, auf dem Touristen ohnehin schreiben. Treffen Sie sie dort.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">WhatsApp order &amp; booking line</span><span class="cz">Objednávky a rezervace přes WhatsApp</span><span class="de">Bestell- &amp; Buchungskanal per WhatsApp</span> <span class="star new"><span class="en">new</span><span class="cz">nové</span><span class="de">neu</span></span></div><div class="md"><span class="en">The channel tourists already message on. Meet them there.</span><span class="cz">Kanál, na kterém turisté už píšou. Buďte tam.</span><span class="de">Der Kanal, auf dem Touristen ohnehin schreiben. Treffen Sie sie dort.</span></div></div>
           <div class="mitem"><div class="mt"><span class="en">Seasonal campaigns on autopilot</span><span class="cz">Sezónní kampaně automaticky</span><span class="de">Saisonkampagnen auf Autopilot</span></div><div class="md"><span class="en">Christmas, Easter, Valentine&rsquo;s. Page, email and social, ready on time.</span><span class="cz">Vánoce, Velikonoce, Valentýn. Stránka, e-mail i sítě, včas.</span><span class="de">Weihnachten, Ostern, Valentinstag. Seite, E-Mail und Social, rechtzeitig fertig.</span></div></div>
-          <div class="mitem"><div class="mt"><span class="en">One dashboard: where the money is</span><span class="cz">Jeden dashboard: kde jsou peníze</span><span class="de">Ein Dashboard: wo das Geld ist</span></div><div class="md"><span class="en">What sells, which courses fill, which branch, at a glance.</span><span class="cz">Co se prodává, které kurzy se plní, která pobočka, na první pohled.</span><span class="de">Was verkauft, welche Kurse voll werden, welche Filiale &mdash; auf einen Blick.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">One dashboard: where the money is</span><span class="cz">Jeden dashboard: kde jsou peníze</span><span class="de">Ein Dashboard: wo das Geld ist</span></div><div class="md"><span class="en">What sells, which courses fill, which branch, at a glance.</span><span class="cz">Co se prodává, které kurzy se plní, která pobočka, na první pohled.</span><span class="de">Was sich verkauft, welche Kurse voll werden, welche Filiale &mdash; auf einen Blick.</span></div></div>
+        </div>
+      </div>
+
+      <div class="mgroup">
+        <div class="glabel"><span class="gn">6</span><span class="en">Beyond the four walls</span><span class="cz">Za zdmi poboček</span><span class="de">Über die vier Wände hinaus</span></div>
+        <div class="mgrid">
+          <div class="mitem"><div class="mt"><span class="en">Delivery platforms, done right</span><span class="cz">Rozvoz přes platformy, správně</span><span class="de">Lieferplattformen, richtig gemacht</span> <span class="star new"><span class="en">new</span><span class="cz">nové</span><span class="de">neu</span></span></div><div class="md"><span class="en">On Wolt/Bolt/Foodora for reach &mdash; but push your own ordering to dodge the 30&ndash;40% cut.</span><span class="cz">Na Wolt/Bolt/Foodora kvůli dosahu &mdash; ale vlastní objednávka obejde 30&ndash;40% provizi.</span><span class="de">Auf Wolt/Bolt/Foodora für Reichweite &mdash; aber eigene Bestellung umgeht die 30&ndash;40 % Provision.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">Catering &amp; events booking</span><span class="cz">Catering a akce online</span><span class="de">Catering &amp; Events buchen</span> <span class="star new"><span class="en">new</span><span class="cz">nové</span><span class="de">neu</span></span></div><div class="md"><span class="en">Weddings, offices, parties &mdash; quote and book big orders online.</span><span class="cz">Svatby, kanceláře, oslavy &mdash; velké objednávky naceň a rezervuj online.</span><span class="de">Hochzeiten, Büros, Feiern &mdash; Großbestellungen online kalkulieren und buchen.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">A B2B &amp; wholesale portal</span><span class="cz">B2B a velkoobchodní portál</span><span class="de">Ein B2B- &amp; Großhandelsportal</span> <span class="star new"><span class="en">new</span><span class="cz">nové</span><span class="de">neu</span></span></div><div class="md"><span class="en">Supply hotels and cafés with a standing-order portal.</span><span class="cz">Zásobuj hotely a kavárny přes portál se stálými objednávkami.</span><span class="de">Hotels und Cafés über ein Portal mit Daueraufträgen beliefern.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">Self-order kiosk at busy branches</span><span class="cz">Samoobslužný kiosek na rušných pobočkách</span><span class="de">Selbstbestell-Kiosk in vollen Filialen</span> <span class="star new"><span class="en">new</span><span class="cz">nové</span><span class="de">neu</span></span></div><div class="md"><span class="en">Cut the Castle queue; kiosks lift the average check.</span><span class="cz">Zkrať frontu na Hradě; kiosky zvednou průměrný účet.</span><span class="de">Die Burg-Schlange kürzen; Kioske heben den Durchschnittsbon.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">Membership club: unlimited coffee</span><span class="cz">Klub: neomezená káva</span><span class="de">Mitglieder-Club: Kaffee-Flatrate</span> <span class="star new"><span class="en">new</span><span class="cz">nové</span><span class="de">neu</span></span></div><div class="md"><span class="en">A monthly pass locals pay for and use daily.</span><span class="cz">Měsíční pas, co si místní platí a chodí denně.</span><span class="de">Ein Monatspass, den Einheimische zahlen und täglich nutzen.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">3D &ldquo;design your cake&rdquo; preview</span><span class="cz">3D náhled dortu na míru</span><span class="de">3D-Vorschau der Wunschtorte</span> <span class="star new"><span class="en">new</span><span class="cz">nové</span><span class="de">neu</span></span></div><div class="md"><span class="en">See the bespoke cake before you buy it.</span><span class="cz">Zákazník vidí dort na míru, než ho koupí.</span><span class="de">Die Maßtorte sehen, bevor man sie kauft.</span></div></div>
         </div>
       </div>
 
@@ -655,7 +756,7 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
       <p>
         <span class="en">Once English is live, the two highest-return next steps are the <b>Academy booking with waitlists</b> and the <b>corporate &amp; gifting portal</b> &mdash; both attach to your highest-margin products that already sell out. We quote each on its own.</span>
         <span class="cz">Jakmile poběží angličtina, dva nejvýnosnější kroky jsou <b>rezervace akademie s čekačkami</b> a <b>portál pro firmy a dárky</b> &mdash; oba navazují na vaše nejmaržovější produkty, které se už teď vyprodávají. Každý naceníme zvlášť.</span>
-        <span class="de">Sobald Englisch live ist, sind die zwei ertragreichsten nächsten Schritte die <b>Akademie-Buchung mit Wartelisten</b> und das <b>Portal für Firmen &amp; Geschenke</b> &mdash; beide knüpfen an Ihre margenstärksten Produkte an, die sich schon jetzt ausverkaufen. Wir kalkulieren jedes einzeln.</span>
+        <span class="de">Sobald Englisch live ist, sind die zwei ertragreichsten nächsten Schritte die <b>Akademie-Buchung mit Wartelisten</b> und das <b>Portal für Firmen &amp; Geschenke</b> &mdash; beide knüpfen an Ihre margenstärksten Produkte an, die schon jetzt regelmäßig ausverkauft sind. Wir kalkulieren jedes einzeln.</span>
       </p>
     </div>
 
