@@ -18,7 +18,7 @@
   --shadow-sm:0 1px 2px rgba(72,52,28,.06);
   --shadow:0 1px 2px rgba(72,52,28,.05), 0 16px 42px -24px rgba(72,52,28,.32);
   --shadow-lg:0 2px 4px rgba(72,52,28,.07), 0 36px 74px -30px rgba(72,52,28,.42);
-  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --serif:"Bodoni Moda",Didot,Georgia,"Times New Roman",serif;
   --sans:"Manrope","Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
   --r:18px;
 }
@@ -171,7 +171,10 @@ h2{font-size:clamp(29px,4.4vw,44px);line-height:1.04}
 .ba .col{padding:24px 26px}
 .ba .col.cz-col{border-right:1px solid var(--line);background:var(--paper-2)}
 .ba .h{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;display:flex;align-items:center;gap:9px;margin-bottom:16px}
-.ba .h .flag{width:19px;height:13px;border-radius:2px;border:1px solid var(--line);display:inline-block}
+.ba .h .flag{width:20px;height:13px;border-radius:2px;border:1px solid var(--line);display:inline-block;overflow:hidden;flex:none}
+.ba .h .flag.deonly{display:none}
+.lang-de .ba .h .flag.deonly{display:inline-block}
+.lang-de .ba .h .flag.notde{display:none}
 .ba ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
 .ba li{font-size:15px}
 .ba .cz-col li{color:var(--ink-soft)}
@@ -579,7 +582,7 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
 
     <div class="ba">
       <div class="col cz-col">
-        <div class="h"><span class="flag" style="background:linear-gradient(90deg,#fff 50%,#d7141a 50%)"></span><span class="en">Czech, today</span><span class="cz">Česky, dnes</span><span class="de">Tschechisch, heute</span></div>
+        <div class="h"><svg class="flag" viewBox="0 0 6 4" preserveAspectRatio="none"><rect width="6" height="4" fill="#fff"/><rect y="2" width="6" height="2" fill="#d7141a"/><path d="M0 0L3 2L0 4Z" fill="#11457e"/></svg><span class="en">Czech, today</span><span class="cz">Česky, dnes</span><span class="de">Tschechisch, heute</span></div>
         <ul>
           <li>Slavnostní dorty</li>
           <li>Kurzy pro začátečníky a pokročilé</li>
@@ -590,7 +593,7 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
         </ul>
       </div>
       <div class="col en-col">
-        <div class="h"><span class="flag notde" style="background:linear-gradient(180deg,#012169 33%,#fff 33% 66%,#C8102E 66%)"></span><span class="flag deonly" style="background:linear-gradient(180deg,#000 33%,#dd0000 33% 66%,#ffce00 66%)"></span><span class="notde"><span class="en">English, added</span><span class="cz">Anglicky, doplněno</span></span><span class="deonly">Deutsch, ergänzt</span></div>
+        <div class="h"><svg class="flag notde" viewBox="0 0 60 30" preserveAspectRatio="none"><rect width="60" height="30" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="3.5"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg><svg class="flag deonly" viewBox="0 0 5 3" preserveAspectRatio="none"><rect width="5" height="3" fill="#ffce00"/><rect width="5" height="2" fill="#dd0000"/><rect width="5" height="1" fill="#000"/></svg><span class="notde"><span class="en">English, added</span><span class="cz">Anglicky, doplněno</span></span><span class="deonly">Deutsch, ergänzt</span></div>
         <ul>
           <li><span class="notde">Celebration cakes</span><span class="deonly">Festtagstorten</span></li>
           <li><span class="notde">Courses for beginners and the more advanced</span><span class="deonly">Kurse für Anfänger und Fortgeschrittene</span></li>
