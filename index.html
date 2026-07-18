@@ -456,10 +456,22 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
 .pme .pav{flex:none;width:38px;height:38px;border-radius:50%;background:var(--blue-deep);color:#fff;display:grid;place-items:center;font-family:var(--serif);font-weight:600;font-size:19px}
 .pme b{font-size:13px;color:var(--ink);display:block}
 .pme span{font-size:11px;color:var(--ink-soft)}
-.ptb{appearance:none;border:0;background:transparent;cursor:pointer;padding:5px 9px;color:var(--ink-faint);display:grid;place-items:center;transition:color .2s,transform .18s;border-radius:8px}
+.ptb{appearance:none;border:0;background:transparent;cursor:pointer;padding:4px 9px 2px;color:var(--ink-faint);display:flex;flex-direction:column;align-items:center;gap:2px;transition:color .2s,transform .18s;border-radius:10px}
 .ptb.on{color:var(--blue-deep)}
-.ptb:active{transform:scale(.9)}
+.ptb:active{transform:scale(.88)}
 .ptb svg{width:20px;height:20px}
+.ptb i{font-style:normal;font-size:8px;font-weight:700;letter-spacing:.02em;line-height:1}
+.ptapdot{position:absolute;z-index:10;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;border:2px solid rgba(169,127,67,.85);background:rgba(169,127,67,.18);pointer-events:none;opacity:0}
+.ptapdot.tap{animation:ptap .62s cubic-bezier(.3,.7,.3,1)}
+@keyframes ptap{0%{opacity:0;transform:scale(.35)}22%{opacity:1}100%{opacity:0;transform:scale(1.55)}}
+.pcart.done{background:var(--ok)}
+.ppts.pop{animation:ptsPop .5s ease}
+@keyframes ptsPop{40%{transform:scale(1.16)}}
+.pcol{width:100%;align-self:center}
+.phint{margin:13px auto 0;display:flex;align-items:center;justify-content:center;gap:7px;font-size:12px;font-weight:600;color:var(--ink-faint)}
+.phint .pdotlive{width:7px;height:7px;border-radius:50%;background:var(--ok);flex:none}
+.anim .phint .pdotlive{animation:livep 1.9s ease-out infinite}
+@keyframes livep{0%{box-shadow:0 0 0 0 rgba(91,122,83,.5)}70%{box-shadow:0 0 0 7px rgba(91,122,83,0)}100%{box-shadow:0 0 0 0 rgba(91,122,83,0)}}
 
 /* ---------- close / CTA ---------- */
 .nextsteps{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:24px}
@@ -483,7 +495,7 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
   .anim .reveal,.anim .rise>*,.anim .hero-art{opacity:1!important;transform:none!important;animation:none!important}
   .anim .steam,.anim .floaty,.anim .marq .track,.anim .blob{animation:none!important}
   .anim .stagger>*{opacity:1!important;transform:none!important}
-  .progress,.blob,.grain{display:none!important}
+  .progress,.blob,.grain,.phint,.ptapdot{display:none!important}
   .band .bimg,.gallery img,[data-par]{transform:none!important}
   .top{position:static;background:#fff;backdrop-filter:none}
   .lang-toggle{display:none}
@@ -812,6 +824,7 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
     </p>
 
     <div class="appsec">
+      <div class="pcol">
       <div class="pdev" role="img" aria-label="The Ippa app">
         <span class="pbtn mute"></span><span class="pbtn vup"></span><span class="pbtn vdn"></span><span class="pbtn pwr"></span>
         <div class="pscreen">
@@ -875,12 +888,14 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
             </div>
           </div>
           <div class="ptab">
-            <button class="ptb on" data-go="home" aria-label="Home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 21V9l8-6 8 6v12"/></svg></button>
-            <button class="ptb" data-go="menu" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 10h16"/></svg></button>
-            <button class="ptb" data-go="rewards" aria-label="Rewards"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg></button>
-            <button class="ptb" data-go="profile" aria-label="You"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></button>
+            <button class="ptb on" data-go="home" aria-label="Home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 21V9l8-6 8 6v12"/></svg><i>Home</i></button>
+            <button class="ptb" data-go="menu" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 10h16"/></svg><i>Menu</i></button>
+            <button class="ptb" data-go="rewards" aria-label="Rewards"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg><i>Rewards</i></button>
+            <button class="ptb" data-go="profile" aria-label="You"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><i>You</i></button>
           </div>
         </div>
+      </div>
+      <div class="phint"><span class="pdotlive"></span><span><span class="en">Live demo — tap anything</span><span class="cz">Živé demo — klikni na cokoliv</span><span class="de">Live-Demo — tippe irgendwo</span></span></div>
       </div>
 
       <div>
@@ -1173,17 +1188,53 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
     })(cards[c]);}
   }
 
-  // ---- clickable phone app demo ----
+  // ---- phone app: guided live demo, fully clickable ----
   var pdev=document.querySelector('.pdev');
   if(pdev){
+    var pscreen=pdev.querySelector('.pscreen');
     var panes=pdev.querySelectorAll('.pv'), tabs=pdev.querySelectorAll('.ptb');
-    function goPane(n){for(var i=0;i<panes.length;i++)panes[i].classList.toggle('on',panes[i].getAttribute('data-pane')===n);for(var j=0;j<tabs.length;j++)tabs[j].classList.toggle('on',tabs[j].getAttribute('data-go')===n);}
-    var goers=pdev.querySelectorAll('[data-go]');
-    for(var g=0;g<goers.length;g++){(function(el){el.addEventListener('click',function(){goPane(el.getAttribute('data-go'));});})(goers[g]);}
-    var cart=pdev.querySelector('.pcart'), cn=cart&&cart.querySelector('.pcn'), cc=0, cs=0;
+    var cart=pdev.querySelector('.pcart'), cn=cart&&cart.querySelector('.pcn');
     var items=pdev.querySelectorAll('.pitem');
-    for(var t2=0;t2<items.length;t2++){(function(it){it.addEventListener('click',function(){cc++;cs+=parseInt(it.getAttribute('data-price'),10)||0;it.classList.remove('bump');void it.offsetWidth;it.classList.add('bump');if(cart){cn.textContent=cc+' · '+cs+' Kč';cart.classList.add('hasitems');cart.classList.remove('pop');void cart.offsetWidth;cart.classList.add('pop');}});})(items[t2]);}
-    if(cart)cart.addEventListener('click',function(){if(cc>0){cc=0;cs=0;cn.textContent='0 · 0 Kč';cart.classList.remove('hasitems');}});
+    var pts=pdev.querySelector('.ppts');
+    var pcc=0, pcs=0, pBase=120;
+    function goPane(n){for(var i=0;i<panes.length;i++)panes[i].classList.toggle('on',panes[i].getAttribute('data-pane')===n);for(var j=0;j<tabs.length;j++)tabs[j].classList.toggle('on',tabs[j].getAttribute('data-go')===n);}
+    function addItem(it){if(!it)return;pcc++;pcs+=parseInt(it.getAttribute('data-price'),10)||0;it.classList.remove('bump');void it.offsetWidth;it.classList.add('bump');if(cart){cn.textContent=pcc+' · '+pcs+' Kč';cart.classList.add('hasitems');cart.classList.remove('pop');void cart.offsetWidth;cart.classList.add('pop');}}
+    function resetCart(){pcc=0;pcs=0;if(cart){cn.textContent='0 · 0 Kč';cart.classList.remove('hasitems','done');}for(var i=0;i<items.length;i++)items[i].classList.remove('bump');}
+    function curLang(){var h=document.documentElement;return h.classList.contains('lang-en')?'en':h.classList.contains('lang-de')?'de':'cz';}
+    function checkout(){if(pcc<1)return;if(cart){cart.classList.add('done');cn.textContent='✓ '+({cz:'Objednáno',en:'Ordered',de:'Bestellt'}[curLang()]);}pBase+=10;setTimeout(function(){if(pts){pts.textContent='★ '+pBase;pts.classList.remove('pop');void pts.offsetWidth;pts.classList.add('pop');}resetCart();},1450);}
+    var goers=pdev.querySelectorAll('[data-go]');
+    for(var g=0;g<goers.length;g++){(function(el){el.addEventListener('click',function(){userTook();goPane(el.getAttribute('data-go'));});})(goers[g]);}
+    for(var t2=0;t2<items.length;t2++){(function(it){it.addEventListener('click',function(){userTook();addItem(it);});})(items[t2]);}
+    if(cart)cart.addEventListener('click',function(){userTook();if(pcc>0)checkout();});
+    // guided auto-demo — pauses on any tap, resumes when idle & in view
+    var pdot=null, dTimer=null, dOn=false, dStep=0, lastUser=-1e7, inView=false;
+    function tapDot(sel){var el=(typeof sel==='string')?pdev.querySelector(sel):sel;if(!el||!pscreen)return;if(!pdot){pdot=document.createElement('span');pdot.className='ptapdot';pscreen.appendChild(pdot);}var sr=pscreen.getBoundingClientRect(),er=el.getBoundingClientRect();pdot.style.left=(er.left-sr.left+er.width/2)+'px';pdot.style.top=(er.top-sr.top+er.height/2)+'px';pdot.classList.remove('tap');void pdot.offsetWidth;pdot.classList.add('tap');}
+    var scr=[
+      function(){goPane('home');pBase=120;if(pts)pts.textContent='★ 120';resetCart();return 1400;},
+      function(){tapDot('.porder');return 540;},
+      function(){goPane('menu');return 800;},
+      function(){tapDot(items[0]);return 430;},
+      function(){addItem(items[0]);return 720;},
+      function(){tapDot(items[2]);return 430;},
+      function(){addItem(items[2]);return 780;},
+      function(){tapDot('.pcart');return 540;},
+      function(){checkout();return 1980;},
+      function(){tapDot('.ptb[data-go="rewards"]');return 480;},
+      function(){goPane('rewards');return 1850;},
+      function(){tapDot('.ptb[data-go="profile"]');return 480;},
+      function(){goPane('profile');return 1750;},
+      function(){tapDot('.ptb[data-go="home"]');return 480;},
+      function(){goPane('home');return 1500;}
+    ];
+    function runStep(){if(!dOn)return;var w=scr[dStep%scr.length]();dStep++;dTimer=setTimeout(runStep,w||900);}
+    function startDemo(){if(dOn||isPDF)return;dOn=true;dStep=0;runStep();}
+    function stopDemo(){dOn=false;if(dTimer){clearTimeout(dTimer);dTimer=null;}if(pdot)pdot.classList.remove('tap');}
+    function userTook(){lastUser=Date.now();stopDemo();}
+    if(!isPDF){
+      var pio=new IntersectionObserver(function(en){en.forEach(function(e){inView=e.isIntersecting;if(!e.isIntersecting)stopDemo();});},{threshold:.35});
+      pio.observe(pdev);
+      setInterval(function(){if(!dOn&&inView&&(Date.now()-lastUser)>8000)startDemo();},1400);
+    }
   }
 
   // ---- scroll progress + parallax ----
