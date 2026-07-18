@@ -18,7 +18,7 @@
   --shadow-sm:0 1px 2px rgba(72,52,28,.06);
   --shadow:0 1px 2px rgba(72,52,28,.05), 0 16px 42px -24px rgba(72,52,28,.32);
   --shadow-lg:0 2px 4px rgba(72,52,28,.07), 0 36px 74px -30px rgba(72,52,28,.42);
-  --serif:"Bodoni Moda",Didot,Georgia,"Times New Roman",serif;
+  --serif:"Playfair Display",Georgia,"Times New Roman",serif;
   --sans:"Manrope","Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
   --r:18px;
 }
@@ -75,7 +75,7 @@ img,svg{max-width:100%}
 .hero{padding:76px 0 26px}
 .hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:44px;align-items:center}
 .hero .eyebrow{display:inline-block}
-.hero h1{font-size:clamp(44px,7.4vw,82px);margin-top:16px;letter-spacing:-.01em;line-height:1.0}
+.hero h1{font-size:clamp(42px,7vw,76px);margin-top:16px;letter-spacing:-.015em;line-height:1.06}
 .hero h1 em{font-style:italic;color:var(--blue-ink)}
 .hero .lede{margin-top:22px;font-size:clamp(16.5px,2.1vw,19.5px);color:var(--ink-soft);max-width:56ch}
 .hero .lede b{color:var(--ink);font-weight:600}
@@ -386,6 +386,39 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
 .ppush .pb svg{width:13px;height:13px}
 .ppush small{font-size:10px;color:var(--ink-soft);line-height:1.35}
 .ppush small b{color:var(--ink);font-weight:700;display:block;font-size:11px}
+/* clickable app panes */
+.pbody{overflow:hidden}
+.pv{display:none;flex-direction:column;gap:11px;flex:1}
+.pv.on{display:flex}
+.anim .pv.on{animation:paneIn .42s cubic-bezier(.2,.7,.2,1)}
+@keyframes paneIn{from{opacity:0;transform:translateY(10px)}}
+.porder,.ploy,.pq{cursor:pointer}
+.pmh{font-family:var(--serif);font-weight:600;font-size:20px;color:var(--ink);margin:0 2px 2px}
+.pmlist{display:flex;flex-direction:column;gap:7px}
+.pitem{appearance:none;border:1px solid var(--line);background:var(--card);border-radius:12px;padding:10px 11px;display:flex;align-items:center;gap:9px;cursor:pointer;font:inherit;text-align:left;width:100%}
+.pitem .pin{flex:1;font-size:12px;font-weight:600;color:var(--ink)}
+.pitem .pip{font-size:11px;color:var(--ink-soft)}
+.pitem .padd{flex:none;width:22px;height:22px;border-radius:7px;background:var(--blue-wash);color:var(--blue-deep);display:grid;place-items:center;font-size:15px;font-weight:700;transition:transform .18s}
+.pitem.bump{animation:bump .32s}
+@keyframes bump{40%{transform:scale(.975)}}
+.pcart{margin-top:auto;appearance:none;border:0;width:100%;background:var(--blue-deep);color:#fff;border-radius:12px;padding:11px 13px;display:flex;justify-content:space-between;align-items:center;font:inherit;font-size:12px;font-weight:700;cursor:pointer;opacity:.5;transition:opacity .25s,transform .2s}
+.pcart.hasitems{opacity:1}
+.pcart.pop{transform:scale(1.03)}
+.rhero{display:flex;align-items:center;gap:13px;background:var(--blue-wash);border-radius:13px;padding:13px 15px}
+.rnum{font-family:var(--serif);font-weight:600;font-size:36px;color:var(--blue-ink);line-height:1}
+.rnum span{font-size:17px;color:var(--ink-soft)}
+.rtx{font-size:11px;color:var(--ink-soft);font-weight:600;line-height:1.35}
+.rlist{display:flex;flex-direction:column;gap:6px}
+.rrow{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:9px 12px}
+.rrow .rt{color:var(--blue-deep);font-weight:700;font-size:11px}
+.pme{display:flex;align-items:center;gap:11px;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:11px 13px}
+.pme .pav{flex:none;width:38px;height:38px;border-radius:50%;background:var(--blue-deep);color:#fff;display:grid;place-items:center;font-family:var(--serif);font-weight:600;font-size:19px}
+.pme b{font-size:13px;color:var(--ink);display:block}
+.pme span{font-size:11px;color:var(--ink-soft)}
+.ptb{appearance:none;border:0;background:transparent;cursor:pointer;padding:5px 9px;color:var(--ink-faint);display:grid;place-items:center;transition:color .2s,transform .18s;border-radius:8px}
+.ptb.on{color:var(--blue-deep)}
+.ptb:active{transform:scale(.9)}
+.ptb svg{width:20px;height:20px}
 
 @media print{
   @page{size:A4;margin:13mm}
@@ -723,29 +756,59 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
         <div class="pscreen">
           <div class="ptop"><span class="plogo">IPPA</span><span class="ppts">&#9733; 120</span></div>
           <div class="pbody">
-            <div class="porder">
-              <img src="img/cake.jpg" alt="">
-              <div class="pov"></div>
-              <div class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-              <div class="pc"><b>Order ahead</b><span>Skip the queue &middot; pick up at the Castle</span></div>
+            <div class="pv on" data-pane="home">
+              <div class="porder" data-go="menu">
+                <img src="img/cake.jpg" alt="">
+                <div class="pov"></div>
+                <div class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                <div class="pc"><b>Order ahead</b><span>Skip the queue &middot; pick up at the Castle</span></div>
+              </div>
+              <div class="ploy" data-go="rewards">
+                <div class="lr"><span>Loyalty &middot; <b>1 to a free coffee</b></span><span>&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+                <div class="pstamps"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></div>
+              </div>
+              <div class="pquick">
+                <div class="pq" data-go="menu"><span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>Courses</div>
+                <div class="pq" data-go="menu"><span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 20v-7a8 4 0 0 1 16 0v7z"/><path d="M4 13h16M12 5V3"/></svg></span>Cakes</div>
+                <div class="pq" data-go="rewards"><span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M3 12h18M12 8v13M8 8c-2.5 0-3.5-4 0-4 2 0 4 4 4 4"/></svg></span>Gifts</div>
+                <div class="pq" data-go="menu"><span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h4v4h-4z"/></svg></span>Scan &amp; go</div>
+              </div>
+              <div class="ppush"><span class="pb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M10.5 21a2 2 0 0 0 3 0"/></svg></span><small><b>Your usual flat white?</b>Order in 2 taps &middot; ready in 10 min</small></div>
             </div>
-            <div class="ploy">
-              <div class="lr"><span>Loyalty &middot; <b>1 to a free coffee</b></span><span>&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
-              <div class="pstamps"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></div>
+            <div class="pv" data-pane="menu">
+              <div class="pmh">Menu</div>
+              <div class="pmlist">
+                <button class="pitem" data-price="90"><span class="pin">Flat white</span><span class="pip">90 Kč</span><span class="padd">+</span></button>
+                <button class="pitem" data-price="65"><span class="pin">Butter croissant</span><span class="pip">65 Kč</span><span class="padd">+</span></button>
+                <button class="pitem" data-price="95"><span class="pin">Chocolate éclair</span><span class="pip">95 Kč</span><span class="padd">+</span></button>
+                <button class="pitem" data-price="180"><span class="pin">Macarons &times;6</span><span class="pip">180 Kč</span><span class="padd">+</span></button>
+              </div>
+              <button class="pcart"><span>View order</span><b class="pcn">0 &middot; 0 Kč</b></button>
             </div>
-            <div class="pquick">
-              <div class="pq"><span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>Courses</div>
-              <div class="pq"><span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 20v-7a8 4 0 0 1 16 0v7z"/><path d="M4 13h16M12 5V3"/></svg></span>Cakes</div>
-              <div class="pq"><span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M3 12h18M12 8v13M8 8c-2.5 0-3.5-4 0-4 2 0 4 4 4 4"/></svg></span>Gifts</div>
-              <div class="pq"><span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h4v4h-4z"/></svg></span>Scan &amp; go</div>
+            <div class="pv" data-pane="rewards">
+              <div class="pmh">Rewards</div>
+              <div class="rhero"><div class="rnum">5<span>/6</span></div><div class="rtx">One more coffee<br>and the next is on us</div></div>
+              <div class="rlist">
+                <div class="rrow"><span>Free coffee</span><span class="rt">120 pts</span></div>
+                <div class="rrow"><span>&minus;20% off a course</span><span class="rt">300 pts</span></div>
+                <div class="rrow"><span>Birthday cake slice</span><span class="rt">gift</span></div>
+              </div>
             </div>
-            <div class="ppush"><span class="pb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M10.5 21a2 2 0 0 0 3 0"/></svg></span><small><b>Your usual flat white?</b>Order in 2 taps &middot; ready in 10 min</small></div>
+            <div class="pv" data-pane="profile">
+              <div class="pmh">You</div>
+              <div class="pme"><span class="pav">A</span><div><b>Anna N.</b><span>120 points &middot; Gold member</span></div></div>
+              <div class="rlist">
+                <div class="rrow"><span>My orders</span><span class="rt">7</span></div>
+                <div class="rrow"><span>Vouchers</span><span class="rt">2</span></div>
+                <div class="rrow"><span>Language</span><span class="rt">EN</span></div>
+              </div>
+            </div>
           </div>
           <div class="ptab">
-            <i class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 21V9l8-6 8 6v12"/></svg></i>
-            <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 10h16"/></svg></i>
-            <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M20 12a8 8 0 1 1-8-8"/><path d="M12 8v4l3 2"/></svg></i>
-            <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></i>
+            <button class="ptb on" data-go="home" aria-label="Home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 21V9l8-6 8 6v12"/></svg></button>
+            <button class="ptb" data-go="menu" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 10h16"/></svg></button>
+            <button class="ptb" data-go="rewards" aria-label="Rewards"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg></button>
+            <button class="ptb" data-go="profile" aria-label="You"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></button>
           </div>
         </div>
       </div>
@@ -974,6 +1037,19 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
       el.addEventListener('pointermove',function(ev){var r=el.getBoundingClientRect();var px=(ev.clientX-r.left)/r.width-0.5;var py=(ev.clientY-r.top)/r.height-0.5;el.style.transform='perspective(820px) rotateX('+(-py*4.5).toFixed(2)+'deg) rotateY('+(px*6).toFixed(2)+'deg) translateY(-5px)';});
       el.addEventListener('pointerleave',function(){el.style.transform='';});
     })(cards[c]);}
+  }
+
+  // ---- clickable phone app demo ----
+  var pdev=document.querySelector('.pdev');
+  if(pdev){
+    var panes=pdev.querySelectorAll('.pv'), tabs=pdev.querySelectorAll('.ptb');
+    function goPane(n){for(var i=0;i<panes.length;i++)panes[i].classList.toggle('on',panes[i].getAttribute('data-pane')===n);for(var j=0;j<tabs.length;j++)tabs[j].classList.toggle('on',tabs[j].getAttribute('data-go')===n);}
+    var goers=pdev.querySelectorAll('[data-go]');
+    for(var g=0;g<goers.length;g++){(function(el){el.addEventListener('click',function(){goPane(el.getAttribute('data-go'));});})(goers[g]);}
+    var cart=pdev.querySelector('.pcart'), cn=cart&&cart.querySelector('.pcn'), cc=0, cs=0;
+    var items=pdev.querySelectorAll('.pitem');
+    for(var t2=0;t2<items.length;t2++){(function(it){it.addEventListener('click',function(){cc++;cs+=parseInt(it.getAttribute('data-price'),10)||0;it.classList.remove('bump');void it.offsetWidth;it.classList.add('bump');if(cart){cn.textContent=cc+' · '+cs+' Kč';cart.classList.add('hasitems');cart.classList.remove('pop');void cart.offsetWidth;cart.classList.add('pop');}});})(items[t2]);}
+    if(cart)cart.addEventListener('click',function(){if(cc>0){cc=0;cs=0;cn.textContent='0 · 0 Kč';cart.classList.remove('hasitems');}});
   }
 
   // ---- scroll progress + parallax ----
