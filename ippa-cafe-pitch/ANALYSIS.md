@@ -63,7 +63,7 @@ The pitch leaned on a broad claim: *"an International academy… on a website on
 **Improvements applied ✅:**
 - **A real close** — the #1 gap. Added a "Ready when you are" section: a 3-step *what-happens-next* timeline, a prominent **CTA button**, and a **named signature** (was a dead-end footer mailto).
 - **A credibility line** — honest and true: *"this page is the sample; your translation is written and checked by a native speaker, not machine output."*
-- **App repositioned** — eyebrow "The flagship" → **"Phase 2 · after English"**, and the demo now reads **"priced by agreement: it depends entirely on what you want it to do"** rather than carrying a hard figure — scope-first, quoted after a scoping call (see `PRICING-APP.md §7`).
+- **App repositioned + priced on-page** — eyebrow "The flagship" → **"Phase 2 · after English"**, and the app now shows **three indicative tiers** (Get it live ~120k / Own it ~390k / The full machine ~690k) under a clear **"indicative ranges — final price by agreement"** caveat. The clickable phone mock was also rebuilt as a premium device (titanium frame, side buttons, status bar, dynamic island), and the app-stat figures were enlarged for readability (see `PRICING-APP.md §7`).
 - **Softer tone** — the "You're behind smaller shops" header (which wounded a proud academy) → **"You have the brand and the location. You're just missing the one thing they all have."** Same facts, same table, no sting.
 - **An English-specific ROI figure** — the 45k wedge now has a number behind it (2.7M × 77% foreign), clearly labelled *illustrative*.
 

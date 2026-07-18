@@ -275,12 +275,30 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
 .feat b{color:var(--ink);font-weight:600}
 .feat .fi{flex:none;width:28px;height:28px;border-radius:8px;background:#fff;border:1px solid var(--line);color:var(--blue-deep);display:grid;place-items:center;margin-top:1px}
 .feat .fi svg{width:15px;height:15px}
-.appstats{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
-.appstats .chip{font-size:12.5px;font-weight:500;color:var(--ink-soft);background:#fff;border:1px solid #dbe4f0;border-radius:20px;padding:6px 12px}
-.appstats .chip b{color:var(--blue-ink);font-family:var(--serif);font-weight:600;font-size:14px}
+.appstats{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:20px}
+.appstats .astat{display:flex;align-items:baseline;gap:9px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px 13px;box-shadow:var(--shadow-sm)}
+.appstats .astat b{flex:none;font-family:var(--serif);font-weight:700;font-size:23px;color:#6e4a1f;line-height:.95;letter-spacing:-.01em}
+.appstats .astat span{font-size:12px;font-weight:600;color:var(--ink-soft);line-height:1.28}
 .appnote{margin-top:18px;font-size:13.5px;color:var(--ink-soft);border-left:3px solid var(--blue);padding-left:14px;line-height:1.55}
 .appnote b{color:var(--ink)}
-@media(max-width:760px){.appsec{grid-template-columns:1fr;gap:24px;padding:24px}.feat{grid-template-columns:1fr}}
+/* ---- app pricing tiers ---- */
+.apptiers{margin-top:24px}
+.apptiers .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:stretch}
+.tier{position:relative;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:16px;background:var(--card);box-shadow:var(--shadow);padding:22px 20px}
+.tier.star{border-color:var(--blue-deep);box-shadow:var(--shadow-lg);background:linear-gradient(180deg,#fffdf8,#fbf2e2)}
+.tier .tbadge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);white-space:nowrap;background:var(--blue-deep);color:#fff;font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:4px 11px;border-radius:20px;box-shadow:var(--shadow)}
+.tier .teyebrow{font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:var(--blue-deep);font-weight:700}
+.tier .tname{font-family:var(--serif);font-weight:700;font-size:20px;color:var(--ink);margin:3px 0 13px}
+.tier .tprice{font-family:var(--serif);font-weight:700;font-size:25px;color:#6e4a1f;line-height:1;letter-spacing:-.01em}
+.tier .tmeta{font-size:12.5px;color:var(--ink-soft);margin:7px 0 15px;font-weight:600}
+.tier ul{list-style:none;margin:auto 0 0;padding:0;display:flex;flex-direction:column;gap:9px}
+.tier li{display:flex;gap:8px;font-size:13px;color:var(--ink-soft);line-height:1.4}
+.tier li .tc{flex:none;color:var(--blue-deep);margin-top:2px}
+.tier li b{color:var(--ink);font-weight:600}
+.tiernote{margin:16px auto 0;max-width:80ch;font-size:12.5px;color:var(--ink-faint);line-height:1.55;text-align:center}
+.tiernote b{color:var(--ink-soft)}
+@media(max-width:760px){.appsec{grid-template-columns:1fr;gap:24px;padding:24px}.feat{grid-template-columns:1fr}.apptiers .tgrid{grid-template-columns:1fr;gap:18px}.tier .tbadge{left:18px;transform:none}}
+@media(max-width:420px){.appstats{grid-template-columns:1fr}}
 
 /* ---------- photos, bands, parallax, motion ---------- */
 .progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:60;background:linear-gradient(90deg,var(--blue),var(--rose));box-shadow:0 0 8px rgba(79,106,151,.4)}
@@ -355,18 +373,30 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
 .cards .p{transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
 
 /* ---------- upgraded HTML phone ---------- */
-.pdev{position:relative;width:100%;max-width:266px;margin:0 auto;aspect-ratio:9/18.7;
-  background:linear-gradient(160deg,#4a3f36,#231d18);border-radius:42px;padding:11px;
-  box-shadow:0 34px 66px -24px rgba(60,44,26,.6), inset 0 0 0 2px rgba(255,255,255,.07);will-change:transform}
+.pdev{position:relative;width:100%;max-width:272px;margin:0 auto;aspect-ratio:9/19.3;
+  background:linear-gradient(135deg,#e4dccb 0%,#ad9d86 13%,#665a4a 32%,#3d342a 50%,#665a4a 68%,#b6a790 87%,#e8e0d0 100%);
+  border-radius:50px;padding:5px;
+  box-shadow:0 46px 76px -26px rgba(45,32,18,.6), 0 12px 26px -14px rgba(45,32,18,.5),
+    inset 0 1px 1px rgba(255,255,255,.6), inset 0 -2px 3px rgba(0,0,0,.4);will-change:transform}
 .anim .pdev{animation:phoneFloat 6.5s ease-in-out infinite}
 @keyframes phoneFloat{50%{transform:translateY(-11px)}}
-.pscreen{position:relative;height:100%;border-radius:31px;overflow:hidden;background:var(--paper);display:flex;flex-direction:column}
-.pscreen::after{content:"";position:absolute;inset:0;z-index:6;pointer-events:none;transform:translateX(-120%);
-  background:linear-gradient(115deg,transparent 38%,rgba(255,255,255,.34) 50%,transparent 62%)}
-.anim .pscreen::after{animation:sweep 6s ease-in-out infinite}
-@keyframes sweep{0%,62%{transform:translateX(-120%)}88%,100%{transform:translateX(120%)}}
-.pisland{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:78px;height:21px;background:#141009;border-radius:14px;z-index:7}
-.ptop{padding:30px 17px 6px;display:flex;justify-content:space-between;align-items:center}
+.pbtn{position:absolute;z-index:0;border-radius:3px;background:linear-gradient(90deg,#a2947e,#584d3c)}
+.pbtn.mute{left:-2px;top:19.5%;width:3px;height:18px}
+.pbtn.vup{left:-2.5px;top:28%;width:3px;height:36px}
+.pbtn.vdn{left:-2.5px;top:38.5%;width:3px;height:36px}
+.pbtn.pwr{right:-2.5px;top:31%;width:3px;height:56px;background:linear-gradient(90deg,#584d3c,#a2947e)}
+.pscreen{position:relative;z-index:1;height:100%;border-radius:45px;overflow:hidden;background:var(--paper);display:flex;flex-direction:column;box-shadow:0 0 0 3px #0a0806}
+.pscreen::after{content:"";position:absolute;inset:0;z-index:6;pointer-events:none;transform:translateX(-140%);
+  background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.26) 50%,transparent 60%)}
+.anim .pscreen::after{animation:sweep 7s ease-in-out infinite}
+@keyframes sweep{0%,60%{transform:translateX(-140%)}86%,100%{transform:translateX(140%)}}
+.pstatus{position:absolute;top:0;left:0;right:0;height:44px;display:flex;justify-content:space-between;align-items:center;padding:16px 21px 0;z-index:8;pointer-events:none}
+.pstatus .pt-time{font-size:12px;font-weight:800;color:var(--ink);letter-spacing:.02em}
+.pstatus .pt-ic{display:flex;align-items:center;gap:5px;color:var(--ink)}
+.pstatus .pt-ic svg{display:block}
+.pisland{position:absolute;top:13px;left:50%;transform:translateX(-50%);width:84px;height:24px;background:#0a0806;border-radius:14px;z-index:9}
+.pisland::after{content:"";position:absolute;top:50%;right:10px;transform:translateY(-50%);width:8px;height:8px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#31465a,#070a0e 72%);box-shadow:0 0 0 1px rgba(255,255,255,.09)}
+.ptop{padding:46px 18px 4px;display:flex;justify-content:space-between;align-items:center}
 .plogo{font-family:var(--serif);font-weight:600;font-size:23px;color:var(--ink);letter-spacing:.03em}
 .ppts{font-size:11px;font-weight:700;color:var(--blue-ink);background:var(--blue-wash);padding:4px 10px;border-radius:20px}
 .pbody{padding:6px 15px 0;display:flex;flex-direction:column;gap:11px;flex:1}
@@ -462,7 +492,7 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
   .cards .p:hover,.step:hover{transform:none;box-shadow:var(--shadow)}
   section{padding:22px 0}
   .hero{padding:14px 0}
-  .stats,.browser,.ba,.peers,.steps,.mgroup,.price,.cards .p,.keep,.nextup,.switchline,.appsec,.feat li,.band,.gallery figure{break-inside:avoid}
+  .stats,.browser,.ba,.peers,.steps,.mgroup,.price,.cards .p,.keep,.nextup,.switchline,.appsec,.feat li,.band,.gallery figure,.tier,.apptiers{break-inside:avoid}
   h2{break-after:avoid}
 }
 /* motion intentionally runs on all devices — no reduced-motion opt-out, by request */
@@ -783,8 +813,17 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
 
     <div class="appsec">
       <div class="pdev" role="img" aria-label="The Ippa app">
-        <div class="pisland"></div>
+        <span class="pbtn mute"></span><span class="pbtn vup"></span><span class="pbtn vdn"></span><span class="pbtn pwr"></span>
         <div class="pscreen">
+          <div class="pisland"></div>
+          <div class="pstatus">
+            <span class="pt-time">9:41</span>
+            <span class="pt-ic">
+              <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.6" y="5" width="3" height="6" rx="1"/><rect x="9.2" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.8" y="0" width="3" height="11" rx="1"/></svg>
+              <svg width="15" height="11" viewBox="0 0 15 11" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M1.1 3.3a10 10 0 0 1 12.8 0"/><path d="M3.5 5.9a6.4 6.4 0 0 1 8 0"/><path d="M5.9 8.5a3 3 0 0 1 3.2 0"/><circle cx="7.5" cy="10.3" r=".7" fill="currentColor" stroke="none"/></svg>
+              <svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x="1" y="1" width="21" height="10" rx="2.6" stroke="currentColor" stroke-opacity=".45"/><rect x="2.6" y="2.6" width="14.5" height="6.8" rx="1.3" fill="currentColor"/><path d="M23.4 4.3v3.4a1.9 1.9 0 0 0 0-3.4z" fill="currentColor" fill-opacity=".5"/></svg>
+            </span>
+          </div>
           <div class="ptop"><span class="plogo">IPPA</span><span class="ppts">&#9733; 120</span></div>
           <div class="pbody">
             <div class="pv on" data-pane="home">
@@ -855,18 +894,65 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
         </ul>
 
         <div class="appstats">
-          <span class="chip"><b>+25%</b> <span class="en">order-ahead spend</span><span class="cz">útrata s předobjednávkou</span><span class="de">Ausgaben mit Vorbestellung</span></span>
-          <span class="chip"><b>+19%</b> <span class="en">return visits from push</span><span class="cz">návratů díky push</span><span class="de">Besuche durch Push</span></span>
-          <span class="chip"><b>60%</b> <span class="en">of revenue = repeat guests</span><span class="cz">tržeb dělají stálí hosté</span><span class="de">des Umsatzes: Stammgäste</span></span>
-          <span class="chip"><b>+32%</b> <span class="en">loyalty members spend/yr</span><span class="cz">utratí členové věrnosti/rok</span><span class="de">Ausgaben von Treue-Mitgliedern/Jahr</span></span>
+          <div class="astat"><b>+25%</b><span><span class="en">higher order-ahead spend</span><span class="cz">vyšší útrata s předobjednávkou</span><span class="de">mehr Ausgaben mit Vorbestellung</span></span></div>
+          <div class="astat"><b>+19%</b><span><span class="en">more return visits from push</span><span class="cz">více návratů díky push</span><span class="de">mehr Besuche durch Push</span></span></div>
+          <div class="astat"><b>60%</b><span><span class="en">of revenue from repeat guests</span><span class="cz">tržeb dělají stálí hosté</span><span class="de">des Umsatzes: Stammgäste</span></span></div>
+          <div class="astat"><b>+32%</b><span><span class="en">more spend by loyalty members/yr</span><span class="cz">více utratí členové věrnosti/rok</span><span class="de">mehr Ausgaben von Treue-Mitgliedern/Jahr</span></span></div>
         </div>
 
         <p class="appnote">
-          <span class="en"><b>Why your own app, not just Wolt:</b> delivery apps take 30&ndash;40% per order and keep the customer. Your app keeps the margin, the data and the relationship &mdash; a bigger build, <b>priced by agreement</b>: it depends entirely on what you want it to do. We scope and quote it once English proves out.</span>
-          <span class="cz"><b>Proč vlastní appka, ne jen Wolt:</b> rozvážkové appky si berou 30&ndash;40 % z objednávky a nechají si zákazníka. Vaše appka si nechá marži, data i vztah &mdash; větší projekt, <b>cena dohodou</b>: strašně záleží, co všechno má umět. Naceníme ho, až angličtina zaboduje.</span>
-          <span class="de"><b>Warum eine eigene App, nicht nur Wolt:</b> Liefer-Apps nehmen 30&ndash;40 % pro Bestellung und behalten den Kunden. Ihre App behält die Marge, die Daten und die Beziehung &mdash; ein größeres Projekt, <b>Preis nach Absprache</b>: es hängt ganz davon ab, was sie alles können soll. Wir kalkulieren sie, sobald sich Englisch bewährt.</span>
+          <span class="en"><b>Why your own app, not just Wolt:</b> delivery apps take 30&ndash;40% per order and keep the customer. Your app keeps the margin, the data and the relationship. Below is roughly where each version lands &mdash; the <b>final price is by agreement</b>, once we scope what it actually needs to do.</span>
+          <span class="cz"><b>Proč vlastní appka, ne jen Wolt:</b> rozvážkové appky si berou 30&ndash;40 % z objednávky a nechají si zákazníka. Vaše appka si nechá marži, data i vztah. Níže je zhruba, kde se každá verze pohybuje &mdash; <b>finální cena je dohodou</b>, až doladíme, co má vlastně umět.</span>
+          <span class="de"><b>Warum eine eigene App, nicht nur Wolt:</b> Liefer-Apps nehmen 30&ndash;40 % pro Bestellung und behalten den Kunden. Ihre App behält die Marge, die Daten und die Beziehung. Unten steht ungefähr, wo jede Version landet &mdash; der <b>Endpreis ist Verhandlungssache</b>, sobald wir klären, was sie wirklich können soll.</span>
         </p>
       </div>
+    </div>
+
+    <div class="apptiers">
+      <div class="tgrid stagger">
+        <div class="tier">
+          <div class="teyebrow"><span class="en">MVP · white-label</span><span class="cz">MVP · white-label</span><span class="de">MVP · White-Label</span></div>
+          <div class="tname"><span class="en">Get it live</span><span class="cz">Ať to žije</span><span class="de">Live gehen</span></div>
+          <div class="tprice"><span class="en">from ~120,000 Kč</span><span class="cz">od ~120 000 Kč</span><span class="de">ab ~120.000 Kč</span></div>
+          <div class="tmeta"><span class="en">+ ~8,000 Kč / mo · ~6–10 weeks</span><span class="cz">+ ~8 000 Kč / měs · ~6–10 týdnů</span><span class="de">+ ~8.000 Kč / Mon. · ~6–10 Wochen</span></div>
+          <ul>
+            <li><span class="tc"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="en"><b>Order-ahead + pickup</b> at all 4 branches</span><span class="cz"><b>Objednávka předem + vyzvednutí</b> na všech 4 pobočkách</span><span class="de"><b>Vorbestellen + Abholung</b> in allen 4 Filialen</span></span></li>
+            <li><span class="tc"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="en"><b>Loyalty stamps</b>, gift cards, push</span><span class="cz"><b>Věrnostní razítka</b>, dárkové karty, push</span><span class="de"><b>Treuestempel</b>, Geschenkkarten, Push</span></span></li>
+            <li><span class="tc"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="en">3 languages · card payments</span><span class="cz">3 jazyky · platby kartou</span><span class="de">3 Sprachen · Kartenzahlung</span></span></li>
+            <li><span class="tc"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="en">Branded on a proven platform</span><span class="cz">Nasazeno na osvědčené platformě</span><span class="de">Gebrandet auf bewährter Plattform</span></span></li>
+          </ul>
+        </div>
+        <div class="tier star">
+          <div class="tbadge"><span class="en">Recommended upgrade</span><span class="cz">Doporučený upgrade</span><span class="de">Empfohlenes Upgrade</span></div>
+          <div class="teyebrow"><span class="en">Custom app</span><span class="cz">Vlastní aplikace</span><span class="de">Eigene App</span></div>
+          <div class="tname"><span class="en">Own it</span><span class="cz">Mít to své</span><span class="de">Selbst besitzen</span></div>
+          <div class="tprice"><span class="en">from ~390,000 Kč</span><span class="cz">od ~390 000 Kč</span><span class="de">ab ~390.000 Kč</span></div>
+          <div class="tmeta"><span class="en">+ ~12,000 Kč / mo · ~4–6 months</span><span class="cz">+ ~12 000 Kč / měs · ~4–6 měsíců</span><span class="de">+ ~12.000 Kč / Mon. · ~4–6 Monate</span></div>
+          <ul>
+            <li><span class="tc"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="en"><b>Everything in Get it live</b>, fully owned</span><span class="cz"><b>Vše z „Ať to žije"</b>, plně vlastní</span><span class="de"><b>Alles aus „Live gehen"</b>, komplett Ihr Eigentum</span></span></li>
+            <li><span class="tc"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="en">Own design + backend, no lock-in</span><span class="cz">Vlastní design + backend, bez vázanosti</span><span class="de">Eigenes Design + Backend, kein Lock-in</span></span></li>
+            <li><span class="tc"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="en"><b>Course &amp; cake booking</b>, wallet passes</span><span class="cz"><b>Rezervace kurzů a dortů</b>, karty do Wallet</span><span class="de"><b>Kurs- &amp; Tortenbuchung</b>, Wallet-Pässe</span></span></li>
+            <li><span class="tc"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="en">No per-order platform fees</span><span class="cz">Žádné poplatky z objednávek</span><span class="de">Keine Gebühren pro Bestellung</span></span></li>
+          </ul>
+        </div>
+        <div class="tier">
+          <div class="teyebrow"><span class="en">Premium</span><span class="cz">Premium</span><span class="de">Premium</span></div>
+          <div class="tname"><span class="en">The full machine</span><span class="cz">Naplno</span><span class="de">Die volle Maschine</span></div>
+          <div class="tprice"><span class="en">from ~690,000 Kč</span><span class="cz">od ~690 000 Kč</span><span class="de">ab ~690.000 Kč</span></div>
+          <div class="tmeta"><span class="en">+ ~18,000 Kč / mo · ~6–9 months</span><span class="cz">+ ~18 000 Kč / měs · ~6–9 měsíců</span><span class="de">+ ~18.000 Kč / Mon. · ~6–9 Monate</span></div>
+          <ul>
+            <li><span class="tc"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="en"><b>Everything in Own it</b>, plus:</span><span class="cz"><b>Vše z „Mít to své"</b>, navíc:</span><span class="de"><b>Alles aus „Selbst besitzen"</b>, plus:</span></span></li>
+            <li><span class="tc"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="en"><b>AI concierge</b> + subscription boxes</span><span class="cz"><b>AI concierge</b> + předplatné boxů</span><span class="de"><b>KI-Concierge</b> + Abo-Boxen</span></span></li>
+            <li><span class="tc"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="en">Deep POS + inventory + analytics</span><span class="cz">Hluboké POS + sklad + analytika</span><span class="de">Tiefes POS + Lager + Analytik</span></span></li>
+            <li><span class="tc"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="en">Advanced personalised push</span><span class="cz">Pokročilé personalizované push</span><span class="de">Erweitertes personalisiertes Push</span></span></li>
+          </ul>
+        </div>
+      </div>
+      <p class="tiernote">
+        <span class="en"><b>Indicative ranges, not fixed quotes.</b> The final price is by agreement — it depends entirely on what the app should do and handle. We scope it on a short call, then quote. Plus store fees: Apple $99/yr, Google $25 once.</span>
+        <span class="cz"><b>Orientační rozpětí, ne pevné ceny.</b> Finální cena je dohodou — strašně záleží, co má appka umět a zvládat. Naceníme po krátkém hovoru. K tomu poplatky obchodů: Apple $99/rok, Google $25 jednorázově.</span>
+        <span class="de"><b>Richtwerte, keine Festpreise.</b> Der Endpreis ist Verhandlungssache — es hängt ganz davon ab, was die App können und leisten soll. Wir kalkulieren nach einem kurzen Gespräch. Plus Store-Gebühren: Apple $99/Jahr, Google $25 einmalig.</span>
+      </p>
     </div>
   </section>
 
