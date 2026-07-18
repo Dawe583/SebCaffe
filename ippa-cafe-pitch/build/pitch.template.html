@@ -425,7 +425,7 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
 .porder,.ploy,.pq{cursor:pointer}
 .pmh{font-family:var(--serif);font-weight:600;font-size:20px;color:var(--ink);margin:0 2px 2px}
 .pmlist{display:flex;flex-direction:column;gap:7px}
-.pitem{appearance:none;border:1px solid var(--line);background:var(--card);border-radius:12px;padding:10px 11px;display:flex;align-items:center;gap:9px;cursor:pointer;font:inherit;text-align:left;width:100%}
+.pitem{appearance:none;border:1px solid var(--line);background:var(--card);border-radius:12px;padding:8px 10px;display:flex;align-items:center;gap:10px;cursor:pointer;font:inherit;text-align:left;width:100%}
 .pitem .pin{flex:1;font-size:12px;font-weight:600;color:var(--ink)}
 .pitem .pip{font-size:11px;color:var(--ink-soft)}
 .pitem .padd{flex:none;width:22px;height:22px;border-radius:7px;background:var(--blue-wash);color:var(--blue-deep);display:grid;place-items:center;font-size:15px;font-weight:700;transition:transform .18s}
@@ -461,6 +461,32 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
 .phint .pdotlive{width:7px;height:7px;border-radius:50%;background:var(--ok);flex:none}
 .anim .phint .pdotlive{animation:livep 1.9s ease-out infinite}
 @keyframes livep{0%{box-shadow:0 0 0 0 rgba(91,122,83,.5)}70%{box-shadow:0 0 0 7px rgba(91,122,83,0)}100%{box-shadow:0 0 0 0 rgba(91,122,83,0)}}
+/* rich in-app content: section labels, carousel, chips, photo menu, order history */
+.psec{font-size:10px;font-weight:700;letter-spacing:.05em;color:var(--ink-faint);text-transform:uppercase;margin:2px 2px -4px}
+.pcar{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 -15px;padding:3px 15px 5px}
+.pcar::-webkit-scrollbar{display:none}
+.pcard{flex:none;width:90px;border-radius:12px;overflow:hidden;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow-sm);cursor:pointer;transition:transform .16s}
+.pcard:active{transform:scale(.95)}
+.pcard img{width:100%;height:52px;object-fit:cover;display:block}
+.pcard .pcb{padding:6px 8px 7px}
+.pcard .pcn2{display:block;font-size:9.5px;font-weight:700;color:var(--ink);line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pcard .pcp{font-size:9.5px;color:var(--blue-ink);font-weight:700}
+.pquick2{display:flex;gap:7px}
+.pqc{flex:1;background:var(--card);border:1px solid var(--line);border-radius:11px;padding:8px 3px 7px;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:8.5px;font-weight:600;color:var(--ink);cursor:pointer;transition:transform .16s}
+.pqc:active{transform:scale(.93)}
+.pqc .qi{width:25px;height:25px;border-radius:8px;background:var(--blue-wash);color:var(--blue-deep);display:grid;place-items:center}
+.pqc .qi svg{width:14px;height:14px}
+.pitem .pthumb{flex:none;width:42px;height:42px;border-radius:9px;overflow:hidden;box-shadow:var(--shadow-sm)}
+.pitem .pthumb img{width:100%;height:100%;object-fit:cover;display:block}
+.pin small{display:block;font-size:9px;color:var(--ink-faint);font-weight:500;margin-top:1px}
+.rhero{overflow:hidden}
+.rhero .rimg{flex:none;width:50px;height:50px;border-radius:12px;object-fit:cover;box-shadow:var(--shadow-sm)}
+.porow{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:11px;padding:7px 9px;cursor:pointer}
+.porow>img{flex:none;width:34px;height:34px;border-radius:8px;object-fit:cover}
+.porow .pod{flex:1;min-width:0}
+.porow .pod b{display:block;font-size:11.5px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.porow .pod span{font-size:9.5px;color:var(--ink-faint)}
+.porow .pob{flex:none;font-size:9.5px;font-weight:700;color:var(--blue-deep);background:var(--blue-wash);padding:4px 9px;border-radius:20px}
 
 /* ---------- close / CTA ---------- */
 .nextsteps{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:24px}
@@ -835,31 +861,38 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
                 <div class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
                 <div class="pc"><b>Order ahead</b><span>Skip the queue &middot; pick up at the Castle</span></div>
               </div>
+              <div class="psec">Popular now</div>
+              <div class="pcar">
+                <div class="pcard" data-go="menu"><img src="img/m-croissant.jpg" alt=""><div class="pcb"><span class="pcn2">Butter croissant</span><span class="pcp">65 Kč</span></div></div>
+                <div class="pcard" data-go="menu"><img src="img/m-matcha.jpg" alt=""><div class="pcb"><span class="pcn2">Matcha latte</span><span class="pcp">95 Kč</span></div></div>
+                <div class="pcard" data-go="menu"><img src="img/m-macarons.jpg" alt=""><div class="pcb"><span class="pcn2">Macarons &times;6</span><span class="pcp">180 Kč</span></div></div>
+                <div class="pcard" data-go="menu"><img src="img/m-cake.jpg" alt=""><div class="pcb"><span class="pcn2">Fruit tart</span><span class="pcp">120 Kč</span></div></div>
+                <div class="pcard" data-go="menu"><img src="img/m-brulee.jpg" alt=""><div class="pcb"><span class="pcn2">Crème brûlée</span><span class="pcp">110 Kč</span></div></div>
+              </div>
               <div class="ploy" data-go="rewards">
                 <div class="lr"><span>Loyalty &middot; <b>1 more for a free coffee</b></span><span>&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
                 <div class="pstamps"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></div>
               </div>
-              <div class="pquick">
-                <div class="pq" data-go="menu"><span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>Courses</div>
-                <div class="pq" data-go="menu"><span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 20v-7a8 4 0 0 1 16 0v7z"/><path d="M4 13h16M12 5V3"/></svg></span>Cakes</div>
-                <div class="pq" data-go="rewards"><span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M3 12h18M12 8v13M8 8c-2.5 0-3.5-4 0-4 2 0 4 4 4 4"/></svg></span>Gifts</div>
-                <div class="pq" data-go="menu"><span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h4v4h-4z"/></svg></span>Scan &amp; go</div>
+              <div class="pquick2">
+                <div class="pqc" data-go="menu"><span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>Courses</div>
+                <div class="pqc" data-go="menu"><span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 20v-7a8 4 0 0 1 16 0v7z"/><path d="M4 13h16M12 5V3"/></svg></span>Cakes</div>
+                <div class="pqc" data-go="rewards"><span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M3 12h18M12 8v13M8 8c-2.5 0-3.5-4 0-4 2 0 4 4 4 4"/></svg></span>Gifts</div>
+                <div class="pqc" data-go="menu"><span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h4v4h-4z"/></svg></span>Scan</div>
               </div>
-              <div class="ppush"><span class="pb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M10.5 21a2 2 0 0 0 3 0"/></svg></span><small><b>Your usual flat white?</b>Order in 2 taps &middot; ready in 10 min</small></div>
             </div>
             <div class="pv" data-pane="menu">
               <div class="pmh">Menu</div>
               <div class="pmlist">
-                <button class="pitem" data-price="90"><span class="pin">Flat white</span><span class="pip">90 Kč</span><span class="padd">+</span></button>
-                <button class="pitem" data-price="65"><span class="pin">Butter croissant</span><span class="pip">65 Kč</span><span class="padd">+</span></button>
-                <button class="pitem" data-price="95"><span class="pin">Chocolate éclair</span><span class="pip">95 Kč</span><span class="padd">+</span></button>
-                <button class="pitem" data-price="180"><span class="pin">Macarons &times;6</span><span class="pip">180 Kč</span><span class="padd">+</span></button>
+                <button class="pitem" data-price="90"><span class="pthumb"><img src="img/m-flatwhite.jpg" alt=""></span><span class="pin">Flat white<small>Oat milk available</small></span><span class="pip">90 Kč</span><span class="padd">+</span></button>
+                <button class="pitem" data-price="65"><span class="pthumb"><img src="img/m-croissant.jpg" alt=""></span><span class="pin">Butter croissant<small>Baked this morning</small></span><span class="pip">65 Kč</span><span class="padd">+</span></button>
+                <button class="pitem" data-price="95"><span class="pthumb"><img src="img/m-matcha.jpg" alt=""></span><span class="pin">Matcha latte<small>Ceremonial grade</small></span><span class="pip">95 Kč</span><span class="padd">+</span></button>
+                <button class="pitem" data-price="180"><span class="pthumb"><img src="img/m-macarons.jpg" alt=""></span><span class="pin">Macarons &times;6<small>Six flavours</small></span><span class="pip">180 Kč</span><span class="padd">+</span></button>
               </div>
               <button class="pcart"><span>View order</span><b class="pcn">0 &middot; 0 Kč</b></button>
             </div>
             <div class="pv" data-pane="rewards">
               <div class="pmh">Rewards</div>
-              <div class="rhero"><div class="rnum">5<span>/6</span></div><div class="rtx">One more coffee<br>and the next is on us</div></div>
+              <div class="rhero"><img class="rimg" src="img/m-flatwhite.jpg" alt=""><div class="rnum">5<span>/6</span></div><div class="rtx">One more coffee<br>and the next is on us</div></div>
               <div class="rlist">
                 <div class="rrow"><span>Free coffee</span><span class="rt">120 pts</span></div>
                 <div class="rrow"><span>&minus;20% off a course</span><span class="rt">300 pts</span></div>
@@ -869,10 +902,11 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
             <div class="pv" data-pane="profile">
               <div class="pmh">You</div>
               <div class="pme"><span class="pav">A</span><div><b>Anna N.</b><span>120 points &middot; Gold member</span></div></div>
+              <div class="psec">Recent orders</div>
+              <div class="porow" data-go="menu"><img src="img/m-flatwhite.jpg" alt=""><div class="pod"><b>Flat white &times;2</b><span>Vinohrady &middot; Tue</span></div><span class="pob">Reorder</span></div>
+              <div class="porow" data-go="menu"><img src="img/m-macarons.jpg" alt=""><div class="pod"><b>Macarons &times;6</b><span>Prague Castle &middot; Sun</span></div><span class="pob">Reorder</span></div>
               <div class="rlist">
-                <div class="rrow"><span>My orders</span><span class="rt">7</span></div>
-                <div class="rrow"><span>Vouchers</span><span class="rt">2</span></div>
-                <div class="rrow"><span>Language</span><span class="rt">EN</span></div>
+                <div class="rrow"><span>Vouchers &middot; Language</span><span class="rt">2 &middot; EN</span></div>
               </div>
             </div>
           </div>
