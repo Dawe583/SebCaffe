@@ -1,0 +1,6 @@
+# QA screenshots (verification only, not deliverables)
+build/qa-*.png
+# font build intermediates (embedded-fonts.css is the committed artifact)
+build/fonts/
+build/gf.css
+build/urls.txt

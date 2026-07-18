@@ -1,0 +1,717 @@
+<!doctype html>
+<html lang="cs" class="anim">
+<head>
+<meta charset="utf-8">
+<title>Ippa Café · SiteSpot</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Návrh od SiteSpot pro Ippa Café: anglická verze webu a co dál.">
+<style>
+/* @@FONTS@@ */
+
+:root{
+  --paper:#f7f4ee; --paper-2:#f1ece1; --card:#fffdf9;
+  --ink:#23283a; --ink-soft:#5b6172; --ink-faint:#8f93a1;
+  --line:#e7e1d6; --line-soft:#efe9df;
+  --blue:#7d97bd; --blue-deep:#4f6a97; --blue-ink:#38507a; --blue-wash:#eaf0f8;
+  --rose:#bd7d75; --rose-wash:#f6ebe6; --gold:#c19a4c; --ok:#4f7a57;
+  --shadow-sm:0 1px 2px rgba(35,40,58,.05);
+  --shadow:0 1px 2px rgba(35,40,58,.05), 0 14px 36px -22px rgba(35,40,58,.30);
+  --shadow-lg:0 2px 4px rgba(35,40,58,.06), 0 30px 66px -30px rgba(35,40,58,.42);
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Hanken Grotesk","Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+  --r:16px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);line-height:1.62;font-size:17px;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+.wrap{max-width:940px;margin:0 auto;padding:0 30px}
+h1,h2,h3{margin:0;line-height:1.08;text-wrap:balance}
+h1,h2{font-family:var(--serif);font-weight:500;letter-spacing:-.015em}
+h3{font-family:var(--sans);font-weight:600;letter-spacing:-.006em}
+p{margin:0}
+a{color:var(--blue-deep)}
+img,svg{max-width:100%}
+::selection{background:#dde6f2}
+.eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue-deep);font-weight:600}
+
+/* i18n: Czech is the default (no class needed before JS) */
+.en{display:none}
+.cz{display:inline}
+.lang-en .en{display:inline}
+.lang-en .cz{display:none}
+
+/* ---------- header ---------- */
+.top{border-bottom:1px solid var(--line);background:rgba(247,244,238,.82);
+  backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);
+  position:sticky;top:0;z-index:30}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:14px}
+.mark{display:flex;align-items:center;gap:11px;font-weight:600;letter-spacing:-.01em;font-size:17px}
+.mark .sq{width:26px;height:26px;border-radius:8px;background:var(--ink);color:#fff;
+  display:grid;place-items:center;font-size:13px;font-weight:700;box-shadow:var(--shadow-sm)}
+.hgroup{display:flex;align-items:center;gap:16px}
+.forr{font-size:13px;color:var(--ink-soft)}
+@media(max-width:600px){.forr{display:none}}
+.lang-toggle{position:relative;display:inline-flex;padding:3px;border:1px solid var(--line);
+  border-radius:999px;background:var(--paper-2)}
+.lang-toggle .thumb{position:absolute;top:3px;left:3px;width:calc(50% - 3px);height:calc(100% - 6px);
+  background:var(--card);border-radius:999px;box-shadow:0 1px 2px rgba(35,40,58,.2);
+  transition:transform .32s cubic-bezier(.34,1.4,.5,1)}
+.lang-en .lang-toggle .thumb{transform:translateX(100%)}
+.lang-toggle button{position:relative;z-index:1;flex:1;appearance:none;border:0;background:transparent;
+  cursor:pointer;font:inherit;font-size:13px;font-weight:600;letter-spacing:.05em;color:var(--ink-soft);
+  padding:6px 17px;border-radius:999px;transition:color .25s}
+.lang-toggle button.active{color:var(--ink)}
+.lang-toggle button:focus-visible{outline:2px solid var(--blue-deep);outline-offset:3px}
+
+/* ---------- hero ---------- */
+.hero{padding:76px 0 26px}
+.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:44px;align-items:center}
+.hero .eyebrow{display:inline-block}
+.hero h1{font-size:clamp(35px,6vw,62px);margin-top:18px;letter-spacing:-.022em}
+.hero h1 em{font-style:italic;color:var(--blue-ink)}
+.hero .lede{margin-top:22px;font-size:clamp(16.5px,2.1vw,19.5px);color:var(--ink-soft);max-width:56ch}
+.hero .lede b{color:var(--ink);font-weight:600}
+.switchline{margin-top:26px;display:flex;gap:13px;align-items:flex-start;
+  font-size:15px;color:var(--blue-ink);font-weight:500;
+  background:var(--blue-wash);border:1px solid #dde5f0;border-radius:13px;padding:14px 17px;max-width:52ch}
+.switchline .pt{flex:none;width:20px;height:20px;color:var(--blue-deep);margin-top:1px}
+
+/* hero illustration */
+.hero-art{position:relative}
+.scene{width:100%;height:auto;display:block;filter:drop-shadow(0 30px 40px rgba(35,40,58,.14))}
+@media(max-width:820px){
+  .hero-grid{grid-template-columns:1fr;gap:26px}
+  .hero{padding:52px 0 20px}
+  .hero-art{max-width:440px;margin:0 auto}
+}
+
+/* hero entrance */
+.anim .rise>*{opacity:0;transform:translateY(16px);animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
+.anim .rise>*:nth-child(1){animation-delay:.05s}
+.anim .rise>*:nth-child(2){animation-delay:.13s}
+.anim .rise>*:nth-child(3){animation-delay:.22s}
+.anim .rise>*:nth-child(4){animation-delay:.31s}
+.anim .hero-art{opacity:0;animation:rise .9s cubic-bezier(.2,.7,.2,1) .3s forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+
+/* steam + float motion */
+.steam{transform-box:fill-box;transform-origin:center bottom;opacity:0}
+.anim .steam{animation:steam 3.6s ease-in-out infinite}
+.anim .steam.s2{animation-delay:1.2s}
+.anim .steam.s3{animation-delay:2.4s}
+@keyframes steam{0%{opacity:0;transform:translateY(4px) scaleY(.7)}
+  35%{opacity:.55}70%{opacity:.15}100%{opacity:0;transform:translateY(-13px) scaleY(1.25)}}
+.floaty{transform-box:fill-box;transform-origin:center}
+.anim .floaty{animation:floaty 5.5s ease-in-out infinite}
+.anim .floaty.f2{animation-delay:1.6s}
+@keyframes floaty{50%{transform:translateY(-7px)}}
+
+/* language marquee */
+.marq{margin-top:30px;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.marq .track{display:flex;gap:0;width:max-content;padding:12px 0}
+.anim .marq .track{animation:marq 34s linear infinite}
+.marq span{font-family:var(--serif);font-size:19px;color:var(--ink-soft);padding:0 26px;white-space:nowrap;letter-spacing:.01em}
+.marq span.hi{color:var(--blue-ink)}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* ---------- sections ---------- */
+section{padding:40px 0}
+.rule{height:1px;background:var(--line)}
+.kick{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.kick .bar{width:30px;height:2px;background:var(--blue);border-radius:2px}
+h2{font-size:clamp(24px,3.7vw,34px)}
+.sub{color:var(--ink-soft);margin-top:14px;max-width:64ch;font-size:17px}
+
+/* scroll reveal */
+.anim .reveal{opacity:0;transform:translateY(22px)}
+.anim .reveal.in{opacity:1;transform:none;transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+
+/* ---------- stat band ---------- */
+.stats{margin:8px 0 10px;border:1px solid var(--line);border-radius:var(--r);background:var(--card);
+  box-shadow:var(--shadow);overflow:hidden}
+.stats .row{display:grid;grid-template-columns:repeat(4,1fr)}
+.stats .s{padding:26px 18px;border-right:1px solid var(--line-soft);text-align:center}
+.stats .s:last-child{border-right:none}
+.stats .n{font-family:var(--serif);font-weight:500;font-size:clamp(34px,5.4vw,50px);line-height:1;
+  letter-spacing:-.02em;color:var(--ink)}
+.stats .s.warn .n{color:var(--rose)}
+.stats .l{margin-top:9px;font-size:12.5px;color:var(--ink-soft);letter-spacing:.01em;line-height:1.4}
+.stats .cap{border-top:1px solid var(--line-soft);background:var(--paper-2);
+  padding:12px 22px;font-size:13px;color:var(--ink-soft);text-align:center}
+.stats .cap b{color:var(--ink);font-weight:600}
+.stats .cap .src{color:var(--ink-faint);font-size:11.5px}
+@media(max-width:640px){.stats .row{grid-template-columns:repeat(2,1fr)}
+  .stats .s:nth-child(2){border-right:none}.stats .s:nth-child(1),.stats .s:nth-child(2){border-bottom:1px solid var(--line-soft)}}
+
+/* ---------- browser demo ---------- */
+.browser{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card);box-shadow:var(--shadow-lg);margin-top:24px}
+.chrome{display:flex;align-items:center;gap:8px;padding:12px 15px;border-bottom:1px solid var(--line);background:var(--paper-2)}
+.dot{width:10px;height:10px;border-radius:50%}
+.dot:nth-child(1){background:#e0a49d}.dot:nth-child(2){background:#e4cc9c}.dot:nth-child(3){background:#a7c9ae}
+.addr{margin-left:10px;font-size:12.5px;color:var(--ink-soft);background:#fff;border:1px solid var(--line);border-radius:7px;padding:4px 14px}
+.nav{display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px;padding:18px 22px}
+.nav .logo{font-weight:700;letter-spacing:.04em}
+.nav a{color:var(--ink);font-size:15px;text-decoration:none}
+.nav .langx{margin-left:auto;font-size:12.5px;color:var(--rose);border:1px dashed #d6b0ac;padding:5px 13px;border-radius:20px;white-space:nowrap;font-weight:500}
+.caption{font-size:14px;color:var(--ink-soft);margin-top:15px}
+.caption b{color:var(--ink)}
+
+/* ---------- before / after ---------- */
+.ba{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:24px;box-shadow:var(--shadow);background:var(--card)}
+.ba .col{padding:24px 26px}
+.ba .col.cz-col{border-right:1px solid var(--line);background:var(--paper-2)}
+.ba .h{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;display:flex;align-items:center;gap:9px;margin-bottom:16px}
+.ba .h .flag{width:19px;height:13px;border-radius:2px;border:1px solid var(--line);display:inline-block}
+.ba ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.ba li{font-size:15px}
+.ba .cz-col li{color:var(--ink-soft)}
+.ba .en-col li{color:var(--ink);font-weight:500}
+@media(max-width:600px){.ba{grid-template-columns:1fr}.ba .col.cz-col{border-right:none;border-bottom:1px solid var(--line)}}
+
+/* ---------- competitor strip ---------- */
+.peers{margin-top:24px;border:1px solid var(--line);border-radius:14px;background:var(--card);box-shadow:var(--shadow);overflow:hidden}
+.peers .prow{display:grid;grid-template-columns:1.4fr repeat(3,1fr);align-items:center;
+  padding:13px 22px;border-bottom:1px solid var(--line-soft);font-size:14.5px}
+.peers .prow:last-child{border-bottom:none}
+.peers .phead{background:var(--paper-2);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+.peers .pname{font-weight:600;color:var(--ink)}
+.peers .ippa{background:var(--rose-wash)}
+.peers .ippa .pname{color:var(--rose)}
+.peers .yes{color:var(--ok);font-weight:600}
+.peers .no{color:var(--rose);font-weight:600}
+.peers .cell{text-align:center}
+@media(max-width:600px){.peers .prow{grid-template-columns:1.2fr repeat(3,1fr);padding:12px 14px;font-size:12.5px}
+  .peers .cell{font-size:13px}}
+
+/* ---------- steps ---------- */
+.steps{margin-top:24px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card);box-shadow:var(--shadow)}
+.step{display:flex;gap:17px;padding:19px 23px;border-bottom:1px solid var(--line-soft);transition:background .2s}
+.step:last-child{border-bottom:none}
+.step:hover{background:var(--paper-2)}
+.step .ico{flex:none;width:40px;height:40px;border-radius:11px;background:var(--blue-wash);color:var(--blue-deep);display:grid;place-items:center}
+.step .ico svg{width:21px;height:21px}
+.step h3{font-size:16.5px}
+.step p{color:var(--ink-soft);font-size:14.5px;margin-top:4px}
+.keep{margin-top:22px;padding:16px 20px;border-left:3px solid var(--ok);background:#f1f6f2;border-radius:0 12px 12px 0;font-size:15px}
+.keep b{color:var(--ink)}
+
+/* ---------- cards ---------- */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+.cards .p{border:1px solid var(--line);border-radius:14px;padding:22px;background:var(--card);box-shadow:var(--shadow);transition:transform .22s,box-shadow .22s}
+.cards .p:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.cards .p .ci{width:36px;height:36px;border-radius:10px;background:var(--blue-wash);color:var(--blue-deep);display:grid;place-items:center;margin-bottom:14px}
+.cards .p .ci svg{width:20px;height:20px}
+.cards .p .t{font-weight:600;margin-bottom:7px;font-size:16px}
+.cards .p p{font-size:14px;color:var(--ink-soft)}
+@media(max-width:640px){.cards{grid-template-columns:1fr}}
+
+/* ---------- capability menu ---------- */
+.menu{margin-top:26px;display:flex;flex-direction:column;gap:14px}
+.mgroup{border:1px solid var(--line);border-radius:14px;background:var(--card);box-shadow:var(--shadow);padding:22px 24px}
+.glabel{font-size:13px;letter-spacing:.02em;font-weight:700;color:var(--ink);margin-bottom:16px;display:flex;align-items:center;gap:11px}
+.glabel .gn{font-family:var(--serif);font-weight:500;font-size:15px;color:var(--blue-deep);
+  width:27px;height:27px;border-radius:8px;background:var(--blue-wash);display:grid;place-items:center;flex:none}
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:5px 16px}
+@media(max-width:600px){.mgrid{grid-template-columns:1fr}}
+.mitem{padding:12px 13px;border-radius:10px;transition:background .18s}
+.mitem:hover{background:var(--paper-2)}
+.mt{font-weight:600;font-size:15px;color:var(--ink);display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.mt .star{flex:none;font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;font-weight:700;color:var(--blue-deep);background:var(--blue-wash);padding:2px 7px;border-radius:20px}
+.mt .star.new{color:#8a6a1e;background:#f6efda}
+.md{font-size:13px;color:var(--ink-soft);margin-top:3px}
+
+/* ---------- price ---------- */
+.price{border:1px solid var(--line);border-radius:var(--r);background:linear-gradient(180deg,#fff,#fbf9f3);box-shadow:var(--shadow-lg);padding:30px;margin-top:24px;display:grid;grid-template-columns:1.05fr 1fr;gap:28px;align-items:center}
+.price .tag{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-deep);font-weight:600;margin-bottom:10px}
+.price .num{font-family:var(--serif);font-size:clamp(34px,5.5vw,48px);font-weight:500;letter-spacing:-.02em;line-height:1}
+.price .num small{display:block;font-family:var(--sans);font-size:14px;font-weight:450;color:var(--ink-soft);letter-spacing:0;margin-top:10px;line-height:1.5}
+.price ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;font-size:14.5px}
+.price li{display:flex;gap:10px;color:var(--ink-soft)}
+.price li b{color:var(--ink);font-weight:600}
+.price .chk{color:var(--ok);flex:none;margin-top:2px}
+@media(max-width:600px){.price{grid-template-columns:1fr;gap:20px}}
+.nextup{margin-top:18px;border:1px solid #e4dcc7;background:#faf6ea;border-radius:13px;padding:17px 20px;display:flex;gap:14px;align-items:flex-start}
+.nextup .rec{flex:none;font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:#8a6a1e;background:#f0e4c6;padding:4px 9px;border-radius:20px;margin-top:2px}
+.nextup p{font-size:14.5px;color:var(--ink-soft)}
+.nextup b{color:var(--ink)}
+
+footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:baseline}
+.foot .who{font-weight:600;font-size:17px}
+.foot .c{font-size:14.5px;color:var(--ink-soft)}
+.foot a{text-decoration:none;font-weight:500}
+.note{font-size:12px;color:var(--ink-faint);margin-top:22px;max-width:74ch;line-height:1.6}
+.note b{color:var(--ink-soft)}
+
+@media print{
+  @page{size:A4;margin:13mm}
+  html,body{background:#fff}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .anim .reveal,.anim .rise>*,.anim .hero-art{opacity:1!important;transform:none!important;animation:none!important}
+  .anim .steam,.anim .floaty,.anim .marq .track{animation:none!important}
+  .top{position:static;background:#fff;backdrop-filter:none}
+  .lang-toggle{display:none}
+  .marq{-webkit-mask-image:none;mask-image:none}
+  .marq .track{width:auto;flex-wrap:wrap;justify-content:center}
+  .cards .p:hover,.step:hover{transform:none;box-shadow:var(--shadow)}
+  section{padding:22px 0}
+  .hero{padding:14px 0}
+  .stats,.browser,.ba,.peers,.steps,.mgroup,.price,.cards .p,.keep,.nextup,.switchline{break-inside:avoid}
+  h2{break-after:avoid}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .anim .reveal,.anim .rise>*,.anim .hero-art{opacity:1!important;transform:none!important;animation:none!important}
+  .anim .steam,.anim .floaty,.anim .marq .track{animation:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="top"><div class="wrap">
+  <div class="mark"><span class="sq">S</span> SiteSpot</div>
+  <div class="hgroup">
+    <span class="forr"><span class="en">Prepared for Ippa Café</span><span class="cz">Připraveno pro Ippa Café</span></span>
+    <div class="lang-toggle" role="group" aria-label="Language / Jazyk">
+      <span class="thumb" aria-hidden="true"></span>
+      <button data-lang="cz" class="active">CZ</button>
+      <button data-lang="en">EN</button>
+    </div>
+  </div>
+</div></div>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-grid">
+      <div class="rise">
+        <div class="eyebrow"><span class="en">Start with one change</span><span class="cz">Začněme jednou změnou</span></div>
+        <h1>
+          <span class="en">Your website is beautiful.<br>It just doesn&rsquo;t speak <em>English.</em></span>
+          <span class="cz">Váš web je krásný.<br>Jen nemluví <em>anglicky.</em></span>
+        </h1>
+        <p class="lede">
+          <span class="en">An <b>International</b> Pastry Academy and a café at Prague Castle, welcoming guests from all over the world &mdash; on a website only Czech speakers can read. We don&rsquo;t want to rebuild it. We want to add the one thing it&rsquo;s missing: <b>a proper English version.</b></span>
+          <span class="cz">Mezinárodní cukrářská akademie a kavárna na Pražském hradě, které vítají hosty z celého světa &mdash; na webu, který přečtou jen Češi. Nechceme ho předělávat. Chceme doplnit jedinou věc, která chybí: <b>pořádnou anglickou verzi.</b></span>
+        </p>
+        <div class="switchline">
+          <svg class="pt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h13l-3-3M20 16H7l3 3"/></svg>
+          <span>
+            <span class="en">You just switched this whole page between two languages, up in the corner. Your visitors can&rsquo;t do that on yours.</span>
+            <span class="cz">Tuhle stránku jste právě přepnuli mezi dvěma jazyky, nahoře v rohu. Vaši návštěvníci to na vašem webu neudělají.</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="hero-art">
+        <svg class="scene" viewBox="0 0 440 400" role="img" aria-label="Ippa Café at Prague Castle">
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#eef2f8"/><stop offset="1" stop-color="#f7f0ea"/>
+            </linearGradient>
+            <linearGradient id="cup" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f3ede3"/>
+            </linearGradient>
+          </defs>
+          <!-- card -->
+          <rect x="8" y="8" width="424" height="384" rx="26" fill="url(#sky)" stroke="#e4ddd0"/>
+          <!-- Prague Castle silhouette on the horizon -->
+          <g fill="#dfe7f2" stroke="#a9bbd4" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+            <!-- left wing with a small tower -->
+            <path d="M64 208 V180 H92 V172 H104 V180 H150 V208 Z"/>
+            <!-- right wing with a small tower -->
+            <path d="M252 208 V182 H300 V174 H312 V182 H340 V208 Z"/>
+            <!-- round corner tower with conical roof -->
+            <path d="M344 208 V176 H368 V208 Z"/>
+            <path d="M340 176 L356 150 L372 176 Z"/>
+            <!-- St. Vitus cathedral with twin Gothic spires -->
+            <path d="M196 208 V156 H200 L208 104 L216 156 H224 L232 104 L240 156 H244 V208 Z"
+                  stroke="#93a9c9"/>
+          </g>
+          <line x1="46" y1="208" x2="394" y2="208" stroke="#c4d0e2" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- plate -->
+          <ellipse cx="220" cy="322" rx="150" ry="22" fill="#efe7db"/>
+          <ellipse cx="220" cy="320" rx="150" ry="22" fill="none" stroke="#e0d6c6" stroke-width="2"/>
+          <!-- coffee cup -->
+          <g transform="translate(196 250)">
+            <ellipse cx="34" cy="70" rx="70" ry="12" fill="#e7ded1"/>
+            <path d="M-6 20 h80 l-7 44 a16 16 0 0 1 -16 13 h-18 a16 16 0 0 1 -16 -13 z" fill="url(#cup)" stroke="#454b5e" stroke-width="2.4" stroke-linejoin="round"/>
+            <ellipse cx="34" cy="20" rx="40" ry="9" fill="#fff" stroke="#454b5e" stroke-width="2.4"/>
+            <ellipse cx="34" cy="20" rx="30" ry="6" fill="#c8895e" opacity=".55"/>
+            <path d="M74 30 a20 18 0 0 1 0 34" fill="none" stroke="#454b5e" stroke-width="2.4"/>
+            <!-- steam -->
+            <g stroke="#b7c3d6" stroke-width="2.6" fill="none" stroke-linecap="round">
+              <path class="steam s1" d="M20 8 c-6 -8 6 -12 0 -22"/>
+              <path class="steam s2" d="M36 6 c-6 -8 6 -12 0 -22"/>
+              <path class="steam s3" d="M52 8 c-6 -8 6 -12 0 -22"/>
+            </g>
+          </g>
+          <!-- macarons -->
+          <g class="floaty">
+            <ellipse cx="96" cy="300" rx="26" ry="18" fill="#efd4cf" stroke="#d8a8a0" stroke-width="2"/>
+            <path d="M72 300 q24 14 48 0" fill="none" stroke="#d8a8a0" stroke-width="2"/>
+            <ellipse cx="96" cy="293" rx="24" ry="12" fill="#f6e5e1" stroke="#d8a8a0" stroke-width="2"/>
+          </g>
+          <g class="floaty f2">
+            <ellipse cx="348" cy="306" rx="24" ry="16" fill="#e7edd6" stroke="#a9bd88" stroke-width="2"/>
+            <path d="M326 306 q22 12 44 0" fill="none" stroke="#a9bd88" stroke-width="2"/>
+            <ellipse cx="348" cy="300" rx="22" ry="11" fill="#f0f3e6" stroke="#a9bd88" stroke-width="2"/>
+          </g>
+          <!-- EN chip -->
+          <g transform="translate(300 150)">
+            <rect x="0" y="0" width="70" height="34" rx="17" fill="#fff" stroke="#4f6a97" stroke-width="2"/>
+            <text x="35" y="23" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="16" font-weight="700" fill="#38507a">EN</text>
+            <path d="M18 34 l-6 10 14 -6" fill="#fff" stroke="#4f6a97" stroke-width="2" stroke-linejoin="round"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="marq" aria-hidden="true">
+      <div class="track">
+        <span class="hi">English</span><span>Deutsch</span><span>Español</span><span>Italiano</span><span>Français</span><span>Čeština</span><span>中文</span><span>한국어</span><span>日本語</span><span>Polski</span>
+        <span class="hi">English</span><span>Deutsch</span><span>Español</span><span>Italiano</span><span>Français</span><span>Čeština</span><span>中文</span><span>한국어</span><span>日本語</span><span>Polski</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats reveal">
+    <div class="row">
+      <div class="s"><div class="n" data-to="2.7" data-suffix="M">0</div><div class="l"><span class="en">paying visitors at Prague Castle, 2025</span><span class="cz">platících návštěvníků Pražského hradu, 2025</span></div></div>
+      <div class="s warn"><div class="n" data-to="77" data-suffix="%">0</div><div class="l"><span class="en">of Castle visitors are foreign</span><span class="cz">návštěvníků Hradu je ze zahraničí</span></div></div>
+      <div class="s warn"><div class="n" data-to="0">0</div><div class="l"><span class="en">pages on the site in English</span><span class="cz">stránky webu v angličtině</span></div></div>
+      <div class="s"><div class="n" data-to="4">0</div><div class="l"><span class="en">branches, incl. the Castle</span><span class="cz">pobočky, včetně Hradu</span></div></div>
+    </div>
+    <div class="cap">
+      <span class="en">An <b>International</b> academy at the Castle, in front of a mostly foreign crowd &mdash; and not one page they can read. <span class="src">Prague Castle 2025, autumn visitor survey.</span></span>
+      <span class="cz"><b>Mezinárodní</b> akademie na Hradě, před převážně zahraničním davem &mdash; a ani jedna stránka, kterou přečtou. <span class="src">Pražský hrad 2025, podzimní průzkum návštěvníků.</span></span>
+    </div>
+  </div>
+
+  <section class="reveal">
+    <div class="kick"><span class="bar"></span><span class="eyebrow"><span class="en">The one gap</span><span class="cz">Jediná mezera</span></span></div>
+    <h2><span class="en">A visitor from abroad hits a wall on the first click</span><span class="cz">Návštěvník ze zahraničí narazí hned na první kliknutí</span></h2>
+    <p class="sub">
+      <span class="en">Your site has no language switch, anywhere. Every menu, course, cake and voucher is Czech-only. A tourist outside the Castle café, or a company looking for a corporate gift, opens the page and cannot read a word of it.</span>
+      <span class="cz">Váš web nemá nikde přepínač jazyků. Každé menu, kurz, dort i poukaz jsou jen česky. Turista před kavárnou na Hradě nebo firma, která shání firemní dárek, otevře stránku a nepřečte ani slovo.</span>
+    </p>
+
+    <div class="browser">
+      <div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="addr">ippacafe.cz</span></div>
+      <div class="nav">
+        <span class="logo">IPPA</span>
+        <a>Akademie</a><a>Dorty</a><a>Zákusky</a><a>Poukazy</a><a>Rezervace</a>
+        <span class="langx">no EN &nbsp;&#9679;&nbsp; no DE</span>
+      </div>
+    </div>
+    <p class="caption">
+      <span class="en"><b>This is the real navigation, today.</b> There is nowhere to click for English. That&rsquo;s the whole problem &mdash; small, and fixable.</span>
+      <span class="cz"><b>Tohle je skutečná navigace, dnes.</b> Není kam kliknout pro angličtinu. To je celý problém &mdash; malý a řešitelný.</span>
+    </p>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="reveal">
+    <div class="kick"><span class="bar"></span><span class="eyebrow"><span class="en">Before &rarr; after</span><span class="cz">Předtím &rarr; potom</span></span></div>
+    <h2><span class="en">Same site, same design, now readable</span><span class="cz">Stejný web, stejný design, teď čitelný</span></h2>
+    <p class="sub">
+      <span class="en">Your real page text, translated cleanly. Nothing about the look changes. A visitor flips one switch and the whole site is in their language.</span>
+      <span class="cz">Váš skutečný text, přeložený čistě. Na vzhledu se nemění nic. Návštěvník přepne jeden přepínač a celý web je v jeho jazyce.</span>
+    </p>
+
+    <div class="ba">
+      <div class="col cz-col">
+        <div class="h"><span class="flag" style="background:linear-gradient(90deg,#fff 50%,#d7141a 50%)"></span><span class="en">Czech, today</span><span class="cz">Česky, dnes</span></div>
+        <ul>
+          <li>Slavnostní dorty</li>
+          <li>Kurzy pro začátečníky a pokročilé</li>
+          <li>Kurzy pro děti</li>
+          <li>Darujte zážitek</li>
+          <li>Dárkové poukazy do našich kaváren</li>
+          <li>Připravené k vyzvednutí už za pár hodin</li>
+        </ul>
+      </div>
+      <div class="col en-col">
+        <div class="h"><span class="flag" style="background:linear-gradient(180deg,#012169 33%,#fff 33% 66%,#C8102E 66%)"></span><span class="en">English, added</span><span class="cz">Anglicky, doplněno</span></div>
+        <ul>
+          <li>Celebration cakes</li>
+          <li>Courses for beginners and the more advanced</li>
+          <li>Courses for children</li>
+          <li>Give the gift of an experience</li>
+          <li>Gift vouchers for our cafés</li>
+          <li>Ready to collect in just a few hours</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="reveal">
+    <div class="kick"><span class="bar"></span><span class="eyebrow"><span class="en">The uncomfortable part</span><span class="cz">Nepříjemná část</span></span></div>
+    <h2><span class="en">You&rsquo;re behind smaller shops, not ahead of them</span><span class="cz">Za menšími cukrárnami zaostáváte, nevedete</span></h2>
+    <p class="sub">
+      <span class="en">English, online ordering and gift vouchers are already normal for Prague patisseries &mdash; even ones without a Castle address or an international academy. This isn&rsquo;t a luxury upgrade. It&rsquo;s catching up, then leaping.</span>
+      <span class="cz">Angličtina, online objednávky a dárkové poukazy jsou u pražských cukráren už běžné &mdash; i u těch bez adresy na Hradě a mezinárodní akademie. Tohle není luxusní nadstavba. Je to dorovnat a pak předběhnout.</span>
+    </p>
+    <div class="peers">
+      <div class="prow phead">
+        <div><span class="en">Prague patisserie</span><span class="cz">Pražská cukrárna</span></div>
+        <div class="cell"><span class="en">English</span><span class="cz">Anglicky</span></div>
+        <div class="cell"><span class="en">Online order</span><span class="cz">Online objednávka</span></div>
+        <div class="cell"><span class="en">Vouchers</span><span class="cz">Poukazy</span></div>
+      </div>
+      <div class="prow"><div class="pname">nasladko.cz</div><div class="cell yes">✓</div><div class="cell yes">✓</div><div class="cell yes">✓</div></div>
+      <div class="prow"><div class="pname">frutiko.cz</div><div class="cell yes">✓</div><div class="cell yes">✓</div><div class="cell yes">✓</div></div>
+      <div class="prow"><div class="pname">bakeshop.cz</div><div class="cell yes">✓</div><div class="cell yes">✓</div><div class="cell yes">✓</div></div>
+      <div class="prow"><div class="pname">sugarmama.cz</div><div class="cell yes">✓</div><div class="cell yes">✓</div><div class="cell yes">✓</div></div>
+      <div class="prow ippa"><div class="pname">ippacafe.cz</div><div class="cell no">✗</div><div class="cell no">✗</div><div class="cell no">✗</div></div>
+    </div>
+    <p class="caption">
+      <span class="en">Based on their public websites, July 2026. The gap is the opportunity: you have the brand and the location they don&rsquo;t &mdash; you&rsquo;re just invisible to anyone who doesn&rsquo;t read Czech.</span>
+      <span class="cz">Podle jejich veřejných webů, červenec 2026. Ta mezera je příležitost: máte značku a polohu, které oni nemají &mdash; jen jste neviditelní pro každého, kdo neumí česky.</span>
+    </p>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="reveal">
+    <div class="kick"><span class="bar"></span><span class="eyebrow"><span class="en">What we actually do</span><span class="cz">Co přesně uděláme</span></span></div>
+    <h2><span class="en">We add English to the site you already have</span><span class="cz">Doplníme angličtinu na web, který už máte</span></h2>
+    <p class="sub">
+      <span class="en">No redesign, no migration, no starting over. We work on your existing site and add the language layer it was built to support.</span>
+      <span class="cz">Žádný redesign, žádná migrace, žádné začínání od nuly. Pracujeme na vašem stávajícím webu a doplníme jazykovou vrstvu, na kterou byl postavený.</span>
+    </p>
+
+    <div class="steps">
+      <div class="step">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15.5 0 18M12 3c-2.5 2.5-2.5 15.5 0 18"/></svg></span>
+        <div>
+          <h3><span class="en">A language switch</span><span class="cz">Přepínač jazyků</span></h3>
+          <p><span class="en">A clean EN toggle in the header, on every page, styled to match your current design.</span><span class="cz">Čistý přepínač EN v hlavičce, na každé stránce, sladěný s vaším současným designem.</span></p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5h11M9 3v2M6 5c0 4 2 7 5 8M12 13c-3 2-6 3-8 3"/><path d="M14 20l4-9 4 9M15.5 17h5"/></svg></span>
+        <div>
+          <h3><span class="en">Every page translated</span><span class="cz">Přeložená každá stránka</span></h3>
+          <p><span class="en">Academy, e-shop, cakes, vouchers, reservations and the legal pages, in natural English written for real customers.</span><span class="cz">Akademie, e-shop, dorty, poukazy, rezervace i právní stránky, v přirozené angličtině psané pro skutečné zákazníky.</span></p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="M16 16l5 5"/></svg></span>
+        <div>
+          <h3><span class="en">Found in English</span><span class="cz">Najdou vás v angličtině</span></h3>
+          <p><span class="en">Proper hreflang and English SEO so Google shows the English page to English searches, not the Czech one.</span><span class="cz">Správné hreflang a anglické SEO, aby Google ukazoval anglickou stránku na anglické hledání, ne českou.</span></p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 6L9 17l-5-5"/></svg></span>
+        <div>
+          <h3><span class="en">Tested and handed over</span><span class="cz">Otestováno a předáno</span></h3>
+          <p><span class="en">Checked on phone and desktop, every link and the whole e-shop working in English before it goes live.</span><span class="cz">Ověřeno na mobilu i počítači, každý odkaz a celý e-shop funguje anglicky, než to půjde live.</span></p>
+        </div>
+      </div>
+    </div>
+
+    <p class="keep">
+      <span class="en"><b>What we do not touch:</b> your design, your photography, your brand, your e-shop, or the agency work you already paid for. We add, we don&rsquo;t replace.</span>
+      <span class="cz"><b>Čeho se nedotkneme:</b> vašeho designu, fotek, značky, e-shopu ani práce agentury, kterou jste už zaplatili. Přidáváme, nenahrazujeme.</span>
+    </p>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="reveal">
+    <div class="kick"><span class="bar"></span><span class="eyebrow"><span class="en">Why it pays for itself</span><span class="cz">Proč se to zaplatí</span></span></div>
+    <h2><span class="en">The customers are already at your door</span><span class="cz">Zákazníci už stojí přede dveřmi</span></h2>
+    <div class="cards">
+      <div class="p">
+        <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 21V9l8-6 8 6v12M9 21v-6h6v6"/></svg></span>
+        <div class="t"><span class="en">Tourists at the Castle</span><span class="cz">Turisté na Hradě</span></div><p><span class="en">Guests at your Prague Castle café can finally read the menu, book a course and buy a cake to take home.</span><span class="cz">Hosté vaší kavárny na Pražském hradě si konečně přečtou menu, zarezervují kurz a koupí dort s sebou.</span></p></div>
+      <div class="p">
+        <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M3 12h18M12 8v13M8 8c-2.5 0-3.5-4 0-4 2 0 4 4 4 4M16 8c2.5 0 3.5-4 0-4-2 0-4 4-4 4"/></svg></span>
+        <div class="t"><span class="en">Gifts and vouchers</span><span class="cz">Dárky a poukazy</span></div><p><span class="en">English-speaking visitors and expats buy vouchers and celebration cakes online, in a language they trust with a payment.</span><span class="cz">Anglicky mluvící návštěvníci a expati koupí poukazy a slavnostní dorty online, v jazyce, kterému u platby věří.</span></p></div>
+      <div class="p">
+        <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M17 20v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2M10 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6M21 20v-2a4 4 0 0 0-3-3.9M16 4.1a4 4 0 0 1 0 7.8"/></svg></span>
+        <div class="t"><span class="en">Companies</span><span class="cz">Firmy</span></div><p><span class="en">International firms in Prague booking corporate gifts and team pastry courses can order without needing a Czech speaker.</span><span class="cz">Mezinárodní firmy v Praze si objednají firemní dárky a týmové kurzy, aniž by potřebovaly Čecha.</span></p></div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="reveal">
+    <div class="kick"><span class="bar"></span><span class="eyebrow"><span class="en">Everything we can do</span><span class="cz">Co všechno umíme</span></span></div>
+    <h2><span class="en">English is the start. Here is the whole menu.</span><span class="cz">Angličtina je začátek. Tady je celé menu.</span></h2>
+    <p class="sub">
+      <span class="en">Every one of these is tied to something real at Ippa, and we scope and price each as you&rsquo;re ready. No big-bang project: start with English, prove it, then pick what&rsquo;s next. <b>&#9733; = the starting deal &nbsp;·&nbsp; New = added after researching your market.</b></span>
+      <span class="cz">Každá z těchto věcí navazuje na realitu Ippa a každou naceníme, až na ni bude čas. Žádný velký projekt najednou: začneme angličtinou, dokážeme to, pak si vyberete, co dál. <b>&#9733; = vstupní deal &nbsp;·&nbsp; Nové = doplněno po průzkumu vašeho trhu.</b></span>
+    </p>
+
+    <div class="menu">
+
+      <div class="mgroup">
+        <div class="glabel"><span class="gn">1</span><span class="en">Speak every visitor&rsquo;s language</span><span class="cz">Mluvte jazykem každého hosta</span></div>
+        <div class="mgrid">
+          <div class="mitem"><div class="mt"><span class="en">English version of the whole site</span><span class="cz">Anglická verze celého webu</span> <span class="star"><span class="en">start here</span><span class="cz">start</span></span></div><div class="md"><span class="en">The starting deal: menu, e-shop, academy, all of it.</span><span class="cz">Vstupní deal: menu, e-shop, akademie, všechno.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">German too, for the tourist crowd</span><span class="cz">A německy, pro turisty</span></div><div class="md"><span class="en">Prague runs on German and Austrian visitors. Add DE next.</span><span class="cz">Praha žije z německých a rakouských turistů. DE jako další.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">QR menu at the table</span><span class="cz">QR menu na stole</span></div><div class="md"><span class="en">Scan at the Castle café, read the menu in your language. Digital orders run ~23% higher than in-person.</span><span class="cz">Sken v kavárně na Hradě, menu ve vašem jazyce. Digitální objednávky bývají o ~23 % vyšší než u stolu.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">Allergen &amp; menu info, every language</span><span class="cz">Alergeny a menu v každém jazyce</span> <span class="star new"><span class="en">new</span><span class="cz">nové</span></span></div><div class="md"><span class="en">Tourists trust a counter that answers &ldquo;what&rsquo;s in it?&rdquo; before they ask.</span><span class="cz">Turista věří pultu, který odpoví &bdquo;co v tom je?&ldquo; dřív, než se zeptá.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">A 24/7 concierge that speaks any language</span><span class="cz">Concierge 24/7 v jakémkoli jazyce</span></div><div class="md"><span class="en">Answers allergens, hours and how to reach you, any time.</span><span class="cz">Odpoví na alergeny, otevíračku i cestu k vám, kdykoli.</span></div></div>
+        </div>
+      </div>
+
+      <div class="mgroup">
+        <div class="glabel"><span class="gn">2</span><span class="en">Get found before they arrive</span><span class="cz">Ať vás najdou dřív, než dorazí</span></div>
+        <div class="mgrid">
+          <div class="mitem"><div class="mt"><span class="en">A Google profile that sells</span><span class="cz">Google profil, který prodává</span></div><div class="md"><span class="en">Maps, reserve and order from Google, English reviews up top. That&rsquo;s where a tourist starts.</span><span class="cz">Mapy, rezervace i objednávka z Googlu, anglické recenze nahoře. Tam turista začíná.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">Instagram turned into a shop</span><span class="cz">Instagram jako obchod</span></div><div class="md"><span class="en">Thousands follow you and can buy nothing from a post. Make the feed shoppable.</span><span class="cz">Tisíce vás sledují a z příspěvku si nekoupí nic. Udělejme feed nakupovatelný.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">TripAdvisor &amp; review presence</span><span class="cz">TripAdvisor a recenze</span> <span class="star new"><span class="en">new</span><span class="cz">nové</span></span></div><div class="md"><span class="en">Tourists read reviews before they walk in. Own that first impression.</span><span class="cz">Turista si čte recenze, než vejde. Ovládněte první dojem.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">Cards in the hotels by the Castle</span><span class="cz">Karty v hotelích u Hradu</span></div><div class="md"><span class="en">A QR concierge card at nearby hotels sends English guests straight to you.</span><span class="cz">QR karta v okolních hotelech pošle zahraniční hosty rovnou k vám.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">A branch finder that works for tourists</span><span class="cz">Mapa poboček pro turisty</span></div><div class="md"><span class="en">Four branches on one clear English map with hours and directions.</span><span class="cz">Čtyři pobočky na jedné přehledné anglické mapě s otevíračkou a cestou.</span></div></div>
+        </div>
+      </div>
+
+      <div class="mgroup">
+        <div class="glabel"><span class="gn">3</span><span class="en">Turn one visit into many</span><span class="cz">Z jedné návštěvy udělejte mnoho</span></div>
+        <div class="mgrid">
+          <div class="mitem"><div class="mt"><span class="en">A QR code on every box</span><span class="cz">QR kód na každé krabici</span></div><div class="md"><span class="en">One scan reorders the cake, books a course or leaves a review.</span><span class="cz">Sken znovu objedná dort, zarezervuje kurz nebo přidá recenzi.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">Your thousands of reviews, on the site</span><span class="cz">Vaše tisíce recenzí, na webu</span></div><div class="md"><span class="en">Five stars everywhere but your own page. We fix that.</span><span class="cz">Pět hvězd všude, jen ne na vašem webu. To spravíme.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">Email flows that bring buyers back</span><span class="cz">E-maily, které vrací zákazníky</span></div><div class="md"><span class="en">After a purchase, a left cart, a birthday. Automatic. Email returns ~$36 per $1.</span><span class="cz">Po nákupu, po opuštěném košíku, k narozeninám. Automaticky. E-mail vrací ~$36 z $1.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">Gift cards &amp; loyalty in the phone wallet</span><span class="cz">Dárkové karty a věrnost v mobilu</span></div><div class="md"><span class="en">Straight into Apple and Google Wallet. Nothing to lose.</span><span class="cz">Rovnou do Apple a Google Wallet. Není co ztratit.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">A monthly pastry box, on subscription</span><span class="cz">Předplatné: krabice zákusků měsíčně</span></div><div class="md"><span class="en">One order, revenue every month. Perfect for expats and offices.</span><span class="cz">Jedna objednávka, tržba každý měsíc. Ideál pro expaty a kanceláře.</span></div></div>
+        </div>
+      </div>
+
+      <div class="mgroup">
+        <div class="glabel"><span class="gn">4</span><span class="en">Sell the high-margin things</span><span class="cz">Prodávejte to s nejvyšší marží</span></div>
+        <div class="mgrid">
+          <div class="mitem"><div class="mt"><span class="en">Academy: waitlists instead of discounts</span><span class="cz">Akademie: čekačky místo slev</span> <span class="star"><span class="en">recommended next</span><span class="cz">doporučeně další</span></span></div><div class="md"><span class="en">Courses sell out, then you cut 20&ndash;33% to fill. Stop giving it away.</span><span class="cz">Kurzy se vyprodají, pak slevíte 20&ndash;33 %, aby se naplnily. Přestaňte je rozdávat.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">Design-your-own cake, with an instant quote</span><span class="cz">Naceňte si dort na míru online</span></div><div class="md"><span class="en">The bespoke and wedding flow your site doesn&rsquo;t have yet.</span><span class="cz">Zakázkové a svatební, co web zatím neumí.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">Corporate &amp; gifting portal</span><span class="cz">Portál pro firmy a dárky</span> <span class="star"><span class="en">recommended next</span><span class="cz">doporučeně další</span></span></div><div class="md"><span class="en">Bulk vouchers, team courses, recurring office deliveries.</span><span class="cz">Poukazy ve velkém, týmové kurzy, dodávky do kanceláří.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">Masterclass &amp; guest-chef ticketing</span><span class="cz">Vstupenky na masterclass a hostující šéfy</span> <span class="star new"><span class="en">new</span><span class="cz">nové</span></span></div><div class="md"><span class="en">Sell seats to big names, then sell the paid replay to the world.</span><span class="cz">Prodejte místa u velkých jmen a pak i placený záznam celému světu.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">Gift an experience: course vouchers</span><span class="cz">Darujte zážitek: poukazy na kurzy</span></div><div class="md"><span class="en">A beautiful e-gift delivered the second it&rsquo;s bought.</span><span class="cz">Krásný e-dárek doručený vteřinu po koupi.</span></div></div>
+        </div>
+      </div>
+
+      <div class="mgroup">
+        <div class="glabel"><span class="gn">5</span><span class="en">Run it like a machine</span><span class="cz">Ať to jede samo</span></div>
+        <div class="mgrid">
+          <div class="mitem"><div class="mt"><span class="en">Online table reservations</span><span class="cz">Online rezervace stolů</span></div><div class="md"><span class="en">You say you don&rsquo;t take phone reservations. So let people book online.</span><span class="cz">Sami píšete, že telefonické neberete. Tak ať si rezervují online.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">An AI agent that answers the phone</span><span class="cz">AI agent, který zvedá telefon</span></div><div class="md"><span class="en">Restaurants miss ~43% of calls. It picks up 24/7, any language, and takes the booking.</span><span class="cz">Restaurace zmeškají ~43 % hovorů. Zvedne 24/7, v jakémkoli jazyce, a vezme rezervaci.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">WhatsApp order &amp; booking line</span><span class="cz">Objednávky a rezervace přes WhatsApp</span> <span class="star new"><span class="en">new</span><span class="cz">nové</span></span></div><div class="md"><span class="en">The channel tourists already message on. Meet them there.</span><span class="cz">Kanál, na kterém turisté už píšou. Buďte tam.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">Seasonal campaigns on autopilot</span><span class="cz">Sezónní kampaně automaticky</span></div><div class="md"><span class="en">Christmas, Easter, Valentine&rsquo;s. Page, email and social, ready on time.</span><span class="cz">Vánoce, Velikonoce, Valentýn. Stránka, e-mail i sítě, včas.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">One dashboard: where the money is</span><span class="cz">Jeden dashboard: kde jsou peníze</span></div><div class="md"><span class="en">What sells, which courses fill, which branch, at a glance.</span><span class="cz">Co se prodává, které kurzy se plní, která pobočka, na první pohled.</span></div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="caption" style="margin-top:22px">
+      <span class="en">You don&rsquo;t pick all of it. You pick the next one. We scope and price each properly once English is live and the first win is on the board.</span>
+      <span class="cz">Neberete všechno. Berete to další v pořadí. Každou věc pořádně naceníme, až angličtina poběží a první výhra bude na stole.</span>
+    </p>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="reveal">
+    <div class="kick"><span class="bar"></span><span class="eyebrow"><span class="en">Scope and investment</span><span class="cz">Rozsah a investice</span></span></div>
+    <div class="price">
+      <div>
+        <div class="tag"><span class="en">The starting deal</span><span class="cz">Vstupní deal</span></div>
+        <div class="num">
+          <span class="en">45,000 Kč</span><span class="cz">45 000 Kč</span>
+          <small><span class="en">one-time, from. Roughly 2 to 3 weeks.</span><span class="cz">jednorázově, od. Zhruba 2 až 3 týdny.</span></small>
+        </div>
+      </div>
+      <ul>
+        <li><span class="chk"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="en"><b>Language switch</b> on every page</span><span class="cz"><b>Přepínač jazyků</b> na každé stránce</span></span></li>
+        <li><span class="chk"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="en"><b>Full English translation</b> of the site and e-shop</span><span class="cz"><b>Kompletní anglický překlad</b> webu a e-shopu</span></span></li>
+        <li><span class="chk"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="en"><b>English SEO</b> and hreflang</span><span class="cz"><b>Anglické SEO</b> a hreflang</span></span></li>
+        <li><span class="chk"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="en"><b>Tested</b> on mobile and desktop</span><span class="cz"><b>Otestováno</b> na mobilu i počítači</span></span></li>
+      </ul>
+    </div>
+
+    <div class="nextup">
+      <span class="rec"><span class="en">then</span><span class="cz">pak</span></span>
+      <p>
+        <span class="en">Once English is live, the two highest-return next steps are the <b>Academy booking with waitlists</b> and the <b>corporate &amp; gifting portal</b> &mdash; both attach to your highest-margin products that already sell out. We quote each on its own.</span>
+        <span class="cz">Jakmile poběží angličtina, dva nejvýnosnější kroky jsou <b>rezervace akademie s čekačkami</b> a <b>portál pro firmy a dárky</b> &mdash; oba navazují na vaše nejmaržovější produkty, které se už teď vyprodávají. Každý naceníme zvlášť.</span>
+      </p>
+    </div>
+
+    <p class="caption" style="margin-top:16px">
+      <span class="en">Optional afterwards: a small monthly to keep new courses, cakes and posts bilingual as you add them. We can quote that once English is live.</span>
+      <span class="cz">Volitelně potom: malý měsíční paušál, aby nové kurzy, dorty a příspěvky zůstaly dvojjazyčné, jak je přidáváte. Naceníme, až angličtina poběží.</span>
+    </p>
+  </section>
+
+  <footer>
+    <div class="foot">
+      <div><div class="who">SiteSpot</div><div class="c"><span class="en">A small studio that fixes the one thing costing you customers, then proves it.</span><span class="cz">Malé studio, které opraví tu jednu věc, co vás stojí zákazníky, a pak to dokáže.</span></div></div>
+      <div class="c"><a href="mailto:oliver@sitespot.cz">oliver@sitespot.cz</a></div>
+    </div>
+    <p class="note">
+      <span class="en"><b>About the numbers.</b> Prague Castle 2025 visitor figures and the 77% foreign share: Prague Castle Administration / Prague Daily News &amp; expats.cz. Digital-order, email, voucher and missed-call figures are industry benchmarks (Lightspeed, Klaviyo, Baymard, gift-card market reports and voice-AI vendors) &mdash; directional, not a promise for your venue. Competitor comparison from public websites, July 2026. The Czech text in the demo is Ippa Café&rsquo;s own current site copy; the English is our proposed translation. This is a proposal, not a live change to your website.</span>
+      <span class="cz"><b>K číslům.</b> Návštěvnost Pražského hradu 2025 a 77% podíl cizinců: Správa Pražského hradu / Prague Daily News a expats.cz. Čísla o digitálních objednávkách, e-mailu, poukazech a zmeškaných hovorech jsou oborové benchmarky (Lightspeed, Klaviyo, Baymard, zprávy o trhu s poukazy a dodavatelé hlasové AI) &mdash; orientační, ne slib pro váš podnik. Srovnání s konkurencí z veřejných webů, červenec 2026. Český text v ukázce je současný text webu Ippa Café; anglický je náš navržený překlad. Toto je návrh, ne živá změna vašeho webu.</span>
+    </p>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var html=document.documentElement;
+  var btns=document.querySelectorAll('.lang-toggle button');
+  function set(l){
+    html.classList.remove('lang-en','lang-cz');
+    html.classList.add('lang-'+l);
+    html.setAttribute('lang', l==='cz'?'cs':'en');
+    for(var i=0;i<btns.length;i++){btns[i].classList.toggle('active', btns[i].getAttribute('data-lang')===l);}
+  }
+  for(var i=0;i<btns.length;i++){(function(b){b.addEventListener('click',function(){set(b.getAttribute('data-lang'));});})(btns[i]);}
+  if((location.hash||'').toLowerCase()==='#en'){set('en');}
+
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  // count-up for stat numbers
+  function countUp(el){
+    var to=parseFloat(el.getAttribute('data-to'));
+    var suffix=el.getAttribute('data-suffix')||'';
+    var dec=(el.getAttribute('data-to')||'').indexOf('.')>-1?1:0;
+    if(reduce||to===0){el.textContent=to.toFixed(dec)+suffix;return;}
+    var start=null,dur=1100;
+    function step(ts){
+      if(!start)start=ts;var p=Math.min((ts-start)/dur,1);
+      var eased=1-Math.pow(1-p,3);
+      el.textContent=(to*eased).toFixed(dec)+suffix;
+      if(p<1)requestAnimationFrame(step); else el.textContent=to.toFixed(dec)+suffix;
+    }
+    requestAnimationFrame(step);
+  }
+
+  var els=document.querySelectorAll('.reveal');
+  var nums=document.querySelectorAll('.stats .n');
+  function showAll(){for(var i=0;i<els.length;i++)els[i].classList.add('in');for(var j=0;j<nums.length;j++)countUp(nums[j]);}
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){
+      en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+    },{rootMargin:'0px 0px -8% 0px',threshold:.08});
+    for(var k=0;k<els.length;k++)io.observe(els[k]);
+    var statObs=new IntersectionObserver(function(en){
+      en.forEach(function(e){if(e.isIntersecting){countUp(e.target);statObs.unobserve(e.target);}});
+    },{threshold:.5});
+    for(var n=0;n<nums.length;n++)statObs.observe(nums[n]);
+    setTimeout(showAll,1800);
+  } else { showAll(); }
+})();
+</script>
+
+</body>
+</html>
