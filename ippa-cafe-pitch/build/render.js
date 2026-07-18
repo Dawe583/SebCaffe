@@ -38,6 +38,7 @@ function apply(page, lang, killAnim) {
     h.classList.remove('lang-cz', 'lang-en', 'lang-de'); h.classList.add('lang-' + lang);
     if (killAnim) { h.classList.remove('anim'); h.setAttribute('lang', lang === 'cz' ? 'cs' : lang); }
     document.querySelectorAll('.reveal,.stagger').forEach((e) => e.classList.add('in'));
+    document.querySelectorAll('.pic').forEach((e) => e.classList.add('seen'));
     document.querySelectorAll('.stats .n').forEach((el) => { const to = el.getAttribute('data-to'); const s = el.getAttribute('data-suffix') || ''; el.textContent = parseFloat(to).toFixed(to.indexOf('.') > -1 ? 1 : 0) + s; });
     document.querySelectorAll('[data-par]').forEach((e) => { e.style.transform = 'none'; });
   }, { lang, killAnim });
@@ -56,7 +57,8 @@ const PDFS = { cz: 'Ippa-Cafe-SiteSpot-navrh-CZ.pdf', en: 'Ippa-Cafe-SiteSpot-pr
   // ---- PDFs (print + reduced motion => static, no parallax/Lenis) ----
   const p = await browser.newPage({ viewport: { width: 1200, height: 1600 }, ignoreHTTPSErrors: true });
   p.setDefaultTimeout(90000);
-  await p.emulateMedia({ media: 'print', reducedMotion: 'reduce' });
+  await p.addInitScript(() => { window.__PDF__ = true; });
+  await p.emulateMedia({ media: 'print' });
   await p.goto(fileUrl, { waitUntil: 'load', timeout: 90000 });
   await p.evaluate(() => document.fonts && document.fonts.ready);
   await loadImages(p);
