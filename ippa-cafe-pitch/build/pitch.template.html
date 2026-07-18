@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>Ippa Café · SiteSpot</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Návrh od SiteSpot pro Ippa Café: anglická verze webu a co dál.">
+<meta name="description" content="Návrh od SiteSpot pro Ippa Café: anglická (a německá) verze webu a co dál.">
 <style>
 /* @@FONTS@@ */
 
@@ -36,11 +36,15 @@ img,svg{max-width:100%}
 ::selection{background:#dde6f2}
 .eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue-deep);font-weight:600}
 
-/* i18n: Czech is the default (no class needed before JS) */
-.en{display:none}
+/* i18n: Czech is the default (no class needed before JS). en / de opt-in. */
+.en,.de{display:none}
 .cz{display:inline}
-.lang-en .en{display:inline}
-.lang-en .cz{display:none}
+.lang-en .en{display:inline}.lang-en .cz{display:none}
+.lang-de .de{display:inline}.lang-de .cz{display:none}
+/* before/after helper: show German target text only in DE view */
+.deonly{display:none}
+.lang-de .deonly{display:inline}
+.lang-de .notde{display:none}
 
 /* ---------- header ---------- */
 .top{border-bottom:1px solid var(--line);background:rgba(247,244,238,.82);
@@ -52,16 +56,17 @@ img,svg{max-width:100%}
   display:grid;place-items:center;font-size:13px;font-weight:700;box-shadow:var(--shadow-sm)}
 .hgroup{display:flex;align-items:center;gap:16px}
 .forr{font-size:13px;color:var(--ink-soft)}
-@media(max-width:600px){.forr{display:none}}
+@media(max-width:640px){.forr{display:none}}
 .lang-toggle{position:relative;display:inline-flex;padding:3px;border:1px solid var(--line);
   border-radius:999px;background:var(--paper-2)}
-.lang-toggle .thumb{position:absolute;top:3px;left:3px;width:calc(50% - 3px);height:calc(100% - 6px);
+.lang-toggle .thumb{position:absolute;top:3px;left:3px;width:calc(33.333% - 2px);height:calc(100% - 6px);
   background:var(--card);border-radius:999px;box-shadow:0 1px 2px rgba(35,40,58,.2);
   transition:transform .32s cubic-bezier(.34,1.4,.5,1)}
 .lang-en .lang-toggle .thumb{transform:translateX(100%)}
+.lang-de .lang-toggle .thumb{transform:translateX(200%)}
 .lang-toggle button{position:relative;z-index:1;flex:1;appearance:none;border:0;background:transparent;
-  cursor:pointer;font:inherit;font-size:13px;font-weight:600;letter-spacing:.05em;color:var(--ink-soft);
-  padding:6px 17px;border-radius:999px;transition:color .25s}
+  cursor:pointer;font:inherit;font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--ink-soft);
+  padding:6px 15px;border-radius:999px;transition:color .25s}
 .lang-toggle button.active{color:var(--ink)}
 .lang-toggle button:focus-visible{outline:2px solid var(--blue-deep);outline-offset:3px}
 
@@ -275,11 +280,12 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
 <div class="top"><div class="wrap">
   <div class="mark"><span class="sq">S</span> SiteSpot</div>
   <div class="hgroup">
-    <span class="forr"><span class="en">Prepared for Ippa Café</span><span class="cz">Připraveno pro Ippa Café</span></span>
-    <div class="lang-toggle" role="group" aria-label="Language / Jazyk">
+    <span class="forr"><span class="en">Prepared for Ippa Café</span><span class="cz">Připraveno pro Ippa Café</span><span class="de">Erstellt für Ippa Café</span></span>
+    <div class="lang-toggle" role="group" aria-label="Language / Jazyk / Sprache">
       <span class="thumb" aria-hidden="true"></span>
       <button data-lang="cz" class="active">CZ</button>
       <button data-lang="en">EN</button>
+      <button data-lang="de">DE</button>
     </div>
   </div>
 </div></div>
@@ -289,20 +295,23 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
   <div class="hero">
     <div class="hero-grid">
       <div class="rise">
-        <div class="eyebrow"><span class="en">Start with one change</span><span class="cz">Začněme jednou změnou</span></div>
+        <div class="eyebrow"><span class="en">Start with one change</span><span class="cz">Začněme jednou změnou</span><span class="de">Beginnen wir mit einer Änderung</span></div>
         <h1>
           <span class="en">Your website is beautiful.<br>It just doesn&rsquo;t speak <em>English.</em></span>
           <span class="cz">Váš web je krásný.<br>Jen nemluví <em>anglicky.</em></span>
+          <span class="de">Ihre Website ist wunderschön.<br>Sie spricht nur kein <em>Englisch.</em></span>
         </h1>
         <p class="lede">
           <span class="en">An <b>International</b> Pastry Academy and a café at Prague Castle, welcoming guests from all over the world &mdash; on a website only Czech speakers can read. We don&rsquo;t want to rebuild it. We want to add the one thing it&rsquo;s missing: <b>a proper English version.</b></span>
           <span class="cz">Mezinárodní cukrářská akademie a kavárna na Pražském hradě, které vítají hosty z celého světa &mdash; na webu, který přečtou jen Češi. Nechceme ho předělávat. Chceme doplnit jedinou věc, která chybí: <b>pořádnou anglickou verzi.</b></span>
+          <span class="de">Eine <b>internationale</b> Konditorei-Akademie und ein Café auf der Prager Burg, die Gäste aus aller Welt empfangen &mdash; auf einer Website, die nur Tschechen lesen können. Wir wollen sie nicht neu bauen. Wir wollen das Eine ergänzen, das fehlt: <b>eine richtige englische Version.</b></span>
         </p>
         <div class="switchline">
           <svg class="pt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h13l-3-3M20 16H7l3 3"/></svg>
           <span>
-            <span class="en">You just switched this whole page between two languages, up in the corner. Your visitors can&rsquo;t do that on yours.</span>
-            <span class="cz">Tuhle stránku jste právě přepnuli mezi dvěma jazyky, nahoře v rohu. Vaši návštěvníci to na vašem webu neudělají.</span>
+            <span class="en">You just switched this whole page between languages, up in the corner. Your visitors can&rsquo;t do that on yours.</span>
+            <span class="cz">Tuhle stránku jste právě přepnuli mezi jazyky, nahoře v rohu. Vaši návštěvníci to na vašem webu neudělají.</span>
+            <span class="de">Sie haben diese ganze Seite gerade oben in der Ecke zwischen Sprachen umgeschaltet. Ihre Besucher können das auf Ihrer nicht.</span>
           </span>
         </div>
       </div>
@@ -317,20 +326,14 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
               <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f3ede3"/>
             </linearGradient>
           </defs>
-          <!-- card -->
           <rect x="8" y="8" width="424" height="384" rx="26" fill="url(#sky)" stroke="#e4ddd0"/>
           <!-- Prague Castle silhouette on the horizon -->
           <g fill="#dfe7f2" stroke="#a9bbd4" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-            <!-- left wing with a small tower -->
             <path d="M64 208 V180 H92 V172 H104 V180 H150 V208 Z"/>
-            <!-- right wing with a small tower -->
             <path d="M252 208 V182 H300 V174 H312 V182 H340 V208 Z"/>
-            <!-- round corner tower with conical roof -->
             <path d="M344 208 V176 H368 V208 Z"/>
             <path d="M340 176 L356 150 L372 176 Z"/>
-            <!-- St. Vitus cathedral with twin Gothic spires -->
-            <path d="M196 208 V156 H200 L208 104 L216 156 H224 L232 104 L240 156 H244 V208 Z"
-                  stroke="#93a9c9"/>
+            <path d="M196 208 V156 H200 L208 104 L216 156 H224 L232 104 L240 156 H244 V208 Z" stroke="#93a9c9"/>
           </g>
           <line x1="46" y1="208" x2="394" y2="208" stroke="#c4d0e2" stroke-width="2.5" stroke-linecap="round"/>
           <!-- plate -->
@@ -343,7 +346,6 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
             <ellipse cx="34" cy="20" rx="40" ry="9" fill="#fff" stroke="#454b5e" stroke-width="2.4"/>
             <ellipse cx="34" cy="20" rx="30" ry="6" fill="#c8895e" opacity=".55"/>
             <path d="M74 30 a20 18 0 0 1 0 34" fill="none" stroke="#454b5e" stroke-width="2.4"/>
-            <!-- steam -->
             <g stroke="#b7c3d6" stroke-width="2.6" fill="none" stroke-linecap="round">
               <path class="steam s1" d="M20 8 c-6 -8 6 -12 0 -22"/>
               <path class="steam s2" d="M36 6 c-6 -8 6 -12 0 -22"/>
@@ -381,23 +383,25 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
 
   <div class="stats reveal">
     <div class="row">
-      <div class="s"><div class="n" data-to="2.7" data-suffix="M">0</div><div class="l"><span class="en">paying visitors at Prague Castle, 2025</span><span class="cz">platících návštěvníků Pražského hradu, 2025</span></div></div>
-      <div class="s warn"><div class="n" data-to="77" data-suffix="%">0</div><div class="l"><span class="en">of Castle visitors are foreign</span><span class="cz">návštěvníků Hradu je ze zahraničí</span></div></div>
-      <div class="s warn"><div class="n" data-to="0">0</div><div class="l"><span class="en">pages on the site in English</span><span class="cz">stránky webu v angličtině</span></div></div>
-      <div class="s"><div class="n" data-to="4">0</div><div class="l"><span class="en">branches, incl. the Castle</span><span class="cz">pobočky, včetně Hradu</span></div></div>
+      <div class="s"><div class="n" data-to="2.7" data-suffix="M">0</div><div class="l"><span class="en">paying visitors at Prague Castle, 2025</span><span class="cz">platících návštěvníků Pražského hradu, 2025</span><span class="de">zahlende Besucher der Prager Burg, 2025</span></div></div>
+      <div class="s warn"><div class="n" data-to="77" data-suffix="%">0</div><div class="l"><span class="en">of Castle visitors are foreign</span><span class="cz">návštěvníků Hradu je ze zahraničí</span><span class="de">der Burgbesucher kommen aus dem Ausland</span></div></div>
+      <div class="s warn"><div class="n" data-to="0">0</div><div class="l"><span class="en">pages on the site in English</span><span class="cz">stránky webu v angličtině</span><span class="de">Seiten der Website auf Englisch</span></div></div>
+      <div class="s"><div class="n" data-to="4">0</div><div class="l"><span class="en">branches, incl. the Castle</span><span class="cz">pobočky, včetně Hradu</span><span class="de">Filialen, inkl. der Burg</span></div></div>
     </div>
     <div class="cap">
       <span class="en">An <b>International</b> academy at the Castle, in front of a mostly foreign crowd &mdash; and not one page they can read. <span class="src">Prague Castle 2025, autumn visitor survey.</span></span>
       <span class="cz"><b>Mezinárodní</b> akademie na Hradě, před převážně zahraničním davem &mdash; a ani jedna stránka, kterou přečtou. <span class="src">Pražský hrad 2025, podzimní průzkum návštěvníků.</span></span>
+      <span class="de">Eine <b>internationale</b> Akademie auf der Burg, vor einem überwiegend ausländischen Publikum &mdash; und keine einzige Seite, die es lesen kann. <span class="src">Prager Burg 2025, Besucherumfrage im Herbst.</span></span>
     </div>
   </div>
 
   <section class="reveal">
-    <div class="kick"><span class="bar"></span><span class="eyebrow"><span class="en">The one gap</span><span class="cz">Jediná mezera</span></span></div>
-    <h2><span class="en">A visitor from abroad hits a wall on the first click</span><span class="cz">Návštěvník ze zahraničí narazí hned na první kliknutí</span></h2>
+    <div class="kick"><span class="bar"></span><span class="eyebrow"><span class="en">The one gap</span><span class="cz">Jediná mezera</span><span class="de">Die eine Lücke</span></span></div>
+    <h2><span class="en">A visitor from abroad hits a wall on the first click</span><span class="cz">Návštěvník ze zahraničí narazí hned na první kliknutí</span><span class="de">Ein Besucher aus dem Ausland stößt beim ersten Klick an eine Wand</span></h2>
     <p class="sub">
       <span class="en">Your site has no language switch, anywhere. Every menu, course, cake and voucher is Czech-only. A tourist outside the Castle café, or a company looking for a corporate gift, opens the page and cannot read a word of it.</span>
       <span class="cz">Váš web nemá nikde přepínač jazyků. Každé menu, kurz, dort i poukaz jsou jen česky. Turista před kavárnou na Hradě nebo firma, která shání firemní dárek, otevře stránku a nepřečte ani slovo.</span>
+      <span class="de">Ihre Website hat nirgends eine Sprachumschaltung. Jedes Menü, jeder Kurs, jede Torte und jeder Gutschein ist nur auf Tschechisch. Ein Tourist vor dem Burg-Café oder eine Firma auf der Suche nach einem Firmengeschenk öffnet die Seite und versteht kein Wort.</span>
     </p>
 
     <div class="browser">
@@ -411,22 +415,24 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
     <p class="caption">
       <span class="en"><b>This is the real navigation, today.</b> There is nowhere to click for English. That&rsquo;s the whole problem &mdash; small, and fixable.</span>
       <span class="cz"><b>Tohle je skutečná navigace, dnes.</b> Není kam kliknout pro angličtinu. To je celý problém &mdash; malý a řešitelný.</span>
+      <span class="de"><b>Das ist die echte Navigation, heute.</b> Es gibt nichts, wo man für Englisch klicken könnte. Das ist das ganze Problem &mdash; klein und lösbar.</span>
     </p>
   </section>
 
   <div class="rule"></div>
 
   <section class="reveal">
-    <div class="kick"><span class="bar"></span><span class="eyebrow"><span class="en">Before &rarr; after</span><span class="cz">Předtím &rarr; potom</span></span></div>
-    <h2><span class="en">Same site, same design, now readable</span><span class="cz">Stejný web, stejný design, teď čitelný</span></h2>
+    <div class="kick"><span class="bar"></span><span class="eyebrow"><span class="en">Before &rarr; after</span><span class="cz">Předtím &rarr; potom</span><span class="de">Vorher &rarr; nachher</span></span></div>
+    <h2><span class="en">Same site, same design, now readable</span><span class="cz">Stejný web, stejný design, teď čitelný</span><span class="de">Gleiche Website, gleiches Design, jetzt lesbar</span></h2>
     <p class="sub">
       <span class="en">Your real page text, translated cleanly. Nothing about the look changes. A visitor flips one switch and the whole site is in their language.</span>
       <span class="cz">Váš skutečný text, přeložený čistě. Na vzhledu se nemění nic. Návštěvník přepne jeden přepínač a celý web je v jeho jazyce.</span>
+      <span class="de">Ihr echter Seitentext, sauber übersetzt. Am Aussehen ändert sich nichts. Ein Besucher legt einen Schalter um und die ganze Website ist in seiner Sprache.</span>
     </p>
 
     <div class="ba">
       <div class="col cz-col">
-        <div class="h"><span class="flag" style="background:linear-gradient(90deg,#fff 50%,#d7141a 50%)"></span><span class="en">Czech, today</span><span class="cz">Česky, dnes</span></div>
+        <div class="h"><span class="flag" style="background:linear-gradient(90deg,#fff 50%,#d7141a 50%)"></span><span class="en">Czech, today</span><span class="cz">Česky, dnes</span><span class="de">Tschechisch, heute</span></div>
         <ul>
           <li>Slavnostní dorty</li>
           <li>Kurzy pro začátečníky a pokročilé</li>
@@ -437,14 +443,14 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
         </ul>
       </div>
       <div class="col en-col">
-        <div class="h"><span class="flag" style="background:linear-gradient(180deg,#012169 33%,#fff 33% 66%,#C8102E 66%)"></span><span class="en">English, added</span><span class="cz">Anglicky, doplněno</span></div>
+        <div class="h"><span class="flag notde" style="background:linear-gradient(180deg,#012169 33%,#fff 33% 66%,#C8102E 66%)"></span><span class="flag deonly" style="background:linear-gradient(180deg,#000 33%,#dd0000 33% 66%,#ffce00 66%)"></span><span class="notde"><span class="en">English, added</span><span class="cz">Anglicky, doplněno</span></span><span class="deonly">Deutsch, ergänzt</span></div>
         <ul>
-          <li>Celebration cakes</li>
-          <li>Courses for beginners and the more advanced</li>
-          <li>Courses for children</li>
-          <li>Give the gift of an experience</li>
-          <li>Gift vouchers for our cafés</li>
-          <li>Ready to collect in just a few hours</li>
+          <li><span class="notde">Celebration cakes</span><span class="deonly">Festtagstorten</span></li>
+          <li><span class="notde">Courses for beginners and the more advanced</span><span class="deonly">Kurse für Anfänger und Fortgeschrittene</span></li>
+          <li><span class="notde">Courses for children</span><span class="deonly">Kurse für Kinder</span></li>
+          <li><span class="notde">Give the gift of an experience</span><span class="deonly">Verschenken Sie ein Erlebnis</span></li>
+          <li><span class="notde">Gift vouchers for our cafés</span><span class="deonly">Geschenkgutscheine für unsere Cafés</span></li>
+          <li><span class="notde">Ready to collect in just a few hours</span><span class="deonly">In wenigen Stunden abholbereit</span></li>
         </ul>
       </div>
     </div>
@@ -453,18 +459,19 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
   <div class="rule"></div>
 
   <section class="reveal">
-    <div class="kick"><span class="bar"></span><span class="eyebrow"><span class="en">The uncomfortable part</span><span class="cz">Nepříjemná část</span></span></div>
-    <h2><span class="en">You&rsquo;re behind smaller shops, not ahead of them</span><span class="cz">Za menšími cukrárnami zaostáváte, nevedete</span></h2>
+    <div class="kick"><span class="bar"></span><span class="eyebrow"><span class="en">The uncomfortable part</span><span class="cz">Nepříjemná část</span><span class="de">Der unbequeme Teil</span></span></div>
+    <h2><span class="en">You&rsquo;re behind smaller shops, not ahead of them</span><span class="cz">Za menšími cukrárnami zaostáváte, nevedete</span><span class="de">Sie hinken kleineren Läden hinterher, statt vorn zu sein</span></h2>
     <p class="sub">
       <span class="en">English, online ordering and gift vouchers are already normal for Prague patisseries &mdash; even ones without a Castle address or an international academy. This isn&rsquo;t a luxury upgrade. It&rsquo;s catching up, then leaping.</span>
       <span class="cz">Angličtina, online objednávky a dárkové poukazy jsou u pražských cukráren už běžné &mdash; i u těch bez adresy na Hradě a mezinárodní akademie. Tohle není luxusní nadstavba. Je to dorovnat a pak předběhnout.</span>
+      <span class="de">Englisch, Online-Bestellung und Geschenkgutscheine sind bei Prager Konditoreien längst normal &mdash; sogar bei solchen ohne Burg-Adresse und internationale Akademie. Das ist kein Luxus-Upgrade. Es ist aufholen und dann überholen.</span>
     </p>
     <div class="peers">
       <div class="prow phead">
-        <div><span class="en">Prague patisserie</span><span class="cz">Pražská cukrárna</span></div>
-        <div class="cell"><span class="en">English</span><span class="cz">Anglicky</span></div>
-        <div class="cell"><span class="en">Online order</span><span class="cz">Online objednávka</span></div>
-        <div class="cell"><span class="en">Vouchers</span><span class="cz">Poukazy</span></div>
+        <div><span class="en">Prague patisserie</span><span class="cz">Pražská cukrárna</span><span class="de">Prager Konditorei</span></div>
+        <div class="cell"><span class="en">English</span><span class="cz">Anglicky</span><span class="de">Englisch</span></div>
+        <div class="cell"><span class="en">Online order</span><span class="cz">Online objednávka</span><span class="de">Online-Bestellung</span></div>
+        <div class="cell"><span class="en">Vouchers</span><span class="cz">Poukazy</span><span class="de">Gutscheine</span></div>
       </div>
       <div class="prow"><div class="pname">nasladko.cz</div><div class="cell yes">✓</div><div class="cell yes">✓</div><div class="cell yes">✓</div></div>
       <div class="prow"><div class="pname">frutiko.cz</div><div class="cell yes">✓</div><div class="cell yes">✓</div><div class="cell yes">✓</div></div>
@@ -475,46 +482,48 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
     <p class="caption">
       <span class="en">Based on their public websites, July 2026. The gap is the opportunity: you have the brand and the location they don&rsquo;t &mdash; you&rsquo;re just invisible to anyone who doesn&rsquo;t read Czech.</span>
       <span class="cz">Podle jejich veřejných webů, červenec 2026. Ta mezera je příležitost: máte značku a polohu, které oni nemají &mdash; jen jste neviditelní pro každého, kdo neumí česky.</span>
+      <span class="de">Basierend auf ihren öffentlichen Websites, Juli 2026. Die Lücke ist die Chance: Sie haben die Marke und die Lage, die ihnen fehlen &mdash; Sie sind nur für alle unsichtbar, die kein Tschechisch lesen.</span>
     </p>
   </section>
 
   <div class="rule"></div>
 
   <section class="reveal">
-    <div class="kick"><span class="bar"></span><span class="eyebrow"><span class="en">What we actually do</span><span class="cz">Co přesně uděláme</span></span></div>
-    <h2><span class="en">We add English to the site you already have</span><span class="cz">Doplníme angličtinu na web, který už máte</span></h2>
+    <div class="kick"><span class="bar"></span><span class="eyebrow"><span class="en">What we actually do</span><span class="cz">Co přesně uděláme</span><span class="de">Was wir konkret tun</span></span></div>
+    <h2><span class="en">We add English to the site you already have</span><span class="cz">Doplníme angličtinu na web, který už máte</span><span class="de">Wir ergänzen Englisch auf der Website, die Sie schon haben</span></h2>
     <p class="sub">
       <span class="en">No redesign, no migration, no starting over. We work on your existing site and add the language layer it was built to support.</span>
       <span class="cz">Žádný redesign, žádná migrace, žádné začínání od nuly. Pracujeme na vašem stávajícím webu a doplníme jazykovou vrstvu, na kterou byl postavený.</span>
+      <span class="de">Kein Redesign, keine Migration, kein Neuanfang. Wir arbeiten an Ihrer bestehenden Website und ergänzen die Sprachebene, für die sie gebaut wurde.</span>
     </p>
 
     <div class="steps">
       <div class="step">
         <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15.5 0 18M12 3c-2.5 2.5-2.5 15.5 0 18"/></svg></span>
         <div>
-          <h3><span class="en">A language switch</span><span class="cz">Přepínač jazyků</span></h3>
-          <p><span class="en">A clean EN toggle in the header, on every page, styled to match your current design.</span><span class="cz">Čistý přepínač EN v hlavičce, na každé stránce, sladěný s vaším současným designem.</span></p>
+          <h3><span class="en">A language switch</span><span class="cz">Přepínač jazyků</span><span class="de">Eine Sprachumschaltung</span></h3>
+          <p><span class="en">A clean EN toggle in the header, on every page, styled to match your current design.</span><span class="cz">Čistý přepínač EN v hlavičce, na každé stránce, sladěný s vaším současným designem.</span><span class="de">Ein sauberer EN-Umschalter im Header, auf jeder Seite, im Stil Ihres aktuellen Designs.</span></p>
         </div>
       </div>
       <div class="step">
         <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5h11M9 3v2M6 5c0 4 2 7 5 8M12 13c-3 2-6 3-8 3"/><path d="M14 20l4-9 4 9M15.5 17h5"/></svg></span>
         <div>
-          <h3><span class="en">Every page translated</span><span class="cz">Přeložená každá stránka</span></h3>
-          <p><span class="en">Academy, e-shop, cakes, vouchers, reservations and the legal pages, in natural English written for real customers.</span><span class="cz">Akademie, e-shop, dorty, poukazy, rezervace i právní stránky, v přirozené angličtině psané pro skutečné zákazníky.</span></p>
+          <h3><span class="en">Every page translated</span><span class="cz">Přeložená každá stránka</span><span class="de">Jede Seite übersetzt</span></h3>
+          <p><span class="en">Academy, e-shop, cakes, vouchers, reservations and the legal pages, in natural English written for real customers.</span><span class="cz">Akademie, e-shop, dorty, poukazy, rezervace i právní stránky, v přirozené angličtině psané pro skutečné zákazníky.</span><span class="de">Akademie, Online-Shop, Torten, Gutscheine, Reservierungen und die rechtlichen Seiten &mdash; in natürlichem Englisch für echte Kunden.</span></p>
         </div>
       </div>
       <div class="step">
         <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="M16 16l5 5"/></svg></span>
         <div>
-          <h3><span class="en">Found in English</span><span class="cz">Najdou vás v angličtině</span></h3>
-          <p><span class="en">Proper hreflang and English SEO so Google shows the English page to English searches, not the Czech one.</span><span class="cz">Správné hreflang a anglické SEO, aby Google ukazoval anglickou stránku na anglické hledání, ne českou.</span></p>
+          <h3><span class="en">Found in English</span><span class="cz">Najdou vás v angličtině</span><span class="de">Auf Englisch gefunden werden</span></h3>
+          <p><span class="en">Proper hreflang and English SEO so Google shows the English page to English searches, not the Czech one.</span><span class="cz">Správné hreflang a anglické SEO, aby Google ukazoval anglickou stránku na anglické hledání, ne českou.</span><span class="de">Sauberes hreflang und englisches SEO, damit Google bei englischen Suchen die englische Seite zeigt, nicht die tschechische.</span></p>
         </div>
       </div>
       <div class="step">
         <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 6L9 17l-5-5"/></svg></span>
         <div>
-          <h3><span class="en">Tested and handed over</span><span class="cz">Otestováno a předáno</span></h3>
-          <p><span class="en">Checked on phone and desktop, every link and the whole e-shop working in English before it goes live.</span><span class="cz">Ověřeno na mobilu i počítači, každý odkaz a celý e-shop funguje anglicky, než to půjde live.</span></p>
+          <h3><span class="en">Tested and handed over</span><span class="cz">Otestováno a předáno</span><span class="de">Getestet und übergeben</span></h3>
+          <p><span class="en">Checked on phone and desktop, every link and the whole e-shop working in English before it goes live.</span><span class="cz">Ověřeno na mobilu i počítači, každý odkaz a celý e-shop funguje anglicky, než to půjde live.</span><span class="de">Auf Handy und Desktop geprüft &mdash; jeder Link und der ganze Shop funktionieren auf Englisch, bevor es live geht.</span></p>
         </div>
       </div>
     </div>
@@ -522,91 +531,93 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
     <p class="keep">
       <span class="en"><b>What we do not touch:</b> your design, your photography, your brand, your e-shop, or the agency work you already paid for. We add, we don&rsquo;t replace.</span>
       <span class="cz"><b>Čeho se nedotkneme:</b> vašeho designu, fotek, značky, e-shopu ani práce agentury, kterou jste už zaplatili. Přidáváme, nenahrazujeme.</span>
+      <span class="de"><b>Was wir nicht anfassen:</b> Ihr Design, Ihre Fotos, Ihre Marke, Ihren Shop oder die Agenturarbeit, die Sie bereits bezahlt haben. Wir ergänzen, wir ersetzen nicht.</span>
     </p>
   </section>
 
   <div class="rule"></div>
 
   <section class="reveal">
-    <div class="kick"><span class="bar"></span><span class="eyebrow"><span class="en">Why it pays for itself</span><span class="cz">Proč se to zaplatí</span></span></div>
-    <h2><span class="en">The customers are already at your door</span><span class="cz">Zákazníci už stojí přede dveřmi</span></h2>
+    <div class="kick"><span class="bar"></span><span class="eyebrow"><span class="en">Why it pays for itself</span><span class="cz">Proč se to zaplatí</span><span class="de">Warum es sich rechnet</span></span></div>
+    <h2><span class="en">The customers are already at your door</span><span class="cz">Zákazníci už stojí přede dveřmi</span><span class="de">Die Kunden stehen schon vor Ihrer Tür</span></h2>
     <div class="cards">
       <div class="p">
         <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 21V9l8-6 8 6v12M9 21v-6h6v6"/></svg></span>
-        <div class="t"><span class="en">Tourists at the Castle</span><span class="cz">Turisté na Hradě</span></div><p><span class="en">Guests at your Prague Castle café can finally read the menu, book a course and buy a cake to take home.</span><span class="cz">Hosté vaší kavárny na Pražském hradě si konečně přečtou menu, zarezervují kurz a koupí dort s sebou.</span></p></div>
+        <div class="t"><span class="en">Tourists at the Castle</span><span class="cz">Turisté na Hradě</span><span class="de">Touristen auf der Burg</span></div><p><span class="en">Guests at your Prague Castle café can finally read the menu, book a course and buy a cake to take home.</span><span class="cz">Hosté vaší kavárny na Pražském hradě si konečně přečtou menu, zarezervují kurz a koupí dort s sebou.</span><span class="de">Gäste in Ihrem Café auf der Prager Burg können endlich die Karte lesen, einen Kurs buchen und eine Torte für zu Hause kaufen.</span></p></div>
       <div class="p">
         <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M3 12h18M12 8v13M8 8c-2.5 0-3.5-4 0-4 2 0 4 4 4 4M16 8c2.5 0 3.5-4 0-4-2 0-4 4-4 4"/></svg></span>
-        <div class="t"><span class="en">Gifts and vouchers</span><span class="cz">Dárky a poukazy</span></div><p><span class="en">English-speaking visitors and expats buy vouchers and celebration cakes online, in a language they trust with a payment.</span><span class="cz">Anglicky mluvící návštěvníci a expati koupí poukazy a slavnostní dorty online, v jazyce, kterému u platby věří.</span></p></div>
+        <div class="t"><span class="en">Gifts and vouchers</span><span class="cz">Dárky a poukazy</span><span class="de">Geschenke und Gutscheine</span></div><p><span class="en">English-speaking visitors and expats buy vouchers and celebration cakes online, in a language they trust with a payment.</span><span class="cz">Anglicky mluvící návštěvníci a expati koupí poukazy a slavnostní dorty online, v jazyce, kterému u platby věří.</span><span class="de">Englischsprachige Besucher und Expats kaufen Gutscheine und Festtagstorten online &mdash; in einer Sprache, der sie bei einer Zahlung vertrauen.</span></p></div>
       <div class="p">
         <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M17 20v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2M10 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6M21 20v-2a4 4 0 0 0-3-3.9M16 4.1a4 4 0 0 1 0 7.8"/></svg></span>
-        <div class="t"><span class="en">Companies</span><span class="cz">Firmy</span></div><p><span class="en">International firms in Prague booking corporate gifts and team pastry courses can order without needing a Czech speaker.</span><span class="cz">Mezinárodní firmy v Praze si objednají firemní dárky a týmové kurzy, aniž by potřebovaly Čecha.</span></p></div>
+        <div class="t"><span class="en">Companies</span><span class="cz">Firmy</span><span class="de">Firmen</span></div><p><span class="en">International firms in Prague booking corporate gifts and team pastry courses can order without needing a Czech speaker.</span><span class="cz">Mezinárodní firmy v Praze si objednají firemní dárky a týmové kurzy, aniž by potřebovaly Čecha.</span><span class="de">Internationale Firmen in Prag bestellen Firmengeschenke und Team-Backkurse, ohne einen Tschechen zu brauchen.</span></p></div>
     </div>
   </section>
 
   <div class="rule"></div>
 
   <section class="reveal">
-    <div class="kick"><span class="bar"></span><span class="eyebrow"><span class="en">Everything we can do</span><span class="cz">Co všechno umíme</span></span></div>
-    <h2><span class="en">English is the start. Here is the whole menu.</span><span class="cz">Angličtina je začátek. Tady je celé menu.</span></h2>
+    <div class="kick"><span class="bar"></span><span class="eyebrow"><span class="en">Everything we can do</span><span class="cz">Co všechno umíme</span><span class="de">Alles, was wir können</span></span></div>
+    <h2><span class="en">English is the start. Here is the whole menu.</span><span class="cz">Angličtina je začátek. Tady je celé menu.</span><span class="de">Englisch ist der Anfang. Hier ist das ganze Menü.</span></h2>
     <p class="sub">
       <span class="en">Every one of these is tied to something real at Ippa, and we scope and price each as you&rsquo;re ready. No big-bang project: start with English, prove it, then pick what&rsquo;s next. <b>&#9733; = the starting deal &nbsp;·&nbsp; New = added after researching your market.</b></span>
       <span class="cz">Každá z těchto věcí navazuje na realitu Ippa a každou naceníme, až na ni bude čas. Žádný velký projekt najednou: začneme angličtinou, dokážeme to, pak si vyberete, co dál. <b>&#9733; = vstupní deal &nbsp;·&nbsp; Nové = doplněno po průzkumu vašeho trhu.</b></span>
+      <span class="de">Jeder dieser Punkte knüpft an etwas Reales bei Ippa an, und wir planen und kalkulieren jeden, wenn Sie so weit sind. Kein Big-Bang-Projekt: mit Englisch beginnen, es beweisen, dann das Nächste wählen. <b>&#9733; = das Startpaket &nbsp;·&nbsp; Neu = nach der Analyse Ihres Marktes ergänzt.</b></span>
     </p>
 
     <div class="menu">
 
       <div class="mgroup">
-        <div class="glabel"><span class="gn">1</span><span class="en">Speak every visitor&rsquo;s language</span><span class="cz">Mluvte jazykem každého hosta</span></div>
+        <div class="glabel"><span class="gn">1</span><span class="en">Speak every visitor&rsquo;s language</span><span class="cz">Mluvte jazykem každého hosta</span><span class="de">Sprechen Sie die Sprache jedes Gastes</span></div>
         <div class="mgrid">
-          <div class="mitem"><div class="mt"><span class="en">English version of the whole site</span><span class="cz">Anglická verze celého webu</span> <span class="star"><span class="en">start here</span><span class="cz">start</span></span></div><div class="md"><span class="en">The starting deal: menu, e-shop, academy, all of it.</span><span class="cz">Vstupní deal: menu, e-shop, akademie, všechno.</span></div></div>
-          <div class="mitem"><div class="mt"><span class="en">German too, for the tourist crowd</span><span class="cz">A německy, pro turisty</span></div><div class="md"><span class="en">Prague runs on German and Austrian visitors. Add DE next.</span><span class="cz">Praha žije z německých a rakouských turistů. DE jako další.</span></div></div>
-          <div class="mitem"><div class="mt"><span class="en">QR menu at the table</span><span class="cz">QR menu na stole</span></div><div class="md"><span class="en">Scan at the Castle café, read the menu in your language. Digital orders run ~23% higher than in-person.</span><span class="cz">Sken v kavárně na Hradě, menu ve vašem jazyce. Digitální objednávky bývají o ~23 % vyšší než u stolu.</span></div></div>
-          <div class="mitem"><div class="mt"><span class="en">Allergen &amp; menu info, every language</span><span class="cz">Alergeny a menu v každém jazyce</span> <span class="star new"><span class="en">new</span><span class="cz">nové</span></span></div><div class="md"><span class="en">Tourists trust a counter that answers &ldquo;what&rsquo;s in it?&rdquo; before they ask.</span><span class="cz">Turista věří pultu, který odpoví &bdquo;co v tom je?&ldquo; dřív, než se zeptá.</span></div></div>
-          <div class="mitem"><div class="mt"><span class="en">A 24/7 concierge that speaks any language</span><span class="cz">Concierge 24/7 v jakémkoli jazyce</span></div><div class="md"><span class="en">Answers allergens, hours and how to reach you, any time.</span><span class="cz">Odpoví na alergeny, otevíračku i cestu k vám, kdykoli.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">English version of the whole site</span><span class="cz">Anglická verze celého webu</span><span class="de">Englische Version der ganzen Website</span> <span class="star"><span class="en">start here</span><span class="cz">start</span><span class="de">Start</span></span></div><div class="md"><span class="en">The starting deal: menu, e-shop, academy, all of it.</span><span class="cz">Vstupní deal: menu, e-shop, akademie, všechno.</span><span class="de">Das Startpaket: Karte, Shop, Akademie, alles.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">German too, for the tourist crowd</span><span class="cz">A německy, pro turisty</span><span class="de">Und Deutsch, für die Touristen</span></div><div class="md"><span class="en">Prague runs on German and Austrian visitors. Add DE next.</span><span class="cz">Praha žije z německých a rakouských turistů. DE jako další.</span><span class="de">Prag lebt von deutschen und österreichischen Gästen. DE als Nächstes.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">QR menu at the table</span><span class="cz">QR menu na stole</span><span class="de">QR-Menü am Tisch</span></div><div class="md"><span class="en">Scan at the Castle café, read the menu in your language. Digital orders run ~23% higher than in-person.</span><span class="cz">Sken v kavárně na Hradě, menu ve vašem jazyce. Digitální objednávky bývají o ~23 % vyšší než u stolu.</span><span class="de">Scannen im Burg-Café, Karte in Ihrer Sprache. Digitale Bestellungen liegen ~23 % höher als am Tisch.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">Allergen &amp; menu info, every language</span><span class="cz">Alergeny a menu v každém jazyce</span><span class="de">Allergene &amp; Menü-Infos, jede Sprache</span> <span class="star new"><span class="en">new</span><span class="cz">nové</span><span class="de">neu</span></span></div><div class="md"><span class="en">Tourists trust a counter that answers &ldquo;what&rsquo;s in it?&rdquo; before they ask.</span><span class="cz">Turista věří pultu, který odpoví &bdquo;co v tom je?&ldquo; dřív, než se zeptá.</span><span class="de">Touristen vertrauen einem Tresen, der &bdquo;Was ist drin?&ldquo; beantwortet, bevor sie fragen.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">A 24/7 concierge that speaks any language</span><span class="cz">Concierge 24/7 v jakémkoli jazyce</span><span class="de">Ein 24/7-Concierge, der jede Sprache spricht</span></div><div class="md"><span class="en">Answers allergens, hours and how to reach you, any time.</span><span class="cz">Odpoví na alergeny, otevíračku i cestu k vám, kdykoli.</span><span class="de">Beantwortet Allergene, Öffnungszeiten und den Weg zu Ihnen, jederzeit.</span></div></div>
         </div>
       </div>
 
       <div class="mgroup">
-        <div class="glabel"><span class="gn">2</span><span class="en">Get found before they arrive</span><span class="cz">Ať vás najdou dřív, než dorazí</span></div>
+        <div class="glabel"><span class="gn">2</span><span class="en">Get found before they arrive</span><span class="cz">Ať vás najdou dřív, než dorazí</span><span class="de">Gefunden werden, bevor sie ankommen</span></div>
         <div class="mgrid">
-          <div class="mitem"><div class="mt"><span class="en">A Google profile that sells</span><span class="cz">Google profil, který prodává</span></div><div class="md"><span class="en">Maps, reserve and order from Google, English reviews up top. That&rsquo;s where a tourist starts.</span><span class="cz">Mapy, rezervace i objednávka z Googlu, anglické recenze nahoře. Tam turista začíná.</span></div></div>
-          <div class="mitem"><div class="mt"><span class="en">Instagram turned into a shop</span><span class="cz">Instagram jako obchod</span></div><div class="md"><span class="en">Thousands follow you and can buy nothing from a post. Make the feed shoppable.</span><span class="cz">Tisíce vás sledují a z příspěvku si nekoupí nic. Udělejme feed nakupovatelný.</span></div></div>
-          <div class="mitem"><div class="mt"><span class="en">TripAdvisor &amp; review presence</span><span class="cz">TripAdvisor a recenze</span> <span class="star new"><span class="en">new</span><span class="cz">nové</span></span></div><div class="md"><span class="en">Tourists read reviews before they walk in. Own that first impression.</span><span class="cz">Turista si čte recenze, než vejde. Ovládněte první dojem.</span></div></div>
-          <div class="mitem"><div class="mt"><span class="en">Cards in the hotels by the Castle</span><span class="cz">Karty v hotelích u Hradu</span></div><div class="md"><span class="en">A QR concierge card at nearby hotels sends English guests straight to you.</span><span class="cz">QR karta v okolních hotelech pošle zahraniční hosty rovnou k vám.</span></div></div>
-          <div class="mitem"><div class="mt"><span class="en">A branch finder that works for tourists</span><span class="cz">Mapa poboček pro turisty</span></div><div class="md"><span class="en">Four branches on one clear English map with hours and directions.</span><span class="cz">Čtyři pobočky na jedné přehledné anglické mapě s otevíračkou a cestou.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">A Google profile that sells</span><span class="cz">Google profil, který prodává</span><span class="de">Ein Google-Profil, das verkauft</span></div><div class="md"><span class="en">Maps, reserve and order from Google, English reviews up top. That&rsquo;s where a tourist starts.</span><span class="cz">Mapy, rezervace i objednávka z Googlu, anglické recenze nahoře. Tam turista začíná.</span><span class="de">Maps, Reservierung und Bestellung direkt aus Google, englische Bewertungen oben. Da beginnt ein Tourist.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">Instagram turned into a shop</span><span class="cz">Instagram jako obchod</span><span class="de">Instagram als Shop</span></div><div class="md"><span class="en">Thousands follow you and can buy nothing from a post. Make the feed shoppable.</span><span class="cz">Tisíce vás sledují a z příspěvku si nekoupí nic. Udělejme feed nakupovatelný.</span><span class="de">Tausende folgen Ihnen und können aus einem Post nichts kaufen. Machen wir den Feed kaufbar.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">TripAdvisor &amp; review presence</span><span class="cz">TripAdvisor a recenze</span><span class="de">TripAdvisor &amp; Bewertungen</span> <span class="star new"><span class="en">new</span><span class="cz">nové</span><span class="de">neu</span></span></div><div class="md"><span class="en">Tourists read reviews before they walk in. Own that first impression.</span><span class="cz">Turista si čte recenze, než vejde. Ovládněte první dojem.</span><span class="de">Touristen lesen Bewertungen, bevor sie hereinkommen. Beherrschen Sie den ersten Eindruck.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">Cards in the hotels by the Castle</span><span class="cz">Karty v hotelích u Hradu</span><span class="de">Karten in den Hotels an der Burg</span></div><div class="md"><span class="en">A QR concierge card at nearby hotels sends English guests straight to you.</span><span class="cz">QR karta v okolních hotelech pošle zahraniční hosty rovnou k vám.</span><span class="de">Eine QR-Concierge-Karte in nahen Hotels schickt ausländische Gäste direkt zu Ihnen.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">A branch finder that works for tourists</span><span class="cz">Mapa poboček pro turisty</span><span class="de">Eine Filialkarte für Touristen</span></div><div class="md"><span class="en">Four branches on one clear English map with hours and directions.</span><span class="cz">Čtyři pobočky na jedné přehledné anglické mapě s otevíračkou a cestou.</span><span class="de">Vier Filialen auf einer klaren englischen Karte mit Öffnungszeiten und Anfahrt.</span></div></div>
         </div>
       </div>
 
       <div class="mgroup">
-        <div class="glabel"><span class="gn">3</span><span class="en">Turn one visit into many</span><span class="cz">Z jedné návštěvy udělejte mnoho</span></div>
+        <div class="glabel"><span class="gn">3</span><span class="en">Turn one visit into many</span><span class="cz">Z jedné návštěvy udělejte mnoho</span><span class="de">Aus einem Besuch viele machen</span></div>
         <div class="mgrid">
-          <div class="mitem"><div class="mt"><span class="en">A QR code on every box</span><span class="cz">QR kód na každé krabici</span></div><div class="md"><span class="en">One scan reorders the cake, books a course or leaves a review.</span><span class="cz">Sken znovu objedná dort, zarezervuje kurz nebo přidá recenzi.</span></div></div>
-          <div class="mitem"><div class="mt"><span class="en">Your thousands of reviews, on the site</span><span class="cz">Vaše tisíce recenzí, na webu</span></div><div class="md"><span class="en">Five stars everywhere but your own page. We fix that.</span><span class="cz">Pět hvězd všude, jen ne na vašem webu. To spravíme.</span></div></div>
-          <div class="mitem"><div class="mt"><span class="en">Email flows that bring buyers back</span><span class="cz">E-maily, které vrací zákazníky</span></div><div class="md"><span class="en">After a purchase, a left cart, a birthday. Automatic. Email returns ~$36 per $1.</span><span class="cz">Po nákupu, po opuštěném košíku, k narozeninám. Automaticky. E-mail vrací ~$36 z $1.</span></div></div>
-          <div class="mitem"><div class="mt"><span class="en">Gift cards &amp; loyalty in the phone wallet</span><span class="cz">Dárkové karty a věrnost v mobilu</span></div><div class="md"><span class="en">Straight into Apple and Google Wallet. Nothing to lose.</span><span class="cz">Rovnou do Apple a Google Wallet. Není co ztratit.</span></div></div>
-          <div class="mitem"><div class="mt"><span class="en">A monthly pastry box, on subscription</span><span class="cz">Předplatné: krabice zákusků měsíčně</span></div><div class="md"><span class="en">One order, revenue every month. Perfect for expats and offices.</span><span class="cz">Jedna objednávka, tržba každý měsíc. Ideál pro expaty a kanceláře.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">A QR code on every box</span><span class="cz">QR kód na každé krabici</span><span class="de">Ein QR-Code auf jeder Schachtel</span></div><div class="md"><span class="en">One scan reorders the cake, books a course or leaves a review.</span><span class="cz">Sken znovu objedná dort, zarezervuje kurz nebo přidá recenzi.</span><span class="de">Ein Scan bestellt die Torte nach, bucht einen Kurs oder hinterlässt eine Bewertung.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">Your thousands of reviews, on the site</span><span class="cz">Vaše tisíce recenzí, na webu</span><span class="de">Ihre tausenden Bewertungen, auf der Website</span></div><div class="md"><span class="en">Five stars everywhere but your own page. We fix that.</span><span class="cz">Pět hvězd všude, jen ne na vašem webu. To spravíme.</span><span class="de">Fünf Sterne überall, nur nicht auf Ihrer eigenen Seite. Das richten wir.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">Email flows that bring buyers back</span><span class="cz">E-maily, které vrací zákazníky</span><span class="de">E-Mail-Strecken, die Käufer zurückholen</span></div><div class="md"><span class="en">After a purchase, a left cart, a birthday. Automatic. Email returns ~$36 per $1.</span><span class="cz">Po nákupu, po opuštěném košíku, k narozeninám. Automaticky. E-mail vrací ~$36 z $1.</span><span class="de">Nach dem Kauf, bei einem verlassenen Warenkorb, zum Geburtstag. Automatisch. E-Mail bringt ~36 $ pro 1 $.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">Gift cards &amp; loyalty in the phone wallet</span><span class="cz">Dárkové karty a věrnost v mobilu</span><span class="de">Geschenkkarten &amp; Treue im Handy-Wallet</span></div><div class="md"><span class="en">Straight into Apple and Google Wallet. Nothing to lose.</span><span class="cz">Rovnou do Apple a Google Wallet. Není co ztratit.</span><span class="de">Direkt in Apple und Google Wallet. Nichts zu verlieren.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">A monthly pastry box, on subscription</span><span class="cz">Předplatné: krabice zákusků měsíčně</span><span class="de">Eine monatliche Gebäckbox im Abo</span></div><div class="md"><span class="en">One order, revenue every month. Perfect for expats and offices.</span><span class="cz">Jedna objednávka, tržba každý měsíc. Ideál pro expaty a kanceláře.</span><span class="de">Eine Bestellung, jeden Monat Umsatz. Ideal für Expats und Büros.</span></div></div>
         </div>
       </div>
 
       <div class="mgroup">
-        <div class="glabel"><span class="gn">4</span><span class="en">Sell the high-margin things</span><span class="cz">Prodávejte to s nejvyšší marží</span></div>
+        <div class="glabel"><span class="gn">4</span><span class="en">Sell the high-margin things</span><span class="cz">Prodávejte to s nejvyšší marží</span><span class="de">Verkaufen Sie das mit der höchsten Marge</span></div>
         <div class="mgrid">
-          <div class="mitem"><div class="mt"><span class="en">Academy: waitlists instead of discounts</span><span class="cz">Akademie: čekačky místo slev</span> <span class="star"><span class="en">recommended next</span><span class="cz">doporučeně další</span></span></div><div class="md"><span class="en">Courses sell out, then you cut 20&ndash;33% to fill. Stop giving it away.</span><span class="cz">Kurzy se vyprodají, pak slevíte 20&ndash;33 %, aby se naplnily. Přestaňte je rozdávat.</span></div></div>
-          <div class="mitem"><div class="mt"><span class="en">Design-your-own cake, with an instant quote</span><span class="cz">Naceňte si dort na míru online</span></div><div class="md"><span class="en">The bespoke and wedding flow your site doesn&rsquo;t have yet.</span><span class="cz">Zakázkové a svatební, co web zatím neumí.</span></div></div>
-          <div class="mitem"><div class="mt"><span class="en">Corporate &amp; gifting portal</span><span class="cz">Portál pro firmy a dárky</span> <span class="star"><span class="en">recommended next</span><span class="cz">doporučeně další</span></span></div><div class="md"><span class="en">Bulk vouchers, team courses, recurring office deliveries.</span><span class="cz">Poukazy ve velkém, týmové kurzy, dodávky do kanceláří.</span></div></div>
-          <div class="mitem"><div class="mt"><span class="en">Masterclass &amp; guest-chef ticketing</span><span class="cz">Vstupenky na masterclass a hostující šéfy</span> <span class="star new"><span class="en">new</span><span class="cz">nové</span></span></div><div class="md"><span class="en">Sell seats to big names, then sell the paid replay to the world.</span><span class="cz">Prodejte místa u velkých jmen a pak i placený záznam celému světu.</span></div></div>
-          <div class="mitem"><div class="mt"><span class="en">Gift an experience: course vouchers</span><span class="cz">Darujte zážitek: poukazy na kurzy</span></div><div class="md"><span class="en">A beautiful e-gift delivered the second it&rsquo;s bought.</span><span class="cz">Krásný e-dárek doručený vteřinu po koupi.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">Academy: waitlists instead of discounts</span><span class="cz">Akademie: čekačky místo slev</span><span class="de">Akademie: Wartelisten statt Rabatte</span> <span class="star"><span class="en">recommended next</span><span class="cz">doporučeně další</span><span class="de">empfohlen</span></span></div><div class="md"><span class="en">Courses sell out, then you cut 20&ndash;33% to fill. Stop giving it away.</span><span class="cz">Kurzy se vyprodají, pak slevíte 20&ndash;33 %, aby se naplnily. Přestaňte je rozdávat.</span><span class="de">Kurse sind ausverkauft, dann senken Sie um 20&ndash;33 %, um zu füllen. Hören Sie auf, es zu verschenken.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">Design-your-own cake, with an instant quote</span><span class="cz">Naceňte si dort na míru online</span><span class="de">Torte selbst gestalten, mit Sofortpreis</span></div><div class="md"><span class="en">The bespoke and wedding flow your site doesn&rsquo;t have yet.</span><span class="cz">Zakázkové a svatební, co web zatím neumí.</span><span class="de">Der Maß- und Hochzeitsprozess, den Ihre Website noch nicht hat.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">Corporate &amp; gifting portal</span><span class="cz">Portál pro firmy a dárky</span><span class="de">Portal für Firmen &amp; Geschenke</span> <span class="star"><span class="en">recommended next</span><span class="cz">doporučeně další</span><span class="de">empfohlen</span></span></div><div class="md"><span class="en">Bulk vouchers, team courses, recurring office deliveries.</span><span class="cz">Poukazy ve velkém, týmové kurzy, dodávky do kanceláří.</span><span class="de">Gutscheine in Menge, Team-Kurse, wiederkehrende Büro-Lieferungen.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">Masterclass &amp; guest-chef ticketing</span><span class="cz">Vstupenky na masterclass a hostující šéfy</span><span class="de">Tickets für Masterclasses &amp; Gastköche</span> <span class="star new"><span class="en">new</span><span class="cz">nové</span><span class="de">neu</span></span></div><div class="md"><span class="en">Sell seats to big names, then sell the paid replay to the world.</span><span class="cz">Prodejte místa u velkých jmen a pak i placený záznam celému světu.</span><span class="de">Verkaufen Sie Plätze bei großen Namen und dann die kostenpflichtige Aufzeichnung an die Welt.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">Gift an experience: course vouchers</span><span class="cz">Darujte zážitek: poukazy na kurzy</span><span class="de">Ein Erlebnis verschenken: Kursgutscheine</span></div><div class="md"><span class="en">A beautiful e-gift delivered the second it&rsquo;s bought.</span><span class="cz">Krásný e-dárek doručený vteřinu po koupi.</span><span class="de">Ein schönes E-Geschenk, geliefert in der Sekunde des Kaufs.</span></div></div>
         </div>
       </div>
 
       <div class="mgroup">
-        <div class="glabel"><span class="gn">5</span><span class="en">Run it like a machine</span><span class="cz">Ať to jede samo</span></div>
+        <div class="glabel"><span class="gn">5</span><span class="en">Run it like a machine</span><span class="cz">Ať to jede samo</span><span class="de">Lassen Sie es wie eine Maschine laufen</span></div>
         <div class="mgrid">
-          <div class="mitem"><div class="mt"><span class="en">Online table reservations</span><span class="cz">Online rezervace stolů</span></div><div class="md"><span class="en">You say you don&rsquo;t take phone reservations. So let people book online.</span><span class="cz">Sami píšete, že telefonické neberete. Tak ať si rezervují online.</span></div></div>
-          <div class="mitem"><div class="mt"><span class="en">An AI agent that answers the phone</span><span class="cz">AI agent, který zvedá telefon</span></div><div class="md"><span class="en">Restaurants miss ~43% of calls. It picks up 24/7, any language, and takes the booking.</span><span class="cz">Restaurace zmeškají ~43 % hovorů. Zvedne 24/7, v jakémkoli jazyce, a vezme rezervaci.</span></div></div>
-          <div class="mitem"><div class="mt"><span class="en">WhatsApp order &amp; booking line</span><span class="cz">Objednávky a rezervace přes WhatsApp</span> <span class="star new"><span class="en">new</span><span class="cz">nové</span></span></div><div class="md"><span class="en">The channel tourists already message on. Meet them there.</span><span class="cz">Kanál, na kterém turisté už píšou. Buďte tam.</span></div></div>
-          <div class="mitem"><div class="mt"><span class="en">Seasonal campaigns on autopilot</span><span class="cz">Sezónní kampaně automaticky</span></div><div class="md"><span class="en">Christmas, Easter, Valentine&rsquo;s. Page, email and social, ready on time.</span><span class="cz">Vánoce, Velikonoce, Valentýn. Stránka, e-mail i sítě, včas.</span></div></div>
-          <div class="mitem"><div class="mt"><span class="en">One dashboard: where the money is</span><span class="cz">Jeden dashboard: kde jsou peníze</span></div><div class="md"><span class="en">What sells, which courses fill, which branch, at a glance.</span><span class="cz">Co se prodává, které kurzy se plní, která pobočka, na první pohled.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">Online table reservations</span><span class="cz">Online rezervace stolů</span><span class="de">Online-Tischreservierung</span></div><div class="md"><span class="en">You say you don&rsquo;t take phone reservations. So let people book online.</span><span class="cz">Sami píšete, že telefonické neberete. Tak ať si rezervují online.</span><span class="de">Sie sagen, telefonische Reservierungen nehmen Sie nicht. Also lassen Sie online buchen.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">An AI agent that answers the phone</span><span class="cz">AI agent, který zvedá telefon</span><span class="de">Ein KI-Agent, der ans Telefon geht</span></div><div class="md"><span class="en">Restaurants miss ~43% of calls. It picks up 24/7, any language, and takes the booking.</span><span class="cz">Restaurace zmeškají ~43 % hovorů. Zvedne 24/7, v jakémkoli jazyce, a vezme rezervaci.</span><span class="de">Restaurants verpassen ~43 % der Anrufe. Er nimmt 24/7 ab, in jeder Sprache, und nimmt die Reservierung auf.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">WhatsApp order &amp; booking line</span><span class="cz">Objednávky a rezervace přes WhatsApp</span><span class="de">Bestell- &amp; Buchungslinie per WhatsApp</span> <span class="star new"><span class="en">new</span><span class="cz">nové</span><span class="de">neu</span></span></div><div class="md"><span class="en">The channel tourists already message on. Meet them there.</span><span class="cz">Kanál, na kterém turisté už píšou. Buďte tam.</span><span class="de">Der Kanal, auf dem Touristen ohnehin schreiben. Treffen Sie sie dort.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">Seasonal campaigns on autopilot</span><span class="cz">Sezónní kampaně automaticky</span><span class="de">Saisonkampagnen auf Autopilot</span></div><div class="md"><span class="en">Christmas, Easter, Valentine&rsquo;s. Page, email and social, ready on time.</span><span class="cz">Vánoce, Velikonoce, Valentýn. Stránka, e-mail i sítě, včas.</span><span class="de">Weihnachten, Ostern, Valentinstag. Seite, E-Mail und Social, rechtzeitig fertig.</span></div></div>
+          <div class="mitem"><div class="mt"><span class="en">One dashboard: where the money is</span><span class="cz">Jeden dashboard: kde jsou peníze</span><span class="de">Ein Dashboard: wo das Geld ist</span></div><div class="md"><span class="en">What sells, which courses fill, which branch, at a glance.</span><span class="cz">Co se prodává, které kurzy se plní, která pobočka, na první pohled.</span><span class="de">Was verkauft, welche Kurse voll werden, welche Filiale &mdash; auf einen Blick.</span></div></div>
         </div>
       </div>
 
@@ -615,51 +626,55 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
     <p class="caption" style="margin-top:22px">
       <span class="en">You don&rsquo;t pick all of it. You pick the next one. We scope and price each properly once English is live and the first win is on the board.</span>
       <span class="cz">Neberete všechno. Berete to další v pořadí. Každou věc pořádně naceníme, až angličtina poběží a první výhra bude na stole.</span>
+      <span class="de">Sie wählen nicht alles. Sie wählen das Nächste. Wir planen und kalkulieren jeden Punkt sauber, sobald Englisch live ist und der erste Erfolg steht.</span>
     </p>
   </section>
 
   <div class="rule"></div>
 
   <section class="reveal">
-    <div class="kick"><span class="bar"></span><span class="eyebrow"><span class="en">Scope and investment</span><span class="cz">Rozsah a investice</span></span></div>
+    <div class="kick"><span class="bar"></span><span class="eyebrow"><span class="en">Scope and investment</span><span class="cz">Rozsah a investice</span><span class="de">Umfang und Investition</span></span></div>
     <div class="price">
       <div>
-        <div class="tag"><span class="en">The starting deal</span><span class="cz">Vstupní deal</span></div>
+        <div class="tag"><span class="en">The starting deal</span><span class="cz">Vstupní deal</span><span class="de">Das Startpaket</span></div>
         <div class="num">
-          <span class="en">45,000 Kč</span><span class="cz">45 000 Kč</span>
-          <small><span class="en">one-time, from. Roughly 2 to 3 weeks.</span><span class="cz">jednorázově, od. Zhruba 2 až 3 týdny.</span></small>
+          <span>45&thinsp;000 Kč</span>
+          <small><span class="en">one-time, from. Roughly 2 to 3 weeks.</span><span class="cz">jednorázově, od. Zhruba 2 až 3 týdny.</span><span class="de">einmalig, ab. Etwa 2 bis 3 Wochen.</span></small>
         </div>
       </div>
       <ul>
-        <li><span class="chk"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="en"><b>Language switch</b> on every page</span><span class="cz"><b>Přepínač jazyků</b> na každé stránce</span></span></li>
-        <li><span class="chk"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="en"><b>Full English translation</b> of the site and e-shop</span><span class="cz"><b>Kompletní anglický překlad</b> webu a e-shopu</span></span></li>
-        <li><span class="chk"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="en"><b>English SEO</b> and hreflang</span><span class="cz"><b>Anglické SEO</b> a hreflang</span></span></li>
-        <li><span class="chk"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="en"><b>Tested</b> on mobile and desktop</span><span class="cz"><b>Otestováno</b> na mobilu i počítači</span></span></li>
+        <li><span class="chk"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="en"><b>Language switch</b> on every page</span><span class="cz"><b>Přepínač jazyků</b> na každé stránce</span><span class="de"><b>Sprachumschaltung</b> auf jeder Seite</span></span></li>
+        <li><span class="chk"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="en"><b>Full English translation</b> of the site and e-shop</span><span class="cz"><b>Kompletní anglický překlad</b> webu a e-shopu</span><span class="de"><b>Vollständige englische Übersetzung</b> von Website und Shop</span></span></li>
+        <li><span class="chk"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="en"><b>English SEO</b> and hreflang</span><span class="cz"><b>Anglické SEO</b> a hreflang</span><span class="de"><b>Englisches SEO</b> und hreflang</span></span></li>
+        <li><span class="chk"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="en"><b>Tested</b> on mobile and desktop</span><span class="cz"><b>Otestováno</b> na mobilu i počítači</span><span class="de"><b>Getestet</b> auf Handy und Desktop</span></span></li>
       </ul>
     </div>
 
     <div class="nextup">
-      <span class="rec"><span class="en">then</span><span class="cz">pak</span></span>
+      <span class="rec"><span class="en">then</span><span class="cz">pak</span><span class="de">dann</span></span>
       <p>
         <span class="en">Once English is live, the two highest-return next steps are the <b>Academy booking with waitlists</b> and the <b>corporate &amp; gifting portal</b> &mdash; both attach to your highest-margin products that already sell out. We quote each on its own.</span>
         <span class="cz">Jakmile poběží angličtina, dva nejvýnosnější kroky jsou <b>rezervace akademie s čekačkami</b> a <b>portál pro firmy a dárky</b> &mdash; oba navazují na vaše nejmaržovější produkty, které se už teď vyprodávají. Každý naceníme zvlášť.</span>
+        <span class="de">Sobald Englisch live ist, sind die zwei ertragreichsten nächsten Schritte die <b>Akademie-Buchung mit Wartelisten</b> und das <b>Portal für Firmen &amp; Geschenke</b> &mdash; beide knüpfen an Ihre margenstärksten Produkte an, die sich schon jetzt ausverkaufen. Wir kalkulieren jedes einzeln.</span>
       </p>
     </div>
 
     <p class="caption" style="margin-top:16px">
       <span class="en">Optional afterwards: a small monthly to keep new courses, cakes and posts bilingual as you add them. We can quote that once English is live.</span>
       <span class="cz">Volitelně potom: malý měsíční paušál, aby nové kurzy, dorty a příspěvky zůstaly dvojjazyčné, jak je přidáváte. Naceníme, až angličtina poběží.</span>
+      <span class="de">Optional danach: eine kleine monatliche Pauschale, damit neue Kurse, Torten und Beiträge zweisprachig bleiben, während Sie sie hinzufügen. Das kalkulieren wir, sobald Englisch live ist.</span>
     </p>
   </section>
 
   <footer>
     <div class="foot">
-      <div><div class="who">SiteSpot</div><div class="c"><span class="en">A small studio that fixes the one thing costing you customers, then proves it.</span><span class="cz">Malé studio, které opraví tu jednu věc, co vás stojí zákazníky, a pak to dokáže.</span></div></div>
+      <div><div class="who">SiteSpot</div><div class="c"><span class="en">A small studio that fixes the one thing costing you customers, then proves it.</span><span class="cz">Malé studio, které opraví tu jednu věc, co vás stojí zákazníky, a pak to dokáže.</span><span class="de">Ein kleines Studio, das die eine Sache repariert, die Sie Kunden kostet &mdash; und es dann beweist.</span></div></div>
       <div class="c"><a href="mailto:oliver@sitespot.cz">oliver@sitespot.cz</a></div>
     </div>
     <p class="note">
       <span class="en"><b>About the numbers.</b> Prague Castle 2025 visitor figures and the 77% foreign share: Prague Castle Administration / Prague Daily News &amp; expats.cz. Digital-order, email, voucher and missed-call figures are industry benchmarks (Lightspeed, Klaviyo, Baymard, gift-card market reports and voice-AI vendors) &mdash; directional, not a promise for your venue. Competitor comparison from public websites, July 2026. The Czech text in the demo is Ippa Café&rsquo;s own current site copy; the English is our proposed translation. This is a proposal, not a live change to your website.</span>
       <span class="cz"><b>K číslům.</b> Návštěvnost Pražského hradu 2025 a 77% podíl cizinců: Správa Pražského hradu / Prague Daily News a expats.cz. Čísla o digitálních objednávkách, e-mailu, poukazech a zmeškaných hovorech jsou oborové benchmarky (Lightspeed, Klaviyo, Baymard, zprávy o trhu s poukazy a dodavatelé hlasové AI) &mdash; orientační, ne slib pro váš podnik. Srovnání s konkurencí z veřejných webů, červenec 2026. Český text v ukázce je současný text webu Ippa Café; anglický je náš navržený překlad. Toto je návrh, ne živá změna vašeho webu.</span>
+      <span class="de"><b>Zu den Zahlen.</b> Besucherzahlen der Prager Burg 2025 und der Anteil von 77 % Ausländern: Verwaltung der Prager Burg / Prague Daily News und expats.cz. Zahlen zu digitalen Bestellungen, E-Mail, Gutscheinen und verpassten Anrufen sind Branchen-Benchmarks (Lightspeed, Klaviyo, Baymard, Marktberichte zu Geschenkkarten und Anbieter von Sprach-KI) &mdash; Richtwerte, kein Versprechen für Ihren Betrieb. Wettbewerbsvergleich aus öffentlichen Websites, Juli 2026. Der tschechische Text in der Demo ist der aktuelle Seitentext von Ippa Café; das Englische ist unsere vorgeschlagene Übersetzung. Dies ist ein Vorschlag, keine Live-Änderung Ihrer Website.</span>
     </p>
   </footer>
 
@@ -669,18 +684,20 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
 (function(){
   var html=document.documentElement;
   var btns=document.querySelectorAll('.lang-toggle button');
+  var LANGS={cz:'cs',en:'en',de:'de'};
   function set(l){
-    html.classList.remove('lang-en','lang-cz');
+    if(!LANGS[l])l='cz';
+    html.classList.remove('lang-en','lang-cz','lang-de');
     html.classList.add('lang-'+l);
-    html.setAttribute('lang', l==='cz'?'cs':'en');
+    html.setAttribute('lang', LANGS[l]);
     for(var i=0;i<btns.length;i++){btns[i].classList.toggle('active', btns[i].getAttribute('data-lang')===l);}
   }
   for(var i=0;i<btns.length;i++){(function(b){b.addEventListener('click',function(){set(b.getAttribute('data-lang'));});})(btns[i]);}
-  if((location.hash||'').toLowerCase()==='#en'){set('en');}
+  var h=(location.hash||'').toLowerCase().replace('#','');
+  if(h==='en'||h==='de'||h==='cz'){set(h);}
 
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
 
-  // count-up for stat numbers
   function countUp(el){
     var to=parseFloat(el.getAttribute('data-to'));
     var suffix=el.getAttribute('data-suffix')||'';

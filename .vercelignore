@@ -1,0 +1,8 @@
+# Keep the Vercel deployment to just the static site (index.html + /pdf).
+.claude/
+ippa-cafe-pitch/build/
+ippa-cafe-pitch/RESEARCH.md
+ippa-cafe-pitch/README.md
+ippa-cafe-pitch/index.html
+**/node_modules/
+**/*.log
