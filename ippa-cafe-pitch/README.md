@@ -18,6 +18,7 @@ The **deployed site** is at the repository root so Vercel serves it zero-config:
 | `/img/` | Photography used on the site (free Pexels photos, self-hosted). |
 | `ippa-cafe-pitch/RESEARCH.md` | The market-research brief behind the pitch. |
 | `ippa-cafe-pitch/PRICING-APP.md` | Pricing analysis for the Ippa mobile app (tiers, benchmarks, what to quote). |
+| `ippa-cafe-pitch/ANALYSIS.md` | Full website audit — technical, copy, factual, and pitch-effectiveness — with fixes applied. |
 | `ippa-cafe-pitch/build/` | Template + build/render pipeline. |
 
 ## Highlights
