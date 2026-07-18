@@ -63,7 +63,7 @@ The pitch leaned on a broad claim: *"an International academy… on a website on
 **Improvements applied ✅:**
 - **A real close** — the #1 gap. Added a "Ready when you are" section: a 3-step *what-happens-next* timeline, a prominent **CTA button**, and a **named signature** (was a dead-end footer mailto).
 - **A credibility line** — honest and true: *"this page is the sample; your translation is written and checked by a native speaker, not machine output."*
-- **App repositioned** — eyebrow "The flagship" → **"Phase 2 · after English"**, and a **"from ~120,000 Kč, scoped separately"** anchor so the flashy demo stops reading as a blank cheque (consistent with `PRICING-APP.md`).
+- **App repositioned** — eyebrow "The flagship" → **"Phase 2 · after English"**, and the demo now reads **"priced by agreement: it depends entirely on what you want it to do"** rather than carrying a hard figure — scope-first, quoted after a scoping call (see `PRICING-APP.md §7`).
 - **Softer tone** — the "You're behind smaller shops" header (which wounded a proud academy) → **"You have the brand and the location. You're just missing the one thing they all have."** Same facts, same table, no sting.
 - **An English-specific ROI figure** — the 45k wedge now has a number behind it (2.7M × 77% foreign), clearly labelled *illustrative*.
 

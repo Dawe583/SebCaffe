@@ -13,7 +13,7 @@ There are two honest routes, and SiteSpot should offer both:
 - **Route A — white-label / MVP** (brand an existing ordering+loyalty platform): **from ~120,000 Kč one-time + ~7,900 Kč/mo.** Live in ~6–10 weeks. Lowest risk, fastest ROI, some platform lock-in.
 - **Route B — custom app** (own cross-platform build): **from ~390,000 Kč one-time + ~12,000 Kč/mo.** ~4–6 months. Fully owned, no per-order SaaS fees, no lock-in.
 
-**Recommendation: quote Route A as the lead (~120–180k Kč + ~8k/mo), with Route B as the named upgrade.** It matches the whole pitch philosophy — *start small, prove it, then scale* — and de-risks a big spend for a café.
+**Recommendation: to Ippa, quote the app "by agreement, once we know what they actually want it to do" — the number swings hugely with scope, so don't pin a figure up front.** The tiers below are SiteSpot's **internal guide** (roughly ~120–180k Kč for a lean MVP, ~390k+ for a custom build) so you know the ballpark and can steer the conversation — but the deck and the first call stay scope-first, not price-first.
 
 ---
 
@@ -84,9 +84,9 @@ Order-ahead lifts spend ~25% and loyalty members spend ~20–32% more/yr (see `R
 
 ## 7. Recommendation
 
-1. **Lead with Tier 1 (~120–180k Kč one-time + ~8k Kč/mo).** It fits SiteSpot's "start small, prove it, scale" story and gets the repeat-revenue engine running fast.
-2. **Name Tier 2 (~390–650k Kč) as the owned upgrade** for once the app proves itself.
-3. **Keep the app off the front page of the pitch as a headline price** — the deck deliberately sequences English first; hand these numbers over only when Ippa asks "and the app?" so the big figure lands *after* the first win, not before.
+1. **Quote the app "by agreement," after a short scoping call — never a fixed number up front.** It depends entirely on features (payments? POS integration? wallet passes? the AI concierge?), so pin the *scope* first; the price follows. This is now how the pitch page phrases it too ("priced by agreement: it depends entirely on what you want it to do").
+2. **Use the tiers as your own internal anchors** so you know where the conversation should land — ~120–180k Kč for a lean white-label MVP, ~390–650k for a custom build, more for premium — without quoting them verbatim.
+3. **Keep the app off the front page as a headline price** — the deck deliberately sequences English first; talk numbers only when Ippa asks "and the app?", once the first win is on the board.
 
 ## 8. Sources
 - Restaurant app cost: https://idealink.tech/blog/comprehensive-guide-restaurant-app-development-cost-2025 · https://www.sapphiresolutions.net/blog/how-to-estimate-restaurant-app-development-cost · https://appinventiv.com/blog/restaurant-app-development-cost/ · https://www.aalpha.net/articles/how-much-does-it-cost-to-build-a-restaurant-app/
