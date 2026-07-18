@@ -15,7 +15,7 @@ The **deployed site** is at the repository root so Vercel serves it zero-config:
 | `/pdf/Ippa-Cafe-SiteSpot-navrh-CZ.pdf` | PDF export, **Czech**. |
 | `/pdf/Ippa-Cafe-SiteSpot-proposal-EN.pdf` | PDF export, **English**. |
 | `/pdf/Ippa-Cafe-SiteSpot-angebot-DE.pdf` | PDF export, **German**. |
-| `ippa-cafe-pitch/index.html` | Identical copy kept next to the source, for convenience. |
+| `/img/` | Photography used on the site (free Pexels photos, self-hosted). |
 | `ippa-cafe-pitch/RESEARCH.md` | The market-research brief behind the pitch. |
 | `ippa-cafe-pitch/build/` | Template + build/render pipeline. |
 
