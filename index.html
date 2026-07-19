@@ -543,6 +543,22 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
 .close .guarantee{display:flex;gap:11px;align-items:flex-start;text-align:left;max-width:58ch;margin:20px auto 0;padding:14px 16px;background:var(--blue-wash);border:1px solid var(--line);border-radius:13px;font-size:14px;color:var(--ink-soft);line-height:1.55}
 .close .guarantee svg{flex:none;width:19px;height:19px;color:var(--blue-deep);margin-top:2px}
 .close .guarantee b{color:var(--ink);font-weight:600}
+/* ---- worked-example ROI ---- */
+.roi{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:22px}
+.roi .rc{border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,var(--card),#fbf6ec);box-shadow:var(--shadow);padding:24px}
+.roi .rl{font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:var(--blue-deep);font-weight:700}
+.roi .rn{font-family:var(--serif);font-weight:700;font-size:clamp(30px,4.2vw,42px);letter-spacing:-.02em;line-height:1.02;color:#6e4a1f;margin:8px 0 9px}
+.roi .ra{font-size:13.5px;color:var(--ink-soft);line-height:1.5}
+@media(max-width:600px){.roi{grid-template-columns:1fr}}
+.paycallout{display:flex;gap:12px;align-items:flex-start;margin-top:16px;padding:15px 18px;border:1px solid var(--line);border-radius:14px;background:var(--blue-wash);font-size:14.5px;color:var(--ink-soft);line-height:1.55}
+.paycallout svg{flex:none;width:20px;height:20px;color:var(--blue-deep);margin-top:2px}
+.paycallout b{color:var(--ink);font-weight:600}
+.evrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.evrow .ev{font-size:12.5px;color:var(--ink-soft);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 13px;line-height:1.35}
+.evrow .ev b{color:var(--ink);font-weight:700}
+.evrow .ev .s{color:var(--ink-faint)}
+.roiex{margin-top:14px;font-size:12.5px;color:var(--ink-faint);line-height:1.55;max-width:84ch}
+.roiex b{color:var(--ink-soft)}
 .close .trust b{color:var(--ink)}
 .close .sign{margin-top:15px;font-family:var(--serif);font-size:19px;color:var(--ink);font-weight:600}
 
@@ -827,6 +843,49 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
         <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M17 20v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2M10 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6M21 20v-2a4 4 0 0 0-3-3.9M16 4.1a4 4 0 0 1 0 7.8"/></svg></span>
         <div class="t"><span class="en">Companies</span><span class="cz">Firmy</span><span class="de">Firmen</span></div><p><span class="en">International firms in Prague booking corporate gifts and team pastry courses can order without needing a Czech speaker.</span><span class="cz">Mezinárodní firmy v Praze si objednají firemní dárky a týmové kurzy, aniž by potřebovaly Čecha.</span><span class="de">Internationale Firmen in Prag bestellen Firmengeschenke und Team-Backkurse, ohne einen Tschechen zu brauchen.</span></p></div>
     </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="reveal">
+    <div class="kick"><span class="bar"></span><span class="eyebrow"><span class="en">The math</span><span class="cz">V číslech</span><span class="de">In Zahlen</span></span></div>
+    <h2><span class="en">What English could realistically bring you</span><span class="cz">Co vám angličtina reálně může přinést</span><span class="de">Was Englisch Ihnen realistisch bringen kann</span></h2>
+    <p class="sub">
+      <span class="en">An illustrative model on real figures &mdash; not a promise. About <b>2.08M foreign paying visitors</b> pass the Castle each year, and CSA Research finds <b>40% never buy in a language they can&rsquo;t read</b>. Today your Czech-only shop converts almost none of them online. Remove the wall and capture just a sliver:</span>
+      <span class="cz">Ilustrativní model na reálných číslech &mdash; ne slib. Kolem Hradu projde ročně asi <b>2,08 mil. platících zahraničních návštěvníků</b> a podle CSA Research <b>40 % z nich nikdy nenakoupí v jazyce, kterému nerozumí</b>. Váš dnešní jen&#8209;český obchod z nich online nezachytí skoro nikoho. Sundejte bariéru a zachyťte jen zlomek:</span>
+      <span class="de">Ein illustratives Modell auf echten Zahlen &mdash; kein Versprechen. Rund <b>2,08 Mio. zahlende ausländische Besucher</b> gehen jährlich an der Burg vorbei, und laut CSA Research <b>kaufen 40 % nie in einer Sprache, die sie nicht lesen</b>. Ihr heutiger rein tschechischer Shop wandelt online fast keinen davon um. Entfernen Sie die Hürde und gewinnen Sie nur einen Bruchteil:</span>
+    </p>
+
+    <div class="roi stagger">
+      <div class="rc">
+        <div class="rl"><span class="en">Conservative</span><span class="cz">Konzervativní</span><span class="de">Konservativ</span></div>
+        <div class="rn"><span class="en">~0.9M Kč / yr</span><span class="cz">~0,9 mil. Kč / rok</span><span class="de">~0,9 Mio. Kč / Jahr</span></div>
+        <div class="ra"><span class="en"><b>1 in 1,000</b> foreign visitors orders once online &mdash; about 6 orders a day at 450 Kč.</span><span class="cz"><b>1 z 1 000</b> zahraničních návštěvníků objedná jednou online &mdash; asi 6 objednávek denně při 450 Kč.</span><span class="de"><b>1 von 1.000</b> ausländischen Besuchern bestellt einmal online &mdash; etwa 6 Bestellungen pro Tag zu 450 Kč.</span></div>
+      </div>
+      <div class="rc">
+        <div class="rl"><span class="en">Expected</span><span class="cz">Očekávané</span><span class="de">Erwartet</span></div>
+        <div class="rn"><span class="en">~2.6M Kč / yr</span><span class="cz">~2,6 mil. Kč / rok</span><span class="de">~2,6 Mio. Kč / Jahr</span></div>
+        <div class="ra"><span class="en"><b>1 in 400</b> orders once &mdash; about 14 orders a day at 500 Kč.</span><span class="cz"><b>1 ze 400</b> objedná jednou &mdash; asi 14 objednávek denně při 500 Kč.</span><span class="de"><b>1 von 400</b> bestellt einmal &mdash; etwa 14 Bestellungen pro Tag zu 500 Kč.</span></div>
+      </div>
+    </div>
+
+    <div class="paycallout">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      <span><span class="en"><b>Pays for itself in weeks.</b> The 45,000 Kč English version is about 100 online orders. Even on a cautious 30% margin it&rsquo;s recovered in ~8 weeks in the conservative case, ~3 in the expected one.</span><span class="cz"><b>Zaplatí se za pár týdnů.</b> 45 000 Kč za angličtinu je asi 100 online objednávek. I při opatrné 30% marži se vrátí za ~8 týdnů v konzervativním scénáři, ~3 v očekávaném.</span><span class="de"><b>Zahlt sich in Wochen aus.</b> Die 45.000 Kč für Englisch sind rund 100 Online-Bestellungen. Selbst bei vorsichtigen 30 % Marge im konservativen Fall in ~8 Wochen, im erwarteten in ~3.</span></span>
+    </div>
+
+    <div class="evrow">
+      <span class="ev"><b>40 %</b> <span class="en">won&rsquo;t buy in a language they can&rsquo;t read</span><span class="cz">nenakoupí v jazyce, kterému nerozumí</span><span class="de">kaufen nicht in einer unlesbaren Sprache</span> <span class="s">· CSA</span></span>
+      <span class="ev"><b>76 %</b> <span class="en">prefer to buy in their own language</span><span class="cz">raději nakupují ve svém jazyce</span><span class="de">kaufen lieber in ihrer Sprache</span> <span class="s">· CSA</span></span>
+      <span class="ev"><span class="en">Digital orders <b>~18–20%</b> larger</span><span class="cz">Digitální objednávky <b>~18–20 %</b> vyšší</span><span class="de">Digitale Bestellungen <b>~18–20 %</b> größer</span> <span class="s">· Lightspeed</span></span>
+      <span class="ev"><span class="en">Owned ordering saves <b>15–30%</b> commission</span><span class="cz">Vlastní objednávky ušetří <b>15–30 %</b> provize</span><span class="de">Eigenes Bestellen spart <b>15–30 %</b> Provision</span> <span class="s">· Rezku</span></span>
+    </div>
+
+    <p class="roiex">
+      <span class="en"><b>Deliberately conservative:</b> this ignores your Czech regulars, the 3 other branches, the 15–30% commission saved by owning ordering, loyalty repeat visits, and higher-value courses &amp; vouchers &mdash; each only adds to it. <b>Reported elsewhere</b> (real, but not Prague cafés): REVIEWS.io saw +20% conversion after adding German (Weglot); a US BBQ spot saved ~$98k in delivery commissions by owning ordering (ChowNow).</span>
+      <span class="cz"><b>Záměrně opatrné:</b> nepočítá vaše české stálé zákazníky, 3 další pobočky, 15–30% provizi ušetřenou vlastními objednávkami, opakované návštěvy díky věrnosti ani dražší kurzy a poukazy &mdash; každé z toho číslo jen zvedne. <b>Doloženo jinde</b> (reálné, ale ne pražské kavárny): REVIEWS.io mělo +20 % konverze po přidání němčiny (Weglot); americký podnik ušetřil ~$98k na provizích přechodem na vlastní objednávky (ChowNow).</span>
+      <span class="de"><b>Bewusst konservativ:</b> ohne Ihre tschechischen Stammgäste, die 3 weiteren Filialen, die 15–30 % gesparte Provision durch eigenes Bestellen, Treue-Wiederbesuche und höherwertige Kurse &amp; Gutscheine &mdash; jedes davon erhöht die Zahl nur. <b>Anderswo belegt</b> (real, aber keine Prager Cafés): REVIEWS.io verzeichnete +20 % Conversion nach Ergänzung von Deutsch (Weglot); ein US-BBQ-Lokal sparte ~$98k an Liefergebühren durch eigenes Bestellen (ChowNow).</span>
+    </p>
   </section>
 
   <div class="rule"></div>
@@ -1158,9 +1217,9 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
       <div class="c"><a href="mailto:oliver@sitespot.cz">oliver@sitespot.cz</a></div>
     </div>
     <p class="note">
-      <span class="en"><b>About the numbers.</b> Prague Castle 2025 visitor figures and the 77% foreign share: Prague Castle Administration / Prague Daily News &amp; expats.cz. Digital-order, email, voucher and missed-call figures are industry benchmarks (Lightspeed, Klaviyo, Baymard, gift-card market reports and voice-AI vendors) &mdash; directional, not a promise for your venue. Competitor comparison from public websites, July 2026. The Czech text in the demo is Ippa Café&rsquo;s own current site copy; the English is our proposed translation. This is a proposal, not a live change to your website.</span>
-      <span class="cz"><b>K číslům.</b> Návštěvnost Pražského hradu 2025 a 77% podíl cizinců: Správa Pražského hradu / Prague Daily News a expats.cz. Čísla o digitálních objednávkách, e-mailu, poukazech a zmeškaných hovorech jsou oborové benchmarky (Lightspeed, Klaviyo, Baymard, zprávy o trhu s poukazy a dodavatelé hlasové AI) &mdash; orientační, ne slib pro váš podnik. Srovnání s konkurencí z veřejných webů, červenec 2026. Český text v ukázce je současný text webu Ippa Café; anglický je náš navržený překlad. Toto je návrh, ne živá změna vašeho webu.</span>
-      <span class="de"><b>Zu den Zahlen.</b> Besucherzahlen der Prager Burg 2025 und der Anteil von 77 % Ausländern: Verwaltung der Prager Burg / Prague Daily News und expats.cz. Zahlen zu digitalen Bestellungen, E-Mail, Gutscheinen und verpassten Anrufen sind Branchen-Benchmarks (Lightspeed, Klaviyo, Baymard, Marktberichte zu Geschenkkarten und Anbieter von Sprach-KI) &mdash; Richtwerte, kein Versprechen für Ihren Betrieb. Wettbewerbsvergleich aus öffentlichen Websites, Juli 2026. Der tschechische Text in der Demo ist der aktuelle Seitentext von Ippa Café; das Englische ist unsere vorgeschlagene Übersetzung. Dies ist ein Vorschlag, keine Live-Änderung Ihrer Website.</span>
+      <span class="en"><b>About the numbers.</b> Prague Castle 2025 visitor figures and the 77% foreign share: Prague Castle Administration / Prague Daily News &amp; expats.cz. Digital-order, email, voucher and missed-call figures are industry benchmarks (Lightspeed, Klaviyo, Baymard, gift-card market reports and voice-AI vendors) &mdash; directional, not a promise for your venue. Competitor comparison from public websites, July 2026. The Czech text in the demo is Ippa Café&rsquo;s own current site copy; the English is our proposed translation. This is a proposal, not a live change to your website. The &ldquo;what English could bring you&rdquo; figures are an illustrative model, not a forecast &mdash; built on CSA Research &ldquo;Can&rsquo;t Read, Won&rsquo;t Buy&rdquo; (2020), Prague Castle 2025 footfall (expats.cz), digital-order uplift (Lightspeed), delivery commissions (Rezku), and external, non-peer examples via Weglot and ChowNow.</span>
+      <span class="cz"><b>K číslům.</b> Návštěvnost Pražského hradu 2025 a 77% podíl cizinců: Správa Pražského hradu / Prague Daily News a expats.cz. Čísla o digitálních objednávkách, e-mailu, poukazech a zmeškaných hovorech jsou oborové benchmarky (Lightspeed, Klaviyo, Baymard, zprávy o trhu s poukazy a dodavatelé hlasové AI) &mdash; orientační, ne slib pro váš podnik. Srovnání s konkurencí z veřejných webů, červenec 2026. Český text v ukázce je současný text webu Ippa Café; anglický je náš navržený překlad. Toto je návrh, ne živá změna vašeho webu. Čísla „co může přinést angličtina" jsou ilustrativní model, ne předpověď &mdash; vychází z CSA Research „Can&rsquo;t Read, Won&rsquo;t Buy" (2020), návštěvnosti Pražského hradu 2025 (expats.cz), vyššího objemu digitálních objednávek (Lightspeed), provizí za rozvoz (Rezku) a cizích, nesrovnatelných příkladů přes Weglot a ChowNow.</span>
+      <span class="de"><b>Zu den Zahlen.</b> Besucherzahlen der Prager Burg 2025 und der Anteil von 77 % Ausländern: Verwaltung der Prager Burg / Prague Daily News und expats.cz. Zahlen zu digitalen Bestellungen, E-Mail, Gutscheinen und verpassten Anrufen sind Branchen-Benchmarks (Lightspeed, Klaviyo, Baymard, Marktberichte zu Geschenkkarten und Anbieter von Sprach-KI) &mdash; Richtwerte, kein Versprechen für Ihren Betrieb. Wettbewerbsvergleich aus öffentlichen Websites, Juli 2026. Der tschechische Text in der Demo ist der aktuelle Seitentext von Ippa Café; das Englische ist unsere vorgeschlagene Übersetzung. Dies ist ein Vorschlag, keine Live-Änderung Ihrer Website. Die Zahlen &bdquo;Was Englisch bringen kann&ldquo; sind ein illustratives Modell, keine Prognose &mdash; basierend auf CSA Research &bdquo;Can&rsquo;t Read, Won&rsquo;t Buy&ldquo; (2020), Besucherzahlen der Prager Burg 2025 (expats.cz), höherem Volumen digitaler Bestellungen (Lightspeed), Liefergebühren (Rezku) und externen, nicht vergleichbaren Beispielen via Weglot und ChowNow.</span>
     </p>
   </footer>
 
