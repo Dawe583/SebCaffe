@@ -71,8 +71,18 @@ img,svg{max-width:100%}
 .lang-toggle button.active{color:var(--ink)}
 .lang-toggle button:focus-visible{outline:2px solid var(--blue-deep);outline-offset:3px}
 
-/* ---------- hero ---------- */
-.hero{padding:76px 0 26px}
+/* ---------- hero (dark espresso panel) ---------- */
+.hero{position:relative;overflow:hidden;margin:22px 0 14px;
+  padding:clamp(30px,4.4vw,56px) clamp(24px,3.6vw,50px) clamp(26px,3.4vw,44px);
+  border-radius:30px;
+  background:radial-gradient(125% 130% at 80% 4%,#2c2219 0%,#191410 58%,#120e0a 100%);
+  --ink:#f5ede1;--ink-soft:#cbbdab;--ink-faint:#9a8e7f;
+  --line:#3b3027;--line-soft:#2c231d;
+  --blue:#e4bc7b;--blue-deep:#e6bd7a;--blue-ink:#f2d49b;--blue-wash:#2e241b;
+  box-shadow:0 44px 96px -52px rgba(0,0,0,.92),inset 0 0 0 1px rgba(255,255,255,.055)}
+.hero .glass{background:rgba(28,22,17,.6)!important;border-color:rgba(255,255,255,.16)!important}
+.hero .langpill .lp{color:#cdbfad}
+.hero .switchline{border-color:rgba(255,255,255,.1)}
 .hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:44px;align-items:center}
 .hero .eyebrow{display:inline-block}
 .hero h1{font-size:clamp(42px,7vw,76px);margin-top:16px;letter-spacing:-.015em;line-height:1.06;font-weight:700}
@@ -84,13 +94,37 @@ img,svg{max-width:100%}
   background:var(--blue-wash);border:1px solid #dde5f0;border-radius:13px;padding:14px 17px;max-width:52ch}
 .switchline .pt{flex:none;width:20px;height:20px;color:var(--blue-deep);margin-top:1px}
 
-/* hero illustration */
+/* hero illustration — premium photo card */
 .hero-art{position:relative}
-.scene{width:100%;height:auto;display:block;filter:drop-shadow(0 30px 40px rgba(35,40,58,.14))}
+.heroshot{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/5;
+  background:linear-gradient(160deg,var(--paper-2),var(--paper));
+  box-shadow:var(--shadow-lg);border:1px solid rgba(122,86,43,.16)}
+.heroshot img{width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block}
+.heroshot::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(205deg,rgba(38,30,22,.28),rgba(38,30,22,0) 34%,rgba(38,30,22,0) 55%,rgba(38,30,22,.30));
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.22),inset 0 -46px 64px -34px rgba(38,30,22,.4)}
+/* floating glass chips over the photo */
+.hero-art .glass{background:rgba(255,253,248,.9);
+  -webkit-backdrop-filter:blur(12px) saturate(1.4);backdrop-filter:blur(12px) saturate(1.4);
+  border:1px solid rgba(255,255,255,.82);box-shadow:var(--shadow);border-radius:15px}
+.langpill{position:absolute;top:14px;right:14px;display:inline-flex;align-items:center;gap:6px;
+  padding:5px 8px;border-radius:999px;z-index:2}
+.langpill .glb{width:15px;height:15px;color:var(--blue-deep);flex:none;display:block}
+.langpill .lp{font-size:12px;font-weight:700;letter-spacing:.02em;color:var(--ink-faint);
+  padding:3px 8px;border-radius:999px;line-height:1}
+.langpill .lp.on{background:var(--blue-deep);color:#fff;box-shadow:0 1px 3px rgba(122,86,43,.4)}
+.menucard{position:absolute;left:-12px;bottom:16px;min-width:206px;padding:13px 16px 14px;border-radius:16px;z-index:2}
+.menucard .mc-h{display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.menucard .mc-badge{font-size:10px;font-weight:800;letter-spacing:.06em;color:#fff;
+  background:var(--blue-deep);border-radius:6px;padding:2px 6px;line-height:1.35}
+.menucard .mc-t{font-family:var(--serif);font-weight:600;font-size:15px;color:var(--ink)}
+.menucard .mrow{display:flex;align-items:flex-end;gap:8px;font-size:13px;color:var(--ink-soft);margin-top:8px;line-height:1.2}
+.menucard .mrow i{flex:1;border-bottom:1px dotted var(--line);margin-bottom:3px}
+.menucard .mrow .pr{color:var(--ink);font-weight:700}
 @media(max-width:820px){
-  .hero-grid{grid-template-columns:1fr;gap:26px}
-  .hero{padding:52px 0 20px}
-  .hero-art{max-width:440px;margin:0 auto}
+  .hero-grid{grid-template-columns:1fr;gap:30px}
+  .hero{padding:30px 22px 32px;margin:16px 0 12px;border-radius:24px}
+  .hero-art{max-width:400px;margin:0 auto}
 }
 
 /* hero entrance */
@@ -102,13 +136,7 @@ img,svg{max-width:100%}
 .anim .hero-art{opacity:0;animation:rise .9s cubic-bezier(.2,.7,.2,1) .3s forwards}
 @keyframes rise{to{opacity:1;transform:none}}
 
-/* steam + float motion */
-.steam{transform-box:fill-box;transform-origin:center bottom;opacity:0}
-.anim .steam{animation:steam 3.6s ease-in-out infinite}
-.anim .steam.s2{animation-delay:1.2s}
-.anim .steam.s3{animation-delay:2.4s}
-@keyframes steam{0%{opacity:0;transform:translateY(4px) scaleY(.7)}
-  35%{opacity:.55}70%{opacity:.15}100%{opacity:0;transform:translateY(-13px) scaleY(1.25)}}
+/* float motion for hero glass chips */
 .floaty{transform-box:fill-box;transform-origin:center}
 .anim .floaty{animation:floaty 5.5s ease-in-out infinite}
 .anim .floaty.f2{animation-delay:1.6s}
@@ -273,7 +301,8 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
 /* ---- app pricing tiers ---- */
 .apptiers{margin-top:24px}
 .apptiers .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:stretch}
-.tier{position:relative;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:16px;background:var(--card);box-shadow:var(--shadow);padding:22px 20px}
+.tier{position:relative;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:16px;background:var(--card);box-shadow:var(--shadow);padding:22px 20px;transition:transform .28s cubic-bezier(.2,.7,.2,1),box-shadow .28s}
+@media(hover:hover){.tier:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}}
 .tier.star{border-color:var(--blue-deep);box-shadow:var(--shadow-lg);background:linear-gradient(180deg,#fffdf8,#fbf2e2)}
 .tier .tbadge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);white-space:nowrap;background:var(--blue-deep);color:#fff;font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:4px 11px;border-radius:20px;box-shadow:var(--shadow)}
 .tier .teyebrow{font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:var(--blue-deep);font-weight:700}
@@ -573,59 +602,18 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
       </div>
 
       <div class="hero-art">
-        <svg class="scene" viewBox="0 0 440 400" role="img" aria-label="Ippa Café at Prague Castle">
-          <defs>
-            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#eef2f8"/><stop offset="1" stop-color="#f7f0ea"/>
-            </linearGradient>
-            <linearGradient id="cup" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f3ede3"/>
-            </linearGradient>
-          </defs>
-          <rect x="8" y="8" width="424" height="384" rx="26" fill="url(#sky)" stroke="#e4ddd0"/>
-          <!-- Prague Castle silhouette on the horizon -->
-          <g fill="#dfe7f2" stroke="#a9bbd4" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-            <path d="M64 208 V180 H92 V172 H104 V180 H150 V208 Z"/>
-            <path d="M252 208 V182 H300 V174 H312 V182 H340 V208 Z"/>
-            <path d="M344 208 V176 H368 V208 Z"/>
-            <path d="M340 176 L356 150 L372 176 Z"/>
-            <path d="M196 208 V156 H200 L208 104 L216 156 H224 L232 104 L240 156 H244 V208 Z" stroke="#93a9c9"/>
-          </g>
-          <line x1="46" y1="208" x2="394" y2="208" stroke="#c4d0e2" stroke-width="2.5" stroke-linecap="round"/>
-          <!-- plate -->
-          <ellipse cx="220" cy="322" rx="150" ry="22" fill="#efe7db"/>
-          <ellipse cx="220" cy="320" rx="150" ry="22" fill="none" stroke="#e0d6c6" stroke-width="2"/>
-          <!-- coffee cup -->
-          <g transform="translate(196 250)">
-            <ellipse cx="34" cy="70" rx="70" ry="12" fill="#e7ded1"/>
-            <path d="M-6 20 h80 l-7 44 a16 16 0 0 1 -16 13 h-18 a16 16 0 0 1 -16 -13 z" fill="url(#cup)" stroke="#454b5e" stroke-width="2.4" stroke-linejoin="round"/>
-            <ellipse cx="34" cy="20" rx="40" ry="9" fill="#fff" stroke="#454b5e" stroke-width="2.4"/>
-            <ellipse cx="34" cy="20" rx="30" ry="6" fill="#c8895e" opacity=".55"/>
-            <path d="M74 30 a20 18 0 0 1 0 34" fill="none" stroke="#454b5e" stroke-width="2.4"/>
-            <g stroke="#b7c3d6" stroke-width="2.6" fill="none" stroke-linecap="round">
-              <path class="steam s1" d="M20 8 c-6 -8 6 -12 0 -22"/>
-              <path class="steam s2" d="M36 6 c-6 -8 6 -12 0 -22"/>
-              <path class="steam s3" d="M52 8 c-6 -8 6 -12 0 -22"/>
-            </g>
-          </g>
-          <!-- macarons -->
-          <g class="floaty">
-            <ellipse cx="96" cy="300" rx="26" ry="18" fill="#efd4cf" stroke="#d8a8a0" stroke-width="2"/>
-            <path d="M72 300 q24 14 48 0" fill="none" stroke="#d8a8a0" stroke-width="2"/>
-            <ellipse cx="96" cy="293" rx="24" ry="12" fill="#f6e5e1" stroke="#d8a8a0" stroke-width="2"/>
-          </g>
-          <g class="floaty f2">
-            <ellipse cx="348" cy="306" rx="24" ry="16" fill="#e7edd6" stroke="#a9bd88" stroke-width="2"/>
-            <path d="M326 306 q22 12 44 0" fill="none" stroke="#a9bd88" stroke-width="2"/>
-            <ellipse cx="348" cy="300" rx="22" ry="11" fill="#f0f3e6" stroke="#a9bd88" stroke-width="2"/>
-          </g>
-          <!-- EN chip -->
-          <g transform="translate(300 150)">
-            <rect x="0" y="0" width="70" height="34" rx="17" fill="#fff" stroke="#4f6a97" stroke-width="2"/>
-            <text x="35" y="23" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="16" font-weight="700" fill="#38507a">EN</text>
-            <path d="M18 34 l-6 10 14 -6" fill="#fff" stroke="#4f6a97" stroke-width="2" stroke-linejoin="round"/>
-          </g>
-        </svg>
+        <div class="heroshot">
+          <img src="img/latte.jpg" alt="Latte with latte art at Ippa Café" loading="eager" decoding="async">
+        </div>
+        <div class="langpill glass floaty" aria-hidden="true">
+          <svg class="glb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.7 2.8 2.7 15.2 0 18M12 3c-2.7 2.8-2.7 15.2 0 18"/></svg>
+          <span class="lp">CZ</span><span class="lp on">EN</span><span class="lp">DE</span>
+        </div>
+        <div class="menucard glass floaty f2" aria-hidden="true">
+          <div class="mc-h"><span class="mc-badge">EN</span><span class="mc-t"><span class="en">Menu</span><span class="cz">Menu</span><span class="de">Menü</span></span></div>
+          <div class="mrow"><span>Flat white</span><i></i><span class="pr">90 Kč</span></div>
+          <div class="mrow"><span>Butter croissant</span><i></i><span class="pr">65 Kč</span></div>
+        </div>
       </div>
     </div>
 
@@ -939,20 +927,21 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
         </div>
 
         <p class="appnote">
-          <span class="en"><b>Why your own app, not just Wolt:</b> delivery apps take 30&ndash;40% per order and keep the customer. Your app keeps the margin, the data and the relationship. Below is roughly where each version lands &mdash; the <b>final price is by agreement</b>, once we scope what it actually needs to do.</span>
-          <span class="cz"><b>Proč vlastní appka, ne jen Wolt:</b> rozvážkové appky si berou 30&ndash;40 % z objednávky a nechají si zákazníka. Vaše appka si nechá marži, data i vztah. Níže je zhruba, kde se každá verze pohybuje &mdash; <b>finální cena je dohodou</b>, až doladíme, co má vlastně umět.</span>
-          <span class="de"><b>Warum eine eigene App, nicht nur Wolt:</b> Liefer-Apps nehmen 30&ndash;40 % pro Bestellung und behalten den Kunden. Ihre App behält die Marge, die Daten und die Beziehung. Unten steht ungefähr, wo jede Version landet &mdash; der <b>Endpreis ist Verhandlungssache</b>, sobald wir klären, was sie wirklich können soll.</span>
+          <span class="en"><b>Why your own app, not just Wolt:</b> delivery apps take 30&ndash;40% per order and keep the customer. Your app keeps the margin, the data and the relationship. Below is roughly where each version lands &mdash; the <b>final price is by agreement</b>, once we scope what it actually needs to do. For a single café, <b>most start on a proven platform</b> (the recommended option) and move to a custom build only once they outgrow it.</span>
+          <span class="cz"><b>Proč vlastní appka, ne jen Wolt:</b> rozvážkové appky si berou 30&ndash;40 % z objednávky a nechají si zákazníka. Vaše appka si nechá marži, data i vztah. Níže je zhruba, kde se každá verze pohybuje &mdash; <b>finální cena je dohodou</b>, až doladíme, co má vlastně umět. Pro jednu kavárnu <b>většina začne na osvědčené platformě</b> (doporučená volba) a na vlastní build přejde, až když ji přeroste.</span>
+          <span class="de"><b>Warum eine eigene App, nicht nur Wolt:</b> Liefer-Apps nehmen 30&ndash;40 % pro Bestellung und behalten den Kunden. Ihre App behält die Marge, die Daten und die Beziehung. Unten steht ungefähr, wo jede Version landet &mdash; der <b>Endpreis ist Verhandlungssache</b>, sobald wir klären, was sie wirklich können soll. Für ein einzelnes Café <b>starten die meisten auf einer bewährten Plattform</b> (die empfohlene Option) und wechseln erst zu einem Custom-Build, wenn sie herauswachsen.</span>
         </p>
       </div>
     </div>
 
     <div class="apptiers">
       <div class="tgrid stagger">
-        <div class="tier">
-          <div class="teyebrow"><span class="en">MVP · white-label</span><span class="cz">MVP · white-label</span><span class="de">MVP · White-Label</span></div>
+        <div class="tier star">
+          <div class="tbadge"><span class="en">Recommended start</span><span class="cz">Doporučený start</span><span class="de">Empfohlener Start</span></div>
+          <div class="teyebrow"><span class="en">Branded app · proven platform</span><span class="cz">Značková appka · osvědčená platforma</span><span class="de">Marken-App · bewährte Plattform</span></div>
           <div class="tname"><span class="en">Get it live</span><span class="cz">Ať to žije</span><span class="de">Live gehen</span></div>
-          <div class="tprice"><span class="en">from ~120,000 Kč</span><span class="cz">od ~120 000 Kč</span><span class="de">ab ~120.000 Kč</span></div>
-          <div class="tmeta"><span class="en">+ ~8,000 Kč / mo · ~6–10 weeks</span><span class="cz">+ ~8 000 Kč / měs · ~6–10 týdnů</span><span class="de">+ ~8.000 Kč / Mon. · ~6–10 Wochen</span></div>
+          <div class="tprice"><span class="en">from ~35,000 Kč</span><span class="cz">od ~35 000 Kč</span><span class="de">ab ~35.000 Kč</span></div>
+          <div class="tmeta"><span class="en">+ ~7,900 Kč / mo · ~4–6 weeks</span><span class="cz">+ ~7 900 Kč / měs · ~4–6 týdnů</span><span class="de">+ ~7.900 Kč / Mon. · ~4–6 Wochen</span></div>
           <ul>
             <li><span class="tc"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="en"><b>Order-ahead + pickup</b> at all 4 branches</span><span class="cz"><b>Objednávka předem + vyzvednutí</b> na všech 4 pobočkách</span><span class="de"><b>Vorbestellen + Abholung</b> in allen 4 Filialen</span></span></li>
             <li><span class="tc"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="en"><b>Loyalty stamps</b>, gift cards, push</span><span class="cz"><b>Věrnostní razítka</b>, dárkové karty, push</span><span class="de"><b>Treuestempel</b>, Geschenkkarten, Push</span></span></li>
@@ -960,9 +949,8 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
             <li><span class="tc"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="en">Branded on a proven platform</span><span class="cz">Nasazeno na osvědčené platformě</span><span class="de">Gebrandet auf bewährter Plattform</span></span></li>
           </ul>
         </div>
-        <div class="tier star">
-          <div class="tbadge"><span class="en">Recommended upgrade</span><span class="cz">Doporučený upgrade</span><span class="de">Empfohlenes Upgrade</span></div>
-          <div class="teyebrow"><span class="en">Custom app</span><span class="cz">Vlastní aplikace</span><span class="de">Eigene App</span></div>
+        <div class="tier">
+          <div class="teyebrow"><span class="en">Custom app · upgrade</span><span class="cz">Vlastní aplikace · upgrade</span><span class="de">Eigene App · Upgrade</span></div>
           <div class="tname"><span class="en">Own it</span><span class="cz">Mít to své</span><span class="de">Selbst besitzen</span></div>
           <div class="tprice"><span class="en">from ~390,000 Kč</span><span class="cz">od ~390 000 Kč</span><span class="de">ab ~390.000 Kč</span></div>
           <div class="tmeta"><span class="en">+ ~12,000 Kč / mo · ~4–6 months</span><span class="cz">+ ~12 000 Kč / měs · ~4–6 měsíců</span><span class="de">+ ~12.000 Kč / Mon. · ~4–6 Monate</span></div>
@@ -974,7 +962,7 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
           </ul>
         </div>
         <div class="tier">
-          <div class="teyebrow"><span class="en">Premium</span><span class="cz">Premium</span><span class="de">Premium</span></div>
+          <div class="teyebrow"><span class="en">Premium · for a chain</span><span class="cz">Premium · pro řetězec</span><span class="de">Premium · für eine Kette</span></div>
           <div class="tname"><span class="en">The full machine</span><span class="cz">Naplno</span><span class="de">Die volle Maschine</span></div>
           <div class="tprice"><span class="en">from ~690,000 Kč</span><span class="cz">od ~690 000 Kč</span><span class="de">ab ~690.000 Kč</span></div>
           <div class="tmeta"><span class="en">+ ~18,000 Kč / mo · ~6–9 months</span><span class="cz">+ ~18 000 Kč / měs · ~6–9 měsíců</span><span class="de">+ ~18.000 Kč / Mon. · ~6–9 Monate</span></div>
