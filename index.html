@@ -64,8 +64,11 @@ img,svg{max-width:100%}
   position:sticky;top:0;z-index:30}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:14px}
 .mark{display:flex;align-items:center;gap:11px;font-weight:600;letter-spacing:-.01em;font-size:17px}
-.mark .sq{width:26px;height:26px;border-radius:8px;background:var(--ink);color:#fff;
-  display:grid;place-items:center;font-size:13px;font-weight:700;box-shadow:var(--shadow-sm)}
+.mark .sq{width:28px;height:28px;border-radius:9px;
+  background:radial-gradient(130% 130% at 50% 22%,#243049 0%,#0c1018 72%);
+  color:#fff;display:grid;place-items:center;
+  box-shadow:var(--shadow-sm),0 0 0 1px rgba(120,150,210,.2) inset,0 0 9px -1px rgba(130,160,235,.45)}
+.mark .sq svg{width:23px;height:23px;display:block}
 .hgroup{display:flex;align-items:center;gap:16px}
 .forr{font-size:13px;color:var(--ink-soft)}
 @media(max-width:640px){.forr{display:none}}
@@ -594,7 +597,7 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);margin-top:26px}
 <div class="grain" aria-hidden="true"></div>
 
 <div class="top"><div class="wrap">
-  <div class="mark"><span class="sq">S</span> SiteSpot</div>
+  <div class="mark"><span class="sq"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><defs><radialGradient id="lgo" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#f2f7ff"/><stop offset="42%" stop-color="#c3d8ff"/><stop offset="100%" stop-color="#c3d8ff" stop-opacity="0"/></radialGradient></defs><g stroke="#e2ecff" stroke-width="1.15" stroke-linejoin="round" stroke-linecap="round" opacity=".95"><path d="M16 2 L25 9 L25 20 L16 30 L7 20 L7 9 Z"/><path d="M7 9 H25 M7 20 H25"/><path d="M7 9 L25 20 M25 9 L7 20"/></g><circle cx="16" cy="14.5" r="7" fill="url(#lgo)"/><circle cx="16" cy="14.5" r="2.9" fill="#fff"/></svg></span> SiteSpot</div>
   <div class="hgroup">
     <span class="forr"><span class="en">Prepared for Ippa Café</span><span class="cz">Připraveno pro Ippa Café</span><span class="de">Erstellt für Ippa Café</span></span>
     <div class="lang-toggle" role="group" aria-label="Language / Jazyk / Sprache">
